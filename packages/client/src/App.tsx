@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import './App.scss'
 import { Navigate, Route, BrowserRouter as Router, Routes} from "react-router-dom"
 import Header from './components/header/Header'
 import Main from './pages/main/main'
