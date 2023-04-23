@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import './App.scss'
-import { Navigate, Route, BrowserRouter as Router, Routes} from "react-router-dom"
+import { Navigate, Route, BrowserRouter as Router, Routes, useNavigate} from "react-router-dom"
 import Header from './components/header/Header'
 import Main from './pages/main/main'
 import Game from './pages/game/game'
@@ -13,9 +13,9 @@ import Auth from './pages/auth/auth'
 
 function App() {
 
-  // const navigate = useNavigate()
-  // const goBack = () => navigate(-1)
-  // const goForward = () => navigate(1)
+  const navigate = useNavigate()
+  const goBack = () => navigate(-1)
+  const goForward = () => navigate(1)
 
   useEffect(() => {
     const fetchServerData = async () => {
@@ -31,8 +31,8 @@ function App() {
       <Router>
         <div>
           <Header />
-          
           <Routes>
+          <button onClick={goBack}>back</button>
             <Route path="/" element={<Main/>} />
             <Route path="/game" element={<Game/>} />
             <Route path="/forum" element={<Forum/>} />
