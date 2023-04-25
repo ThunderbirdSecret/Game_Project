@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 import { items } from "./header-items";
 import "./index.scss"
 
-export interface HeaderItems {
-    title: string;
-    link: string;
-}
+
 
 export default function Header() {
     return (
