@@ -9,7 +9,7 @@ import Profile from './pages/profile/profile'
 import Error404 from './pages/page-error/Error404'
 import Register from './pages/register/register'
 import Auth from './pages/auth/auth'
-import { ROUTES_PATH } from './routes'
+import { ROUTES } from './routes'
 
 function App() {
 //TODO: приватные роуты будут готовы после того, как будет готова авторизация
@@ -28,15 +28,15 @@ function App() {
         <div>
           <Header />
           <Routes>
-            <Route path={ROUTES_PATH.MAIN} element={<Main/>} />
-            <Route path={ROUTES_PATH.GAME} element={<Game/>} />
-            <Route path={ROUTES_PATH.FORUM} element={<Forum/>} />
-            <Route path={ROUTES_PATH.LEADER_BOARD} element={<LeaderBord/>} />
-            <Route path={ROUTES_PATH.PROFILE} element={<Profile/>} />
-            <Route path={ROUTES_PATH.AUTH} element={<Auth/>} />
-            <Route path={ROUTES_PATH.REGISTER} element={<Register/>} />
-            <Route path={ROUTES_PATH.ERROR_404} element={<Error404/>} />
-            <Route path="*" element={<Navigate to={ROUTES_PATH.ERROR_404} replace />} />
+            <Route path={ROUTES.MAIN} element={<Main/>} />
+            <Route path={ROUTES.GAME} element={<Game/>} />
+            <Route path={ROUTES.FORUM} element={<Forum/>} />
+            <Route path={ROUTES.LEADER_BOARD} element={<LeaderBord/>} />
+            <Route path={ROUTES.PROFILE} element={<Profile/>} />
+            <Route path={ROUTES.AUTH} element={<Auth/>} />
+            <Route path={ROUTES.REGISTER} element={<Register/>} />
+            <Route path={ROUTES.ERROR_404} element={<Error404/>} />
+            <Route path="*" element={<Navigate to={ROUTES.ERROR_404} replace />} />
           </Routes>
         </div>
       </Router>
