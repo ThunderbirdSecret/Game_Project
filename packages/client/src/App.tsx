@@ -28,15 +28,15 @@ function App() {
         <div>
           <Header />
           <Routes>
-            <Route path={ROUTES_PATH.Main} element={<Main/>} />
-            <Route path={ROUTES_PATH.Game} element={<Game/>} />
-            <Route path={ROUTES_PATH.Forum} element={<Forum/>} />
-            <Route path={ROUTES_PATH.LeaderBoard} element={<LeaderBord/>} />
-            <Route path={ROUTES_PATH.Profile} element={<Profile/>} />
-            <Route path={ROUTES_PATH.Auth} element={<Auth/>} />
-            <Route path={ROUTES_PATH.Register} element={<Register/>} />
-            <Route path={ROUTES_PATH.Error404} element={<Error404/>} />
-            <Route path="*" element={<Navigate to={ROUTES_PATH.Error404} replace />} />
+            <Route path={ROUTES_PATH.MAIN} element={<Main/>} />
+            <Route path={ROUTES_PATH.GAME} element={<Game/>} />
+            <Route path={ROUTES_PATH.FORUM} element={<Forum/>} />
+            <Route path={ROUTES_PATH.LEADER_BOARD} element={<LeaderBord/>} />
+            <Route path={ROUTES_PATH.PROFILE} element={<Profile/>} />
+            <Route path={ROUTES_PATH.AUTH} element={<Auth/>} />
+            <Route path={ROUTES_PATH.REGISTER} element={<Register/>} />
+            <Route path={ROUTES_PATH.ERROR_404} element={<Error404/>} />
+            <Route path="*" element={<Navigate to={ROUTES_PATH.ERROR_404} replace />} />
           </Routes>
         </div>
       </Router>

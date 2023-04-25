@@ -8,22 +8,22 @@ export interface HeaderItems {
 export const items: HeaderItems[] = [
     {
         title: "Logo",
-        link: ROUTES_PATH.Main
+        link: ROUTES_PATH.MAIN
     },
     {
         title: "Game",
-        link: ROUTES_PATH.Game
+        link: ROUTES_PATH.GAME
     },
     {
         title: "Forum",
-        link: ROUTES_PATH.Forum
+        link: ROUTES_PATH.FORUM
     },
     {
         title: "Profile",
-        link: ROUTES_PATH.Profile
+        link: ROUTES_PATH.PROFILE
     },
     {
         title: "Leader bord",
-        link: ROUTES_PATH.LeaderBoard
+        link: ROUTES_PATH.LEADER_BOARD
     },
 ]
