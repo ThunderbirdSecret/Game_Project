@@ -1,4 +1,4 @@
-import { RoutesPath } from "../../routes";
+import { ROUTES_PATH } from "../../routes";
 
 export interface HeaderItems {
     title: string;
@@ -8,22 +8,22 @@ export interface HeaderItems {
 export const items: HeaderItems[] = [
     {
         title: "Logo",
-        link: RoutesPath.Main
+        link: ROUTES_PATH.Main
     },
     {
         title: "Game",
-        link: RoutesPath.Game
+        link: ROUTES_PATH.Game
     },
     {
         title: "Forum",
-        link: RoutesPath.Forum
+        link: ROUTES_PATH.Forum
     },
     {
         title: "Profile",
-        link: RoutesPath.Profile
+        link: ROUTES_PATH.Profile
     },
     {
         title: "Leader bord",
-        link: RoutesPath.LeaderBoard
+        link: ROUTES_PATH.LeaderBoard
     },
 ]

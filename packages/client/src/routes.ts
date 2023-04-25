@@ -1,4 +1,4 @@
-export const enum RoutesPath {
+export const enum ROUTES_PATH {
     Main = '/',
     Game = '/game',
     Forum = '/forum',
