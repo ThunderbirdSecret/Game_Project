@@ -12,3 +12,5 @@
 //   render(<App />)
 //   expect(screen.getByText(appContent)).toBeDefined()
 // })
+
+export {}
