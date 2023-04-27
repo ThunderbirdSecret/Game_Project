@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai&family=Jost:wght@400;800&display=swap');
+@import './variables';
+@import './normalize';
+@import './mixins';
+
+
+body {
+   background-color: $darkBg;
+   overflow: hidden;
+}
+
+.App {
+   height: 100vh;
+   color: $itemsBlue;
+   width: 100vh;
+   font-family: 'Almarai';
+}
+

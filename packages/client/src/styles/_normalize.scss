@@ -1,0 +1,13 @@
+//не понимаю что здесь происходит
+@import 'normalize-scss/sass/normalize';
+
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+$base-unit: 'em';
+$base-font-family: null;
+$indent-amount: 40px;
+$normalize-vertical-rhythm: true;
+
+
+@include normalize();
