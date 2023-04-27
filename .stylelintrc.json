@@ -1,0 +1,28 @@
+{
+    "extends": [
+        
+        "stylelint-config-standard-scss",
+        "stylelint-config-rational-order"
+    ],
+    "rules": {
+        "prettier/prettier": true,
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "mixin",
+                    "define-mixin"
+                ]
+            }
+        ],
+        "declaration-empty-line-before": null,
+        "order/properties-order": [],
+        "plugin/rational-order": [
+            true,
+            {
+                "border-in-box-model": false,
+                "empty-line-between-groups": true
+            }
+        ]
+    }
+}
