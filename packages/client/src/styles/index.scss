@@ -17,4 +17,5 @@ body {
 
 .app {
   @include mixins.wh100;
+  color: var(--color-font-secondary);
 }
