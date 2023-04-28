@@ -1,6 +1,8 @@
+@import './variables';
+
 @mixin btn-gradient {
-    background: rgb(33,212,253);
-    background: linear-gradient(90deg, rgba(33,212,253,1) 0%, rgba(27,83,102,1) 100%);
+    background: $itemsBlue;
+    background: linear-gradient(90deg, $itemsBlue 0%, rgba(27,83,102,1) 100%);
 }
 //пока не работает
 @mixin title-gradient {
@@ -10,6 +12,12 @@
     -webkit-text-fill-color: transparent; 
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-    color: rgb(0,207,255);
-    background-color: radial-gradient(circle, rgba(0,207,255,1) 0%, rgba(163,226,240,1) 49%, rgba(37,123,142,1) 100%);
+    color: $itemsBlue;
+    background-color: radial-gradient(circle, $itemsBlue 0%, rgba(163,226,240,1) 49%, rgba(37,123,142,1) 100%);
+}
+
+@mixin link {
+    color: $darkTextColor;
+    text-decoration: none;
+    font-family: 'Jost';
 }

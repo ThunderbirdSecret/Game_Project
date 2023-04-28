@@ -2,18 +2,17 @@
 
 .header {
   margin: 0;
-}
 
-ul > li {
-  width: 100vh;
-  margin: 2%;
-  list-style: none;
-  display: inline;
-  font-size: 20px;
-}
+  ul > li {
+    width: 100vh;
+    margin: 2%;
+    list-style: none;
+    display: inline;
+    font-size: 20px;
 
-.link {
-  color: $darkTextColor;
-  text-decoration: none;
-  font-family: 'Jost';
+    .link {
+      @include link;
+    }
+
+  }
 }

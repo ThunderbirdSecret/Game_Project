@@ -23,7 +23,7 @@ function App() {
 
     fetchServerData()
   }, [])
-  return <div className="App">
+  return <div className="app">
       <Router>
         <div>
           <Header />
