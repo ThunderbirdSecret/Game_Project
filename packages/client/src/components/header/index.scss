@@ -1,18 +1,13 @@
-@import '../../styles/index.scss';
 
 .header {
   margin: 0;
 
   ul > li {
-    width: 100vh;
-    margin: 2%;
-    list-style: none;
-    display: inline;
-    font-size: 20px;
+    display: inline-block;
+    margin: 0.25em;
+  }
 
-    .link {
-      @include link;
-    }
-
+  .link {
+    margin: 0.25em;
   }
 }

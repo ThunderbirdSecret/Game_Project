@@ -1,20 +1,20 @@
+
+@use './variables';
 @use './normalize';
-@import './variables';
-@import './mixins';
-@import '@fontsource/almarai';
-@import '@fontsource/jost';
+@use './mixins';
 
 
-
+html {
+  font-family: var(--font);
+  font-size: 16px;
+  color: var(--color-font-primary);
+  background-color: var(--color-bg-body);
+}
 
 body {
-   background-color: $darkBg;
-   overflow: hidden;
+  overflow: hidden;
 }
 
 .app {
-   height: 100vh;
-   color: $itemsBlue;
-   width: 100vh;
-   font-family: 'Almarai';
+  @include mixins.wh100;
 }
