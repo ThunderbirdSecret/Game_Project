@@ -1,0 +1,21 @@
+
+@use './variables';
+@use './normalize';
+@use './mixins';
+
+
+html {
+  font-family: var(--font);
+  font-size: 16px;
+  color: var(--color-font-primary);
+  background-color: var(--color-bg-body);
+}
+
+body {
+  overflow: hidden;
+}
+
+.app {
+  @include mixins.wh100;
+  color: var(--color-font-secondary);
+}

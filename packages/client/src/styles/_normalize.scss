@@ -1,0 +1,55 @@
+
+
+@use 'normalize.css/normalize.css';
+@use './mixins';
+
+html {
+    
+    //font-family: 'Almarai';
+    @include mixins.wh100;
+    color: var(--color-font-primary);
+}
+
+body {
+    @include mixins.wh100;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-font-primary);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0.67rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0.83rem 0;
+}
+h3 {
+  font-size: 1.17rem;
+  margin: 1rem 0;
+}
+h4 {
+  font-size: 1rem;
+  margin: 1.33rem 0;
+}
+h5 {
+  font-size: 0.83erm;
+  margin: 1.67rem 0;
+}
+h6 {
+  font-size: 0.75rem;
+  margin: 2.33rem 0;
+}

@@ -1,0 +1,27 @@
+@mixin btn-gradient {
+  background: var(--color-bg-primary-contrast);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-primary-contrast) 0%,
+    var(--color-bg-primary) 100%
+  );
+}
+//пока не работает
+@mixin title-gradient {
+  background: radial-gradient(
+    50% 50% at 50% 35%,
+    var(--color-bg-primary-contrast) 0%,
+    var(--color-title-gradient-start) 49%,
+    var(--color-title-gradient-end) 100%
+  );
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+@mixin wh100 {
+  width: 100%;
+  height: 100%;
+}
