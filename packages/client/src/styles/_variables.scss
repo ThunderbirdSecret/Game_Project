@@ -2,31 +2,34 @@
 @use '@fontsource/jost';
 
 :root {
+  // color primary
   --color-bg-primary: #1b5366;
   --color-bg-primary-hover: #507b89;
   --color-bg-primary-contrast: #21d4fd; // используется для кнопок, текста, границ
   --color-bg-primary-border: #1b5366;
   --color-border-muted: #5f8694;
 
+  // color other
   --color-bg-body: #202029;
   --color-bg-secondary: #1b202f; // Leader board header
 
-  --color-font-primary: #eeeeee;
-  --color-font-primary-muted: #8ac2d1; 
-  --color-font-primary-error: #ff0000;
-
-  --color-font-secondary: #00b4dd;
-  //#698E9A Remind me of my password
-
-  --border-radius-s: 8px;
-  --border-radius-m: 11px;
-
-  //gradient
+  // gradient
   --color-title-gradient-start: #a3e2f0;
   --color-title-gradient-end: #257b8e;
 
+  // font
+  --color-font-primary: #eee;
+  --color-font-primary-muted: #8ac2d1;
+  --color-font-primary-error: #f00;
+  --color-font-secondary: #00b4dd;
+
+  // #698E9A Remind me of my password
   --font: 'Jost';
   --font-input: 'Almarai';
+
+  // border
+  --border-radius-s: 8px;
+  --border-radius-m: 11px;
 }
 
-//$emodjiSymbol: #C3C7CA;
+// $emodjiSymbol: #C3C7CA;

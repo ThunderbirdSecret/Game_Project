@@ -6,8 +6,10 @@
     var(--color-bg-primary) 100%
   );
 }
-//пока не работает
+
+/* stylelint-disable */
 @mixin title-gradient {
+
   background: radial-gradient(
     50% 50% at 50% 35%,
     var(--color-bg-primary-contrast) 0%,
@@ -17,9 +19,10 @@
   
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
   text-fill-color: transparent;
 }
+
+/* stylelint-enable */
 
 @mixin wh100 {
   width: 100%;
