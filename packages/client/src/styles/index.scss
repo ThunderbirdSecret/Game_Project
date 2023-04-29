@@ -1,13 +1,12 @@
-
 @use './variables';
 @use './normalize';
 @use './mixins';
 
-
 html {
-  font-family: var(--font);
-  font-size: 16px;
   color: var(--color-font-primary);
+  font-size: 16px;
+  font-family: var(--font), sans-serif;
+
   background-color: var(--color-bg-body);
 }
 
