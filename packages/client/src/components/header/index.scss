@@ -1,12 +1,63 @@
 .header {
   margin: 0;
+  background: var(--color-title-gradient-end);
+  height: 60px;
+  font-family: 'jost';
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  
+  &__container  {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 90%;
 
-  ul > li {
-    display: inline-block;
-    margin: 0.25em;
+    &__logo {
+      width: 60px;
+      flex-grow: 1;
+      
+      &__content {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+      }
+    }
+
+    &__links {
+      flex-grow: 1;
+
+      ul {
+          display: flex;
+          justify-content: center; 
+
+        li {
+          display: inline-block;
+          margin: 2em;
+        }
+
+      }
+    }
+
+    &__profile {
+      flex-grow: 1;
+
+      ul {
+        display: flex;
+        justify-content: flex-end;
+      }
+       &__auth {
+        visibility: hidden;
+       }
+    }
   }
 
-  .link {
-    margin: 0.25em;
-  }
 }
+
+ a:hover {
+  color: var(--color-font-secondary);
+ }
