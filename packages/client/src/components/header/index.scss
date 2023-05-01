@@ -18,13 +18,19 @@
     width: 90%;
 
     &__logo {
-      width: 60px;
       flex-grow: 1;
       
       &__content {
         display: flex;
         align-items: center;
         justify-content: start;
+        font-weight: 500;
+        font-size: 26px;
+        letter-spacing: -1;
+      }
+
+      &__content:hover {
+        color: #ff7f49;
       }
     }
 

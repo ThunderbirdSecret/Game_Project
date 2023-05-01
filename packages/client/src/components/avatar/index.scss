@@ -1,0 +1,14 @@
+.avatar {
+    overflow: hidden;
+    border-radius: 999px;
+    border: 2px solid var(--color-font-secondary);
+    width: 80px;
+    height: 85px;
+
+    &__preview {
+        width: 80px;
+        height: 85px;
+        width: 100%;
+        object-fit: cover;
+    }
+}

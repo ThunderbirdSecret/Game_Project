@@ -6,12 +6,25 @@ html {
   color: var(--color-font-primary);
   font-size: 16px;
   font-family: var(--font), sans-serif;
-
   background-color: var(--color-bg-body);
+
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
-body {
-  overflow: hidden;
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+body {  
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .app {

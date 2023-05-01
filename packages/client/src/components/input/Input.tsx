@@ -1,11 +1,11 @@
-
-interface InputProps {
+import './index.scss'
+export interface InputProps {
     type: string;
     placeholder: string;
     value: string;
     id: string;
     title: string;
-}
+} 
 
 export default function Input({...props}:InputProps){
     return (
