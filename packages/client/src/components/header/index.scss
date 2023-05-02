@@ -1,12 +1,68 @@
 .header {
   margin: 0;
+  background: var(--color-title-gradient-end);
+  height: 60px;
+  font-family: var(--font);
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  
+  .container  {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 90%;
 
-  ul > li {
-    display: inline-block;
-    margin: 0.25em;
-  }
+    .logo {
+        flex-grow: 1;
 
-  .link {
-    margin: 0.25em;
+        .logoContent {
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          font-weight: 500;
+          font-size: 26px;
+          letter-spacing: -1;
+        
+
+        &:hover {
+          color: #ff7f49;
+        }
+      }
+    }
+
+    .links {
+      flex-grow: 1;
+
+      ul {
+          display: flex;
+          justify-content: center; 
+
+        li {
+          display: inline-block;
+          margin: 2em;
+        }
+
+      }
+    }
+
+    .profile {
+      flex-grow: 1;
+
+      ul {
+        display: flex;
+        justify-content: flex-end;
+      }
+       .yesAuth {
+        visibility: hidden;
+       }
+    }
   }
 }
+
+ a:hover {
+  color: var(--color-font-secondary);
+ }
