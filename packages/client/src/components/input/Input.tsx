@@ -15,7 +15,7 @@ export default function Input({ ...props}:InputProps){
     return (
         <div className={style.input}> 
             <label className={style.label} htmlFor={props.id}>{props.title}</label>
-            <input className={style.element} type={props.type} name={props.name} 
+            <input className={style.element} type={props.type} name={props.name} value={value}
                 placeholder={props.placeholder} onChange={ e => setValue(e.target.value) }/>
         </div>
     )

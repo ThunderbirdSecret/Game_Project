@@ -39,7 +39,6 @@
 
       ul {
           display: flex;
-          justify-content: center; 
 
         li {
           display: inline-block;
@@ -63,7 +62,7 @@
 .yesAuth {
   display: none;
  }
- 
+
  a:hover {
   color: var(--color-font-secondary);
  }
