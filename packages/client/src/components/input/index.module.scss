@@ -23,14 +23,16 @@
    background-color: transparent;
 }
 
-::placeholder {
-    color: var(--color-font-primary);
-    font-size: var(--font-size);
-    padding: 2px 5px;
-    font-family: var(--font-input);
-}
+
 
 input:focus {
     outline: none;
     border: 3px solid var(--color-font-secondary);
+
+    &::placeholder {
+        color: var(--color-font-primary);
+        font-size: var(--font-size);
+        padding: 2px 5px;
+        font-family: var(--font-input);
+    }
 }
