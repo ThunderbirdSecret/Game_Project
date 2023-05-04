@@ -14,8 +14,8 @@ export default function Profile() {
                         title='Name'/>
 
                 <div className='testBtn'>
-                    <Button text='change' styles='input__attr' />
-                    <Button text='Logout' styles='submit__attr'/>
+                    <Button type='button' styles='inputAttr'>Blue</Button>
+                    <Button type='button' styles='submitAttr'>Grey</Button>
                 </div>
             </div>
         </div>
