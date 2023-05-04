@@ -56,13 +56,14 @@
         display: flex;
         justify-content: flex-end;
       }
-       .yesAuth {
-        visibility: hidden;
-       }
     }
   }
 }
 
+.yesAuth {
+  display: none;
+ }
+ 
  a:hover {
   color: var(--color-font-secondary);
  }

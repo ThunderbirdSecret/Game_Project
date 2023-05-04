@@ -15,6 +15,8 @@ import Error404 from './pages/page-error/Error404'
 import Register from './pages/register/register'
 import Auth from './pages/auth/auth'
 import { ROUTES } from './routes'
+import style from './styles/index.module.scss'
+
 
 function App() {
   //TODO: приватные роуты будут готовы после того, как будет готова авторизация
@@ -29,7 +31,7 @@ function App() {
     fetchServerData()*/
   }, [])
   return (
-    <div className="app">
+    <div className={style.app}>
       <Router>
         <div>
           <Header />

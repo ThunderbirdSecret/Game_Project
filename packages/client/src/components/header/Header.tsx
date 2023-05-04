@@ -1,35 +1,35 @@
 import { Link } from 'react-router-dom';
 import { items } from './header-items';
-import './index.scss'
+import style from './index.module.scss'
 
 
 
 export default function Header() {
     return (
-        <nav className='header'>
-            <div className='container'>
-                <div className='logo'>
-                    <Link to='/' className='logoContent'>
+        <nav className={style.header}>
+            <div className={style.container}>
+                <div className={style.logo}>
+                    <Link to='/' className={style.logoContent}>
                         <img alt="logo" src="/link-main.svg"/>
                         <p>Burning Worms</p>
                     </Link>
                 </div>
-                <div className='links'>
+                <div className={style.links}>
                     <ul>
                         {items.map((item, i) => (<li key={i}>
-                            <Link className='link' to={item.link}>{item.title}</Link>
+                            <Link className={style.link} to={item.link}>{item.title}</Link>
                         </li>))}
                     </ul>
                 </div>
                 <div className='profile'>
                     <ul>
-                        <li className='noAuth'>
+                        <li className={style.noAuth}>
                             <Link className='' to='/auth'>Login</Link>
                             <span>/</span>
                             <Link className='' to='/register'>Register</Link>
                         </li>
-                        <li className='yesAuth'>
-                            <button className='btnDropdown'>
+                        <li className={style.yesAuth}>
+                            <button className={style.btnDropdown}>
                                 <img alt='avatar' src="" />
                             </button>
                         </li>

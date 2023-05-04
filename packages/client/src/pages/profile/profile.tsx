@@ -1,21 +1,22 @@
-import Button from "../../components/button/button";
-import Input from "../../components/input/Input";
-import './index.scss'
+import Button from '../../components/button/button'
+import Input from '../../components/input/Input'
+import style from './index.module.scss'
+import btnStyle from '../../components/button/index.module.scss'
 
 export default function Profile() {
     return (
         <div>
             <h1>Profile</h1>
-            <div className='test'>
+            <div className={style.test}>
                 <Input  type='text'
                         placeholder='Name'
                         value=''
                         id='login'
                         title='Name'/>
 
-                <div className='testBtn'>
-                    <Button type='button' styles='inputAttr'>Blue</Button>
-                    <Button type='button' styles='submitAttr'>Grey</Button>
+                <div className={style.testBtn}>
+                    <Button type='button' styles={btnStyle.inputAttr}>Blue</Button>
+                    <Button type='button' styles={btnStyle.submitAttr}>Grey</Button>
                 </div>
             </div>
         </div>
