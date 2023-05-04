@@ -7,18 +7,6 @@ export default function Profile() {
     return (
         <div>
             <h1>Profile</h1>
-            <div className=''>
-                <Input  type='text'
-                        placeholder='Name'
-                        value=''
-                        id='login'
-                        title='Name'/>
-
-                <div className=''>
-                    <Button type='button' styles={btnStyle.inputAttr}>Blue</Button>
-                    <Button type='button' styles={btnStyle.submitAttr}>Grey</Button>
-                </div>
-            </div>
         </div>
     )
 }
