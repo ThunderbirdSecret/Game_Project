@@ -1,15 +1,14 @@
-import './index.scss'
+import { ButtonHTMLAttributes } from 'react';
+import style from'./index.module.scss'
 
-interface ButtonProps {
-    text: string;
-    onClick?: React.MouseEventHandler;
-    style?: string;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    styles?: string;
 }
 
 export default function Button({...props}: ButtonProps){
     return (
-            <button type='button' className={props.style} onClick={props.onClick}>
-                {props.text}
+            <button type={props.type} className={props.styles} onClick={props.onClick}>
+                {props.children}
             </button>
     )
 }

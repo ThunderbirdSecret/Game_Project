@@ -31,3 +31,7 @@ body {
   @include mixins.wh100;
   color: var(--color-font-secondary);
 }
+
+a:hover {
+  color: var(--color-font-secondary);
+}
