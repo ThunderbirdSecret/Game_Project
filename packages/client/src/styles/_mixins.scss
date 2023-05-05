@@ -35,6 +35,11 @@
   border-radius: var(--border-radius-s);
   background: transparent;
   border: 1px solid var(--color-border-muted);
+  &:hover{
+    background: var(--color-bg-primary-hover);
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-bg-primary-contrast);
+  }
 }
 
 @mixin input-btn {
@@ -43,6 +48,12 @@
   border-radius: var(--border-radius-s);
   background: var(--color-font-secondary);
   border: none;
+
+  &:hover{
+    background: var(--color-bg-primary-hover);
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-bg-primary-contrast);
+  }
 }
 
 @mixin input-label {

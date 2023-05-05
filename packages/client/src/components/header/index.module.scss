@@ -1,14 +1,14 @@
 .header {
-  margin: 0;
   background: var(--color-title-gradient-end);
   height: 60px;
   font-family: var(--font);
-  top: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+  width: 100%;
+  margin-bottom: 50px;
   
   .container  {
     justify-content: center;

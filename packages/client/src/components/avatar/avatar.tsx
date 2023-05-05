@@ -2,8 +2,12 @@ import style from './index.module.scss'
 
 export default function Avatar() {
     return (
-        <div className={style.avatar}>
-            <img alt='preview' src='/photo.jpg' className={style.preview} />
-        </div>
+        <form className={style.avatar}>
+            <div className={style.container}>
+                <img src='/photo.jpg' alt='preview' />
+            </div>
+            <label htmlFor='uploader'>change</label>
+                <input id='uploader' type="file" className={style.fileUpload}/>
+        </form>
     )
 }

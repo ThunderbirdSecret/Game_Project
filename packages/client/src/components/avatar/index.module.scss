@@ -1,14 +1,31 @@
-.avatar {
-    overflow: hidden;
-    border-radius: 999px;
-    border: 2px solid var(--color-font-secondary);
-    width: 80px;
-    height: 85px;
+@use '../../styles/mixins';
 
-    .preview {
-        width: 80px;
-        height: 85px;
-        width: 100%;
-        object-fit: cover;
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .container {
+        flex-shrink: 0;
+
+        img {
+            width: 80px;
+            height: 85px;
+            object-fit: cover;
+            border-radius: 999px;
+            border: 2px solid var(--color-font-secondary);
+        }
+    }
+
+    label {
+        display: block;
+        padding: 10px 70px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        @include mixins.input-btn;
+    }
+    .fileUpload {
+        display: none;   
     }
 }
