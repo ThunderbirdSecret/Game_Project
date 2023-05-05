@@ -1,26 +1,28 @@
 import Avatar from '../../components/avatar/avatar'
 import Button from '../../components/button/button'
 import Input from '../../components/input/Input'
-import './index.scss'
+import style from './index.module.scss'
 import { InputElements } from './input-elements'
+import btnStyle from '../../components/button/index.module.scss'
+
 
 export default function Profile() {
     return (
-        <div className='profile'>
-            <div className='profile__container'>
-                <div className='profile__container__content'>
+        <div className={style.profile}>
+            <div className={style.container}>
+                <div className={style.content}>
                     <h2>Settings profile</h2>
                         <Avatar />
                         {InputElements.map((element)=> (
-                            <div className='profile__container__content__form'>
+                            <div className={style.form}>
                                 <Input {...element}/>
-                                <div className='profile__container__content__form__button'>
-                                    <Button text='change' style='input__attr' />
+                                <div className={style.button}>
+                                    <Button styles={btnStyle.inputAttr}>change</Button>
                                 </div>
                             </div>
                         ))}
-                        <div className='profile__container__content__button'>
-                            <Button text='Logout' style='submit__attr'/>
+                        <div className={style.button}>
+                            <Button styles={btnStyle.submitAttr}>Logout</Button>
                         </div>
                 </div>
             </div>

@@ -1,9 +1,9 @@
-import './index.scss'
+import style from './index.module.scss'
 
 export default function Avatar() {
     return (
-        <div className='avatar'>
-            <img alt='preview' src='/photo.jpg' className='avatar__preview' />
+        <div className={style.avatar}>
+            <img alt='preview' src='/photo.jpg' className={style.preview} />
         </div>
     )
 }
