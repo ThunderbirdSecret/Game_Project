@@ -1,8 +1,16 @@
+@use 'normalize.css/normalize.css';
 @use './mixins';
+
+// {
+//  outline: 1px solid red;
+//  box-sizing: border-box;
+// }
 
 html {
   @include mixins.wh100;
+
   color: var(--color-font-primary);
+  line-height: 1.25;
 }
 
 body {

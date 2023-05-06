@@ -2,10 +2,13 @@
 @use '@fontsource/jost';
 
 :root {
+  // выношу обобщенные названия, так как принадлежность цвета не соблюдается
+  --color-secondary: #00b4dd; // не контрастный к color-bg-primary
+
   // color primary
   --color-bg-primary: #1b5366;
   --color-bg-primary-hover: #507b89;
-  --color-bg-primary-contrast: #21d4fd; // используется для кнопок, текста, границ
+  --color-bg-primary-contrast: #21d4fd; // ??? для чего
   --color-bg-primary-border: #1b5366;
   --color-border-muted: #5f8694;
 
@@ -14,8 +17,9 @@
   --color-bg-secondary: #1b202f; // Leader board header
 
   // gradient
-  --color-title-gradient-start: #a3e2f0;
-  --color-title-gradient-end: #257b8e;
+  --color-gradient-1: #21d4fd;
+  --color-gradient-2: #a3e2f0;
+  --color-gradient-3: #257b8e;
 
   // font
   --color-font-primary: #eee;

@@ -1,13 +1,15 @@
 @use '../../styles/mixins';
 
 .inputAttr {
-    @include mixins.input-btn;
-    @include mixins.wh100;
+  @include mixins.input-btn;
+  @include mixins.wh100;
 }
 
 .submitAttr {
-    @include mixins.submit-btn;
-    padding: 10px;
-    margin: 10px 0;
-    @include mixins.wh100;
+  @include mixins.submit-btn;
+
+  margin: 10px 0;
+  padding: 10px;
+
+  @include mixins.wh100;
 }

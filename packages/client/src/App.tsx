@@ -33,7 +33,6 @@ function App() {
   return (
     <div className={style.app}>
       <Router>
-        <div>
           <Header />
           <Routes>
             <Route path={ROUTES.MAIN} element={<Main />} />
@@ -49,7 +48,6 @@ function App() {
               element={<Navigate to={ROUTES.ERROR_404} replace />}
             />
           </Routes>
-        </div>
       </Router>
     </div>
   )
