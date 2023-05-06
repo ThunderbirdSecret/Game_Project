@@ -16,7 +16,7 @@
     var(--color-title-gradient-start) 49%,
     var(--color-title-gradient-end) 100%
   );
-  
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
@@ -63,8 +63,7 @@
   background-color: transparent;
 
   &:focus {
-    outline: none;
-    border: 3px solid var(--color-font-secondary);
+    outline: 2px solid var(--color-font-secondary);
   }
 
   &::placeholder {
