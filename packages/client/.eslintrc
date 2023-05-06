@@ -16,7 +16,7 @@
       "jsx": true
     },
     "sourceType": "module",
-    "project": ["tsconfig.json"]
+    "project": ["./tsconfig.json"]
   },
   "settings": {
     "import/resolver": {
