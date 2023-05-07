@@ -1,0 +1,13 @@
+@use '../../styles/mixins';
+
+.container {
+  width: 100%;
+  max-width: 1550px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 84px 0;
+}
+
+.content {
+  @include mixins.wh100;
+}
