@@ -2,7 +2,7 @@
 
 $image-shadow: #ffad33;
 $offset: 3rem;
-$image-radius: 250px;
+$image-radius: 200px;
 
 .root {
   height: 100%;
@@ -14,22 +14,19 @@ $image-radius: 250px;
     justify-content: space-around;
     box-sizing: border-box;
     min-height: 100%;
-    padding: $offset;
   }
-}
-
-.root * {
-  box-sizing: border-box;
 }
 
 .left {
   display: flex;
   flex-direction: column;
   align-self: center;
+  margin-left: 0 2rem;
 }
 
 .rigth {
   padding: $offset + 1rem;
+  align-self: center;
 }
 
 .game {
@@ -45,15 +42,14 @@ $image-radius: 250px;
       margin-right: auto;
       margin-left: auto;
 
-      font-size: 8rem;
+      font-size: 6rem;
       white-space: nowrap;
     }
   }
 
   &Desc {
-    max-width: 45rem;
-
-    font-size: 4rem;
+    max-width: 35rem;
+    font-size: 3rem;
   }
 
   &Image {
@@ -77,10 +73,10 @@ $image-radius: 250px;
 @mixin button() {
   @include mixins.submit-btn;
 
-  min-width: 20rem;
+  min-width: 15rem;
   padding: 2rem 1.5rem;
 
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: var(
     --font
   ); // у этих кнопок и у остальных кнопок на макете разный шрифт

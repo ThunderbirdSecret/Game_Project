@@ -8,17 +8,22 @@ export interface BigButtonProps
   bodyClassName?: string
 }
 
-export default function BigButton({ ...props }: BigButtonProps) {
+export default function BigButton({
+  bodyClassName,
+  backgroundClassName,
+  className,
+  children,
+  ...props
+}: BigButtonProps) {
   return (
+    
     <Button
       type="button"
-      styles={`${props.className} ${style.root}`}
-      onClick={props.onClick}>
-      <div className={`${style.body} ${props.bodyClassName}`}>
-        {props.children}
-      </div>
+      styles={`${className} ${style.root}`}
+      {...props}>
+      <div className={`${style.body} ${bodyClassName}`}>{children}</div>
 
-      <div className={`${style.background} ${props.backgroundClassName}`}></div>
+      <div className={`${style.background} ${backgroundClassName}`}></div>
     </Button>
   )
 }
