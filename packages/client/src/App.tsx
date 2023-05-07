@@ -14,6 +14,7 @@ import Profile from './pages/profile/profile'
 import Error404 from './pages/page-error/Error404'
 import Register from './pages/register/register'
 import Auth from './pages/auth/auth'
+import Documentation from './pages/documentation/documentation'
 import { ROUTES } from './routes'
 import style from './styles/index.module.scss'
 
@@ -43,6 +44,7 @@ function App() {
             <Route path={ROUTES.AUTH} element={<Auth />} />
             <Route path={ROUTES.REGISTER} element={<Register />} />
             <Route path={ROUTES.ERROR_404} element={<Error404 />} />
+            <Route path={ROUTES.DOCUMENTAION} element={<Documentation />} />
             <Route
               path="*"
               element={<Navigate to={ROUTES.ERROR_404} replace />}

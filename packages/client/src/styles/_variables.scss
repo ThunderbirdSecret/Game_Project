@@ -2,18 +2,17 @@
 @use '@fontsource/jost';
 
 :root {
-  // выношу обобщенные названия, так как принадлежность цвета не соблюдается
-  --color-secondary: #00b4dd; // не контрастный к color-bg-primary
-
   // color primary
   --color-bg-primary: #1b5366;
   --color-bg-primary-hover: #507b89;
-  --color-bg-primary-contrast: #21d4fd; // ??? для чего
-  --color-bg-primary-border: #1b5366;
+  --color-bg-primary-contrast: #00b4dd; // #21d4fd куда-то ушел
+
   --color-border-muted: #5f8694;
+  --color-border-primary: #00b4dd; // или этот 21d4fd
 
   // color other
   --color-bg-body: #202029;
+  --color-bg-body-mask: rgba(255, 255, 255, 0.3);
   --color-bg-secondary: #1b202f; // Leader board header
 
   // gradient
@@ -21,7 +20,7 @@
   // может вообще убрать градиент?
   --color-gradient-1: #21d4fd;
   --color-gradient-2: #a3e2f0;
-  --color-gradient-3: #257b8e;
+  --color-gradient-3: #1b5366; //#257b8e;
 
   // font
   --color-font-primary: #eee;
@@ -38,8 +37,7 @@
   --border-radius-m: 11px;
 
   // на удаление
-  --color-bg-primary-contrast: #21d4fd; // вместо него почему-то 00b4dd на кнопках
-  --color-title-gradient-start: #a3e2f0; 
+  --color-title-gradient-start: #a3e2f0;
   --color-title-gradient-end: #257b8e;
 }
 

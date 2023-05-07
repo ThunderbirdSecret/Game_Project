@@ -1,3 +1,4 @@
+@use "sass:math";
 @use '../../styles/mixins';
 
 $image-shadow: #ffad33;
@@ -59,50 +60,59 @@ $image-radius: 250px;
   &Image {
     @include mixins.wh100;
 
-    padding: $image-radius / 4;
+    padding: math.div($image-radius, 4);
 
     &Cont {
-      @include mixins.center-position;
-
+    
       min-width: $image-radius * 2;
       height: $image-radius * 2;
 
       background: $image-shadow;
       border: 0.25rem solid var(--color-bg-body);
-      border-radius: $imageRadius;
+      border-radius: $image-radius;
       box-shadow: 0 0 3rem 0.25rem $image-shadow;
     }
   }
 }
 
 @mixin button() {
-  @include mixins.submit-btn(false);
+  @include mixins.submit-btn;
 
   min-width: 20rem;
-  margin: 5rem 3rem 0 0;
   padding: 2rem 1.5rem;
 
   font-size: 2.5rem;
-  font-family: var(--font);
-
-  background: transparent;
-
-  transition: opacity 1s;
-
-  &:hover {
-    opacity: 0.5;
-
-    transition: opacity 1s;
-  }
+  font-family: var(--font); //у этих кнопок и у остальных кнопок на макете разный шрифт
 }
 
 .buttonStart {
-  @include button;
-  @include mixins.btn-gradient;
+  margin: 5rem 3rem 0 0;
 
-  font-weight: 700;
+  &Body {
+    @include button;
+  
+    font-weight: 700;
+  }
+
+  &Back {
+    @include mixins.btn-gradient;
+    border-radius: var(--border-radius-s);
+  }
+
 }
 
 .buttonDoc {
-  @include button;
+  margin: 5rem 3rem 0 0;
+
+  &Body {
+    @include button;
+    background: transparent;
+  }
+
+
+  &Back {
+    opacity: 0;
+    background: var(--color-bg-body-mask);
+    border-radius: var(--color-bg-primary-hover);
+  }
 }

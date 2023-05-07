@@ -1,0 +1,31 @@
+@use '../../../styles/mixins';
+
+.root {
+  position: relative;
+  border: none;
+  padding: 0;
+  background: transparent;
+
+  .background {
+    @include mixins.wh100;
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.5s;
+    z-index: 1;
+  }
+  
+  &:hover .background {
+    opacity: 0.6;
+
+    transition: opacity 0.5s;
+  }
+
+  .body {
+    position: relative;
+
+    z-index: 2;
+  }
+
+}
+
+
