@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "style-lint": "stylelint **/*.scss --fix",
+    "style-lint": "stylelint **/*.scss",
     "format": "prettier --write .",
     "test": ""
   },
