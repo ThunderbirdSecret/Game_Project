@@ -17,6 +17,8 @@
   --color-bg-secondary: #1b202f; // Leader board header
 
   // gradient
+  // может для градиента должны быть цвета из общего набора, а не свои
+  // может вообще убрать градиент?
   --color-gradient-1: #21d4fd;
   --color-gradient-2: #a3e2f0;
   --color-gradient-3: #257b8e;
@@ -34,6 +36,11 @@
   // border
   --border-radius-s: 8px;
   --border-radius-m: 11px;
+
+  // на удаление
+  --color-bg-primary-contrast: #21d4fd; // вместо него почему-то 00b4dd на кнопках
+  --color-title-gradient-start: #a3e2f0; 
+  --color-title-gradient-end: #257b8e;
 }
 
 // $emodjiSymbol: #C3C7CA;

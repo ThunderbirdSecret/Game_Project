@@ -1,1 +1,18 @@
 @use '../../styles/_mixins';
+@use '../../styles/_mixins';
+
+.test-button-gradient {
+  @include mixins.btn-gradient;
+  width: fit-content;
+  margin: 10px;
+
+  font-size: 30px;
+}
+
+.test-title-gradient {
+  @include mixins.title-gradient;
+  width: fit-content;
+
+  font-weight: 400;
+  font-size: 128px;
+}

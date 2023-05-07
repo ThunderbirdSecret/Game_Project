@@ -1,8 +1,9 @@
+
 .test {
-  display: flex;
   width: 200px;
-  margin: auto;
+  display: flex;
   padding: 10px;
+  margin: auto;
 }
 
 .testBtn {
@@ -12,11 +13,10 @@
 .input {
   padding: 10px;
 }
-
 .buttonBtn {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 110px;
   height: 32px;
+  width: 110px;
 }
