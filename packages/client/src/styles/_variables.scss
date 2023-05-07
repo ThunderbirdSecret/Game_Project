@@ -13,14 +13,13 @@
   --color-bg-secondary: #00b4dd; // #21d4fd куда-то ушел
 
   // использовать для границ
-  --color-border-secondary: #5f8694;
   --color-border-primary: #00b4dd; // или этот 21d4fd
+  --color-border-secondary: #5f8694;
 
   // color other
   // использовать bg только для фона
   --color-bg-body: #202029;
-  --color-bg-body-mask: rgba(255, 255, 255, 0.3);
-  --color-bg-secondary: #1b202f; // Leader board header
+  --color-bg-body-mask: rgba(255 255 255 / 30%);
 
   // gradient
   // использовать цвета только для градиента

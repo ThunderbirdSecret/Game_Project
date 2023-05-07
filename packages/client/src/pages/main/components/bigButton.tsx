@@ -14,7 +14,6 @@ export default function BigButton({ ...props }: BigButtonProps) {
       type="button"
       styles={`${props.className} ${style.root}`}
       onClick={props.onClick}>
-      
       <div className={`${style.body} ${props.bodyClassName}`}>
         {props.children}
       </div>

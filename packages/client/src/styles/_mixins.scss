@@ -28,21 +28,23 @@
   height: 100%;
 }
 
-@mixin border-base {
-  border: 0.125rem solid var(--color-border-primary);
+@mixin border-base($color: var(--color-border-primary)) {
+  border: 0.125rem solid $color;
 
   border-radius: var(--border-radius-s);
 }
 
-// только для элементов, которые обычно переопределены в браузере
-@mixin font-base {
+@mixin input-font-base {
   color: var(--color-font-primary);
   font-size: var(--font-size);
   font-family: var(--font-input);
 }
 
+// если добавлять hover, то надо добавлять input-base($hover: true)
+// использовать его или нет
+// так как для страницы pages/main он не нужен, но сломать может
 @mixin input-base {
-  @include font-base;
+  @include input-font-base;
 
   cursor: pointer;
 }
@@ -50,21 +52,22 @@
 @mixin submit-btn {
   @include input-base;
   @include border-base;
-  
-  background: transparent; 
-  border-color: var(--color-border-primary);
+
+  background: transparent;
 }
 
 @mixin input-btn {
   @include input-base;
 
-  background: var(--color-bg-secondary);
   text-shadow: var(--color-bg-primary) 5px 0 10px;
+
+  background: var(--color-bg-secondary);
+
   border: none;
 }
 
 @mixin input-label {
-  @include border-base;
+  @include input-font-base;
 
   margin-bottom: 2px;
   padding: 5px 0;
@@ -73,7 +76,7 @@
 @mixin input-form {
   @include input-base;
   @include border-base;
-  border-color: var(--color-border-primary);
+
   padding: 5px;
 
   &:focus {
@@ -82,7 +85,7 @@
   }
 
   &::placeholder {
-    @include font-base;
+    @include input-font-base;
     padding: 2px 5px;
   }
 }

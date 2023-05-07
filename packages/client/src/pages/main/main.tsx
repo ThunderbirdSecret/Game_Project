@@ -1,18 +1,18 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import BigButton from './components/bigButton'
 import style from './index.module.scss'
-import { ROUTES } from '../../routes';
+import { ROUTES } from '../../routes'
 
 export default function Main() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const onClickStartGame = () => {
-    navigate(ROUTES.GAME);
-  };
+    navigate(ROUTES.GAME)
+  }
 
   const onClickDocum = () => {
-    navigate(ROUTES.DOCUMENTAION);
-  };
+    navigate(ROUTES.DOCUMENTAION)
+  }
 
   return (
     <div className={style.root}>

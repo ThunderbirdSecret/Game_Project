@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 @use '../../styles/mixins';
 
 $image-shadow: #ffad33;
@@ -63,7 +63,6 @@ $image-radius: 250px;
     padding: math.div($image-radius, 4);
 
     &Cont {
-    
       min-width: $image-radius * 2;
       height: $image-radius * 2;
 
@@ -82,7 +81,9 @@ $image-radius: 250px;
   padding: 2rem 1.5rem;
 
   font-size: 2.5rem;
-  font-family: var(--font); //у этих кнопок и у остальных кнопок на макете разный шрифт
+  font-family: var(
+    --font
+  ); // у этих кнопок и у остальных кнопок на макете разный шрифт
 }
 
 .buttonStart {
@@ -90,7 +91,7 @@ $image-radius: 250px;
 
   &Body {
     @include button;
-  
+
     font-weight: 700;
   }
 
@@ -98,7 +99,6 @@ $image-radius: 250px;
     @include mixins.btn-gradient;
     border-radius: var(--border-radius-s);
   }
-
 }
 
 .buttonDoc {
@@ -109,10 +109,9 @@ $image-radius: 250px;
     background: transparent;
   }
 
-
   &Back {
-    opacity: 0;
     background: var(--color-bg-body-mask);
     border-radius: var(--color-bg-primary-hover);
+    opacity: 0;
   }
 }

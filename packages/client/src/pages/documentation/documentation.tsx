@@ -1,8 +1,7 @@
-
 export default function Documentation() {
-    return (
-        <div>
-            <h1>Documentation</h1>
-        </div>
-    )
+  return (
+    <div>
+      <h1>Documentation</h1>
+    </div>
+  )
 }

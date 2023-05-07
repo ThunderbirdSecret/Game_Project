@@ -2,18 +2,22 @@
 
 .root {
   position: relative;
-  border: none;
+
   padding: 0;
+
   background: transparent;
+  border: none;
 
   .background {
     @include mixins.wh100;
     position: absolute;
     inset: 0;
-    transition: opacity 0.5s;
+
     z-index: 1;
+
+    transition: opacity 0.5s;
   }
-  
+
   &:hover .background {
     opacity: 0.6;
 
@@ -25,7 +29,4 @@
 
     z-index: 2;
   }
-
 }
-
-
