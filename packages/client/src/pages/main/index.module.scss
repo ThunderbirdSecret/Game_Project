@@ -1,0 +1,112 @@
+@use '../../styles/mixins';
+
+$image-shadow: #ffad33;
+$offset: 3rem;
+$image-radius: 200px;
+
+.root {
+  height: 100%;
+  overflow: auto;
+
+  .body {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    box-sizing: border-box;
+    min-height: 100%;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-left: 0 2rem;
+}
+
+.rigth {
+  padding: $offset + 1rem;
+  align-self: center;
+}
+
+.game {
+  &Name {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+    align-self: start;
+
+    &Text {
+      @include mixins.title-gradient;
+
+      margin-right: auto;
+      margin-left: auto;
+
+      font-size: 6rem;
+      white-space: nowrap;
+    }
+  }
+
+  &Desc {
+    max-width: 35rem;
+    font-size: 3rem;
+  }
+
+  &Image {
+    @include mixins.wh100;
+
+    padding: 15%;
+
+    &Cont {
+      box-sizing: content-box;
+      min-width: $image-radius * 2;
+      height: $image-radius * 2;
+
+      background: $image-shadow;
+      border: 0.4rem solid var(--color-bg-body);
+      border-radius: 50%;
+      box-shadow: 0 0 3rem 1rem $image-shadow;
+    }
+  }
+}
+
+@mixin button() {
+  @include mixins.submit-btn;
+
+  min-width: 15rem;
+  padding: 2rem 1.5rem;
+
+  font-size: 2rem;
+  font-family: var(
+    --font
+  ); // у этих кнопок и у остальных кнопок на макете разный шрифт
+}
+
+.buttonStart {
+  margin: 5rem 3rem 0 0;
+
+  &Body {
+    @include button;
+
+    font-weight: 700;
+  }
+
+  &Back {
+    @include mixins.btn-gradient;
+    border-radius: var(--border-radius-s);
+  }
+}
+
+.buttonDoc {
+  margin: 5rem 3rem 0 0;
+
+  &Body {
+    @include button;
+    background: transparent;
+  }
+
+  &Back {
+    background: var(--color-bg-body-mask);
+    opacity: 0;
+  }
+}

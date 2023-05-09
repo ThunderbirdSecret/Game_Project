@@ -14,9 +14,9 @@ import Profile from './pages/profile/profile'
 import Error404 from './pages/page-error/Error404'
 import Register from './pages/register/register'
 import Auth from './pages/auth/auth'
+import Documentation from './pages/documentation/documentation'
 import { ROUTES } from './routes'
 import style from './styles/index.module.scss'
-
 
 function App() {
   //TODO: приватные роуты будут готовы после того, как будет готова авторизация
@@ -33,23 +33,22 @@ function App() {
   return (
     <div className={style.app}>
       <Router>
-        <div>
-          <Header />
-          <Routes>
-            <Route path={ROUTES.MAIN} element={<Main />} />
-            <Route path={ROUTES.GAME} element={<Game />} />
-            <Route path={ROUTES.FORUM} element={<Forum />} />
-            <Route path={ROUTES.LEADER_BOARD} element={<LeaderBord />} />
-            <Route path={ROUTES.PROFILE} element={<Profile />} />
-            <Route path={ROUTES.AUTH} element={<Auth />} />
-            <Route path={ROUTES.REGISTER} element={<Register />} />
-            <Route path={ROUTES.ERROR_404} element={<Error404 />} />
-            <Route
-              path="*"
-              element={<Navigate to={ROUTES.ERROR_404} replace />}
-            />
-          </Routes>
-        </div>
+        <Header />
+        <Routes>
+          <Route path={ROUTES.MAIN} element={<Main />} />
+          <Route path={ROUTES.GAME} element={<Game />} />
+          <Route path={ROUTES.FORUM} element={<Forum />} />
+          <Route path={ROUTES.LEADER_BOARD} element={<LeaderBord />} />
+          <Route path={ROUTES.PROFILE} element={<Profile />} />
+          <Route path={ROUTES.AUTH} element={<Auth />} />
+          <Route path={ROUTES.REGISTER} element={<Register />} />
+          <Route path={ROUTES.ERROR_404} element={<Error404 />} />
+          <Route path={ROUTES.DOCUMENTAION} element={<Documentation />} />
+          <Route
+            path="*"
+            element={<Navigate to={ROUTES.ERROR_404} replace />}
+          />
+        </Routes>
       </Router>
     </div>
   )
