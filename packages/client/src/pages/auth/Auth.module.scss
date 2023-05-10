@@ -15,6 +15,18 @@
   flex-direction: column;
 }
 
+.formGroup {
+  &:first-child {
+    margin-bottom: 20px;
+  }
+}
+
+.input {
+  @include mixins.input-form;
+  width: 335px;
+  height: 43px;
+}
+
 .content {
   display: flex;
   flex-direction: column;

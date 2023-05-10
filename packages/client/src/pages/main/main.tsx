@@ -48,8 +48,9 @@ export default function Main() {
           <div className={style.gameImageCont}>
             <img
               className={style.gameImage}
-              alt="image of a worm"
-              src="/worm-svgrepo-com.svg"></img>
+              alt="worm"
+              src="/worm-svgrepo-com.svg"
+            />
           </div>
         </div>
       </div>

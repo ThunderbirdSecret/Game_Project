@@ -48,21 +48,27 @@ export const Auth = () => {
         <FormLayout>
           <Title className={styles.title}>Sign In</Title>
           <form onSubmit={onLogin}>
-            <Input
-              title="Login"
-              id="login"
-              name="login"
-              value={formFields.login}
-              onChange={onChangeField}
-            />
-            <Input
-              type="password"
-              title="Password"
-              id="password"
-              name="password"
-              value={formFields.password}
-              onChange={onChangeField}
-            />
+            <div className={styles.formGroup}>
+              <Input
+                title="Login"
+                id="login"
+                name="login"
+                value={formFields.login}
+                onChange={onChangeField}
+                className={styles.input}
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <Input
+                type="password"
+                title="Password"
+                id="password"
+                name="password"
+                value={formFields.password}
+                onChange={onChangeField}
+                className={styles.input}
+              />
+            </div>
             <Link to="/" className={styles.remindLink}>
               Remind me of my password
             </Link>

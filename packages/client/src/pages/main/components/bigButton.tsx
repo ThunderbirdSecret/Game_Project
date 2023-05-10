@@ -1,6 +1,6 @@
-import style from './index.module.scss'
-import Button from '../../../components/button/button'
 import { ButtonHTMLAttributes } from 'react'
+import { Button } from '@/components/ui/Button/Button'
+import style from './index.module.scss'
 
 export interface BigButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,14 +16,10 @@ export default function BigButton({
   ...props
 }: BigButtonProps) {
   return (
-    
-    <Button
-      type="button"
-      styles={`${className} ${style.root}`}
-      {...props}>
+    <Button type="button" styles={`${className} ${style.root}`} {...props}>
       <div className={`${style.body} ${bodyClassName}`}>{children}</div>
 
-      <div className={`${style.background} ${backgroundClassName}`}></div>
+      <div className={`${style.background} ${backgroundClassName}`} />
     </Button>
   )
 }

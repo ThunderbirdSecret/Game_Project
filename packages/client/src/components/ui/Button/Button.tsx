@@ -1,14 +1,23 @@
 import { FC, ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
 
-import styles from './Button.module.scss'
+import classes from './Button.module.scss'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  styles?: string
+}
 
 export const Button: FC<ButtonProps> = ({
   className,
   onClick,
   type = 'button',
+  styles,
   ...props
-  // eslint-disable-next-line react/button-has-type
-}) => <button className={cn(styles.button, className)} type={type} {...props} />
+}) => (
+  <button
+    className={cn(classes.button, className, styles)}
+    // eslint-disable-next-line react/button-has-type
+    type={type}
+    {...props}
+  />
+)
