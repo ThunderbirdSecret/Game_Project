@@ -17,7 +17,13 @@ body {
 
 .app {
   @include mixins.wh100;
-  color: var(--color-font-secondary);
+
+  display: flex;
+  flex-direction: column;
+}
+
+:global(#root) {
+  @include mixins.wh100;
 }
 
 a:hover {

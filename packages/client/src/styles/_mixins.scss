@@ -1,20 +1,19 @@
 @mixin btn-gradient {
-  background: var(--color-bg-primary-contrast);
+  background: var(--color-gradient-1);
   background: linear-gradient(
     90deg,
-    var(--color-bg-primary-contrast) 0%,
-    var(--color-bg-primary) 100%
+    var(--color-gradient-1) 0%,
+    var(--color-gradient-3) 100%
   );
 }
 
 /* stylelint-disable */
 @mixin title-gradient {
-
   background: radial-gradient(
     50% 50% at 50% 35%,
-    var(--color-bg-primary-contrast) 0%,
-    var(--color-title-gradient-start) 49%,
-    var(--color-title-gradient-end) 100%
+    var(--color-gradient-1) 0%,
+    var(--color-gradient-2) 49%,
+    var(--color-gradient-3) 100%
   );
 
   -webkit-background-clip: text;
@@ -29,47 +28,64 @@
   height: 100%;
 }
 
-@mixin submit-btn {
-  color: var(--color-font-primary);
-  font-family: var(--font-input);
+@mixin border-base($color: var(--color-border-primary)) {
+  border: 0.125rem solid $color;
+
   border-radius: var(--border-radius-s);
+}
+
+@mixin input-font-base {
+  color: var(--color-font-primary);
+  font-size: var(--font-size);
+  font-family: var(--font-input);
+}
+
+// если добавлять hover, то надо добавлять input-base($hover: true)
+// использовать его или нет
+// так как для страницы pages/main он не нужен, но сломать может
+@mixin input-base {
+  @include input-font-base;
+
+  cursor: pointer;
+}
+
+@mixin submit-btn {
+  @include input-base;
+  @include border-base;
+
   background: transparent;
-  border: 1px solid var(--color-border-muted);
 }
 
 @mixin input-btn {
-  color: var(--color-font-primary);
-  font-family: var(--font-input);
-  border-radius: var(--border-radius-s);
-  background: var(--color-font-secondary);
+  @include input-base;
+
+  text-shadow: var(--color-bg-primary) 5px 0 10px;
+
+  background: var(--color-bg-secondary);
+
   border: none;
 }
 
 @mixin input-label {
-  color: var(--color-font-primary);
-  font-family: var(--font-input);
-  padding: 5px 0;
-  font-size: var(--font-size);
+  @include input-font-base;
+
   margin-bottom: 2px;
+  padding: 5px 0;
 }
 
 @mixin input-form {
-  border-radius: var(--border-radius-s);
-  border: 1px solid var(--color-font-secondary);
-  padding: 5px 5px;
-  font-family: var(--font-input);
-  font-size: var(--font-size);
-  color: var(--color-font-primary);
-  background-color: transparent;
+  @include input-base;
+  @include border-base;
+
+  padding: 5px;
 
   &:focus {
+    border-color: var(--color-border-secondary);
     outline: 2px solid var(--color-font-secondary);
   }
 
   &::placeholder {
-    color: var(--color-font-primary);
-    font-size: var(--font-size);
+    @include input-font-base;
     padding: 2px 5px;
-    font-family: var(--font-input);
-    }
+  }
 }
