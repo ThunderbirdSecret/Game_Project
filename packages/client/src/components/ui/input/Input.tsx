@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from 'react'
+import cn from 'classnames'
 
 import style from './index.module.scss'
 
@@ -13,6 +14,8 @@ export default function Input({
   onChange,
   title,
   id,
+  placeholder,
+  className,
   ...props
 }: InputProps) {
   return (
@@ -21,11 +24,12 @@ export default function Input({
         {title}
       </label>
       <input
-        className={style.element}
+        id={id}
+        className={cn(style.element, className)}
         type={type}
         name={name}
         value={value}
-        placeholder={props.placeholder}
+        placeholder={placeholder}
         onChange={onChange}
         {...props}
       />

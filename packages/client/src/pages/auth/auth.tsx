@@ -43,7 +43,7 @@ export const Auth = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <div className={styles.content}>
         <FormLayout>
           <Title className={styles.title}>Sign In</Title>
@@ -92,6 +92,6 @@ export const Auth = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
