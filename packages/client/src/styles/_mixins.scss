@@ -81,7 +81,7 @@
 
   &:focus {
     border-color: var(--color-border-secondary);
-    outline: none;
+    outline: 2px solid var(--color-font-secondary);
   }
 
   &::placeholder {

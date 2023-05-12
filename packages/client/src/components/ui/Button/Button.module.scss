@@ -1,0 +1,24 @@
+@use '../../../styles/mixins';
+
+.button {
+  border-radius: var(--border-radius-s);
+  padding: 16px 9px;
+  font-weight: 700;
+  font-size: inherit;
+
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+.inputAttr {
+  @include mixins.input-btn;
+  @include mixins.wh100;
+}
+
+.submitAttr {
+  @include mixins.submit-btn;
+  padding: 10px;
+  margin: 10px 0;
+  @include mixins.wh100;
+}

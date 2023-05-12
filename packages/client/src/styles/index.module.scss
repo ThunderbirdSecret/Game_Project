@@ -12,6 +12,12 @@ html {
 
 body {
   overflow: hidden;
+  margin: 0;
+}
+
+input {
+  background-color: inherit;
+  border: inherit;
 }
 
 .app {
