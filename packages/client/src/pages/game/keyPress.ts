@@ -52,3 +52,12 @@ const addDlobalEvents = () => {
 }
 
 export default addDlobalEvents
+
+export enum GAME_EVENTS {
+  SPACE = 'SPACE',
+  LEFT = 'LEFT',
+  UP = 'UP',
+  RIGHT = 'RIGHT',
+  DOWN = 'DOWN',
+  ENTER = 'ENTER',
+}

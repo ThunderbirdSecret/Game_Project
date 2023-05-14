@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 import Header from './components/header/Header'
 import Main from './pages/main/main'
-import Game from './pages/game/game'
+import Game from './pages/game/Game'
 import Forum from './pages/forum/forum'
 import LeaderBord from './pages/leader-board/leader-board'
 import Profile from './pages/profile/profile'

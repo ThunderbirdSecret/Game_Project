@@ -1,7 +1,8 @@
 import resources from './resources'
 
 class Sprite {
-  constructor(url, pos, size, speed, frames, dir, once) {
+  constructor(ctx, url, pos, size, speed, frames, dir, once) {
+    this.ctx = ctx
     this.pos = pos
     this.size = size
     this.speed = typeof speed === 'number' ? speed : 0
@@ -16,7 +17,7 @@ class Sprite {
     this._index += this.speed * dt
   }
 
-  render = ctx => {
+  render = () => {
     let frame
 
     if (this.speed > 0) {
@@ -41,7 +42,7 @@ class Sprite {
       x += frame * this.size[0]
     }
 
-    ctx.drawImage(
+    this.ctx.drawImage(
       resources.get(this.url),
       x,
       y,
