@@ -1,0 +1,46 @@
+@use '@/styles/mixins';
+
+.root {
+  @include mixins.submit-btn;
+  
+  position: relative;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  .background {
+    @include mixins.wh100;
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    transition: opacity 0.5s;
+
+    background: var(--color-bg-body-mask);
+    opacity: 0;
+    border-radius: var(--border-radius-s);
+  }
+
+  &:hover .background {
+    opacity: 0.6;
+
+    transition: opacity 0.5s;
+  }
+
+  .body {
+    
+
+    @include mixins.submit-btn;
+    background: transparent;
+    border-color: var(--color-border-secondary);
+    //min-width: 15rem;
+    padding: 0.5rem;
+
+    position: relative;
+
+    z-index: 2;
+  }
+}

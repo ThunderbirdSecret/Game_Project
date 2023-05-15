@@ -1,0 +1,69 @@
+@use '@/styles/mixins';
+
+$text-size: 6rem;
+$wait-color: rgba(39, 44, 60, 0.87);
+$win-color: rgba(52, 0, 162, 0.65);
+$loser-color: rgba(162, 0, 0, 0.65);
+
+.statdby {
+  display: flex;
+  position: absolute;
+  inset: 0;
+
+  &Loading {
+    background-color: var(--color-bg-body);
+  }
+
+  &Wait {
+    background-color: $wait-color;
+  }
+
+  &Win {
+    background-color: $win-color;
+  }
+
+  &Loser {
+    background-color: $loser-color;
+  }
+
+  &Body {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &Text {
+    font-size: $text-size;
+  }
+
+  &Loading &Text {
+    animation: 5s infinite alternate slidein;
+  }
+
+  &ButtonCont {
+    margin-top: 1rem;
+  }
+
+  &ButtonCont > * {
+    min-width: 6rem;
+  }
+
+  &ButtonCont > * ~ *{
+    margin-left: 1rem;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    color: var(--color-gradient-1);
+  }
+
+  20% {
+    color: var(--color-gradient-2);
+  }
+
+  100% {
+    color: var(--color-gradient-3);
+  }
+}
