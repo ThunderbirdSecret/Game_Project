@@ -1,0 +1,12 @@
+a {
+    font-family: var(--font);
+    color: var(--color-font-primary);
+
+    &:hover {
+        color: var(--color-font-secondary);
+    }
+}
+
+div {
+    align-self: center;
+}
