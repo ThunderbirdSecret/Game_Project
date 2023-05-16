@@ -1,0 +1,92 @@
+@use '../../../styles/mixins';
+
+.root {
+  position: relative;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  &Back {
+    @include mixins.wh100;
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background: var(--color-bg-body-mask);
+    border-radius: var(--border-radius-s);
+    opacity: 0;
+
+    transition: opacity 0.5s;
+  }
+
+  &:hover &Back {
+    opacity: 0.6;
+
+    transition: opacity 0.5s;
+  }
+
+  &Body {
+    @include mixins.submit-btn;
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 0.5rem;
+
+    background: transparent;
+    border-color: var(--color-bg-body-mask);
+  }
+}
+
+/*
+@use '@/styles/mixins';
+
+.root {
+  @include mixins.submit-btn;
+
+  position: relative;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  .background {
+    @include mixins.wh100;
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background: var(--color-bg-body-mask);
+    border-radius: var(--border-radius-s);
+    opacity: 0;
+
+    transition: opacity 0.5s;
+  }
+
+  &:hover .background {
+    opacity: 0.6;
+
+    transition: opacity 0.5s;
+  }
+
+  .body {
+    @include mixins.submit-btn;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 0.5rem;
+
+    // min-width: 15rem;
+
+    background: transparent;
+    border-color: var(--color-border-secondary);
+  }
+}
+*/

@@ -4,19 +4,20 @@ import { Standby } from '@/pages/game/components/stanbdy/standby'
 import styles from './index.module.scss'
 
 export default function Game() {
-  const [gameState, setGameState] = useState(GAME_STATES.FinishLoser)
+  const [gameState, setGameState] = useState(GAME_STATES.Initialize)
 
   const handlehangeState = (st: GAME_STATES) => {
     setGameState(st)
   }
 
-
   return (
     <div className={styles.game}>
-      <Main onChangeState={handlehangeState} />
-      {gameState !== GAME_STATES.Progress && (
-        <Standby gameState={gameState} />
-      )}
+      <div className={styles.gameBody}>
+        <Main />
+        {gameState !== GAME_STATES.Progress && (
+          <Standby gameState={gameState} onChangeState={handlehangeState} />
+        )}
+      </div>
     </div>
   )
 }

@@ -1,43 +1,44 @@
 @use '@/styles/mixins';
 
 $text-size: 6rem;
-$wait-color: rgba(39, 44, 60, 0.87);
-$win-color: rgba(52, 0, 162, 0.65);
-$loser-color: rgba(162, 0, 0, 0.65);
+$wait-color: rgb(39 44 60 / 87%);
+$win-color: rgb(52 0 162 / 65%);
+$loser-color: rgb(162 0 0 / 65%);
 
 .statdby {
-  display: flex;
   position: absolute;
+
+  display: flex;
   inset: 0;
 
-  &Loading {
+  &Initialize {
     background-color: var(--color-bg-body);
   }
 
-  &Wait {
+  &Pause {
     background-color: $wait-color;
   }
 
-  &Win {
+  &FinishWinner {
     background-color: $win-color;
   }
 
-  &Loser {
+  &FinishLoser {
     background-color: $loser-color;
   }
 
   &Body {
-    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
   }
 
   &Text {
     font-size: $text-size;
   }
 
-  &Loading &Text {
+  &Initialize &Text {
     animation: 5s infinite alternate slidein;
   }
 
@@ -49,7 +50,7 @@ $loser-color: rgba(162, 0, 0, 0.65);
     min-width: 6rem;
   }
 
-  &ButtonCont > * ~ *{
+  &ButtonCont > * ~ * {
     margin-left: 1rem;
   }
 }

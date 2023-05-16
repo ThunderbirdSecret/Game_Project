@@ -1,24 +1,42 @@
-import { ReactNode } from 'react'
+import { useNavigate } from 'react-router-dom'
 import cn from 'classnames'
 
 import { GAME_STATES } from '@/pages/game/components/main'
-import TransparentButton from '@/pages/game/components/transparentButton/transparentButton'
+import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
+import { ROUTES } from '../../../../routes'
 
 import styles from './index.module.scss'
 
 type Pops = {
   gameState: GAME_STATES
+  onChangeState: (gameState: GAME_STATES) => void
 }
 
-export const Standby = ({ gameState }: Pops) => {
-  // ddd
-  // const rr = 1;
-  console.info(gameState)
+export const Standby = ({ gameState, onChangeState }: Pops) => {
+  const navigate = useNavigate()
+
+  const nextState = (state: GAME_STATES) => {
+    const index = Number(state)
+    const key = GAME_STATES[index + 1]
+
+    const newState = key
+      ? GAME_STATES[key as keyof typeof GAME_STATES]
+      : GAME_STATES.Initialize
+    return newState
+  }
+
+  const getKeyState = (state: GAME_STATES) =>
+    GAME_STATES[Number(state)];
+
+  const standbyClassName = () =>{
+    const key = `statdby${getKeyState(gameState)}`;
+    return styles[key];
+  }
 
   const standbyText = () => {
     let text
     switch (gameState) {
-      case GAME_STATES.Loading:
+      case GAME_STATES.Initialize:
         text = 'Start...'
         break
       case GAME_STATES.Pause:
@@ -37,56 +55,52 @@ export const Standby = ({ gameState }: Pops) => {
   }
 
   const homeButton = () => (
-    <TransparentButton type="button">home</TransparentButton>
+    <TransparentButton type="button" onClick={() => navigate(ROUTES.MAIN)}>
+      home
+    </TransparentButton>
+  )
+  const resumeButton = () => (
+    <TransparentButton
+      type="button"
+      onClick={() => onChangeState(GAME_STATES.Progress)}>
+      resume
+    </TransparentButton>
+  )
+  const newGameButton = () => (
+    <TransparentButton
+      type="button"
+      onClick={() => onChangeState(GAME_STATES.Initialize)}>
+      new game
+    </TransparentButton>
+  )
+  const nextTest = () => (
+    <TransparentButton
+      type="button"
+      onClick={() => {
+        onChangeState(nextState(gameState))
+      }}>
+      next
+    </TransparentButton>
   )
 
   const standbyButtons = () => {
-    switch (gameState) {
-      case GAME_STATES.Loading:
-        return homeButton()
-        break
-      case GAME_STATES.Pause:
-        return (
-          <>
-            {homeButton()}
-            <TransparentButton type="button">start</TransparentButton>
-          </>
-        )
-        break
-      case GAME_STATES.FinishWinner:
-      case GAME_STATES.FinishLoser:
-        return (
-          <>
-            {homeButton()}
-            <TransparentButton type="button">new game</TransparentButton>
-          </>
-        )
-        break
-      default:
-        break
-    }
-    return undefined
-  }
+    const buttons = [homeButton()]
 
-  const standbyClassName = () => {
-    let className
     switch (gameState) {
-      case GAME_STATES.Loading:
-        className = styles.statdbyLoading
-        break
       case GAME_STATES.Pause:
-        className = styles.statdbyWait
+        buttons.push(resumeButton())
         break
       case GAME_STATES.FinishWinner:
-        className = styles.statdbyWin
-        break
       case GAME_STATES.FinishLoser:
-        className = styles.statdbyLoser
+        buttons.push(newGameButton())
         break
       default:
-        className = ''
+        break
     }
-    return className
+
+    buttons.push(nextTest())
+
+    return buttons
   }
 
   return (

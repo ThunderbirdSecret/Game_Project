@@ -3,9 +3,5 @@
 .main {
   @include mixins.wh100;
 
-  width: 1100px;
-  height: 600px;
   background: white;
-  margin: auto;
 }
-

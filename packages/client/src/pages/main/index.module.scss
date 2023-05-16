@@ -25,8 +25,8 @@ $image-radius: 200px;
 }
 
 .rigth {
-  padding: $offset + 1rem;
   align-self: center;
+  padding: $offset + 1rem;
 }
 
 .game {
@@ -49,6 +49,7 @@ $image-radius: 200px;
 
   &Desc {
     max-width: 35rem;
+
     font-size: 3rem;
   }
 
@@ -71,8 +72,6 @@ $image-radius: 200px;
 }
 
 @mixin button() {
-  @include mixins.submit-btn;
-
   min-width: 15rem;
   padding: 2rem 1.5rem;
 
@@ -85,28 +84,22 @@ $image-radius: 200px;
 .buttonStart {
   margin: 5rem 3rem 0 0;
 
-  &Body {
+  & &Body {
     @include button;
 
     font-weight: 700;
   }
 
-  &Back {
+  & &Back {
     @include mixins.btn-gradient;
-    border-radius: var(--border-radius-s);
+    opacity: 1;
   }
 }
 
 .buttonDoc {
   margin: 5rem 3rem 0 0;
 
-  &Body {
+  & &Body {
     @include button;
-    background: transparent;
-  }
-
-  &Back {
-    background: var(--color-bg-body-mask);
-    opacity: 0;
   }
 }
