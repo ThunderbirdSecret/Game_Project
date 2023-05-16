@@ -1,8 +1,22 @@
+@use 'normalize.css/normalize.css';
 @use './mixins';
+
+// так я проверяю что с разметкой
+// {
+//  border: 1px solid red;
+//  box-sizing: border-box;
+// }
+
+// если кто-то захочет убрать, надо будет проверять pages/main
+* {
+  box-sizing: border-box;
+}
 
 html {
   @include mixins.wh100;
+
   color: var(--color-font-primary);
+  line-height: 1.25;
 }
 
 body {

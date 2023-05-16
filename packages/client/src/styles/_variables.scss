@@ -2,20 +2,30 @@
 @use '@fontsource/jost';
 
 :root {
+  // если неудобно использовать цвета по принадлежности,
+  // то можно просто завести палитру color1, color12, ...
+  // можно уменьшить количество цветов
+
   // color primary
+  // использовать bg только для фона
   --color-bg-primary: #1b5366;
   --color-bg-primary-hover: #507b89;
-  --color-bg-primary-contrast: #21d4fd; // используется для кнопок, текста, границ
-  --color-bg-primary-border: #1b5366;
-  --color-border-muted: #5f8694;
+  --color-bg-secondary: #00b4dd; // #21d4fd куда-то ушел
+
+  // использовать для границ
+  --color-border-primary: #00b4dd; // или этот 21d4fd
+  --color-border-secondary: #5f8694;
 
   // color other
+  // использовать bg только для фона
   --color-bg-body: #202029;
-  --color-bg-secondary: #1b202f; // Leader board header
+  --color-bg-body-mask: rgba(255 255 255 / 30%);
 
   // gradient
-  --color-title-gradient-start: #a3e2f0;
-  --color-title-gradient-end: #257b8e;
+  // использовать цвета только для градиента
+  --color-gradient-1: #21d4fd;
+  --color-gradient-2: #a3e2f0;
+  --color-gradient-3: #1b5366; //#257b8e;
 
   // font
   --color-font-white: #fff;
@@ -31,6 +41,10 @@
   // border
   --border-radius-s: 8px;
   --border-radius-m: 11px;
+
+  // на удаление
+  --color-title-gradient-start: #a3e2f0;
+  --color-title-gradient-end: #257b8e;
 }
 
 // $emodjiSymbol: #C3C7CA;

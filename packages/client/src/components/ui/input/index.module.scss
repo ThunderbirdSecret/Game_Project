@@ -1,0 +1,17 @@
+@use '../../../styles/mixins';
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label {
+  @include mixins.input-label;
+}
+
+.element {
+  height: calc(1.25rem + 2px);
+
+  @include mixins.input-form;
+}
