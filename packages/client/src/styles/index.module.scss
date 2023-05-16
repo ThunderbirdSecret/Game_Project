@@ -2,6 +2,10 @@
 @use './normalize';
 @use './mixins';
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   color: var(--color-font-primary);
   font-size: 16px;
