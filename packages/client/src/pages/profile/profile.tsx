@@ -4,7 +4,7 @@ import { BASE_URL } from '@/api/index'
 import axios from 'axios'
 import ProfileForm, { InputContent } from '@/components/form/ProfileForm/ProfileForm'
 
-const Profile = ()  => {
+export const Profile = ()  => {
 
     const DataLoading = Loader(ProfileForm)
     const [userData, setUserData] = useState<{ loading: boolean; userInput?: InputContent }>({
@@ -32,5 +32,3 @@ const Profile = ()  => {
         <DataLoading isLoading={userData.loading} userInput={userData.userInput} />
     </div>
   }
-
-export default Profile
