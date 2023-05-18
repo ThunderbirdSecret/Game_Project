@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import {
   Navigate,
   Route,
@@ -14,9 +13,7 @@ import Error404 from './pages/page-error/Error404'
 import Register from './pages/register/register'
 import { Auth } from './pages/auth/auth'
 import Documentation from './pages/documentation/documentation'
-
 import { ROUTES } from './routes'
-
 import style from './styles/index.module.scss'
 import { Profile } from './pages/profile/Profile'
 

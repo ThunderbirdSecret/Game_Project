@@ -1,8 +1,8 @@
-import Loader from "@/components/ui/loader/Loader"
-import { useEffect, useState } from "react"
-import { BASE_URL } from "@/api/index"
-import axios from "axios"
-import { ProfileForm } from "./ProfileForm"
+import Loader from '@/components/ui/loader/Loader'
+import { useEffect, useState } from 'react'
+import { BASE_URL } from '@/api/index'
+import axios from 'axios'
+import { ProfileForm } from './ProfileForm'
 
 export function Profile(){
 
@@ -11,7 +11,7 @@ export function Profile(){
         loading: true,
         userInput: undefined
     })
-  // Временное решение пока нет redux
+  // Временное решение пока нет редакса
     useEffect(() => {
         setUserData({ loading: true, userInput: undefined })
         const fetch = async() => {
@@ -28,7 +28,7 @@ export function Profile(){
         fetch()
     },[setUserData])
 
-    return <div className="">
+    return <div>
         <DataLoading isLoading={userData.loading} userInput={userData.userInput} />
     </div>
   }

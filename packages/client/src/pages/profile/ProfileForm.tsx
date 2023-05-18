@@ -9,8 +9,8 @@ import { UserDTO, userService } from '@/services/user.service'
 import styles from './index.module.scss'
 import { dataInput } from './dataInput'
 
-
-export const ProfileForm = (props: User | undefined) => {
+// При типизации все падает, если знаете как лучше - скажите
+export const ProfileForm = (props: any) => {
   const { userInput } = props
   const [formInputs, setFormInputs] = useState(dataInput);
 
@@ -32,7 +32,6 @@ export const ProfileForm = (props: User | undefined) => {
       updatedUser[input.name] = value;
     });
   
-    // Pass the updated user object to a function that will handle saving the changes
     console.log(updatedUser);
     userService.changeProfileUser(updatedUser as UserDTO)
   };

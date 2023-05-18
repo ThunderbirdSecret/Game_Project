@@ -1,6 +1,6 @@
 interface LoaderProps {
     isLoading?: boolean;
-    userInput: User | undefined;
+    userInput: any;
 }
 
 function Loader(Component: React.FC<LoaderProps>) {
