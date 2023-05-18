@@ -2,7 +2,6 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { FormLayout } from '@/components/form/FormLayout/FormLayout'
-import { Title } from '@/components/ui/Title/Title'
 import { Button } from '@/components/ui/Button/Button'
 import Input from '@/components/ui/input/Input'
 
@@ -43,47 +42,12 @@ export const Auth = () => {
   }
 
   return (
-    <main className={styles.container}>
-      <div className={styles.content}>
-        <FormLayout>
-          <Title className={styles.title}>Sign In</Title>
-          <form onSubmit={onLogin}>
-            <div className={styles.formGroup}>
-              <Input
-                title="Login"
-                id="login"
-                name="login"
-                value={formFields.login}
-                onChange={onChangeField}
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <Input
-                type="password"
-                title="Password"
-                id="password"
-                name="password"
-                value={formFields.password}
-                onChange={onChangeField}
-                className={styles.input}
-              />
-            </div>
-            <Link to="/" className={styles.remindLink}>
-              Remind me of my password
-            </Link>
-            <div className={styles.buttonContainer}>
-              <Button type="submit" className={styles.buttonSubmit}>
-                Login
-              </Button>
-            </div>
-            {error && <p className={styles.errorMessage}>{error}</p>}
-          </form>
-        </FormLayout>
-
+    <FormLayout
+      title="Sign In"
+      bottom={
         <div className={styles.afterFormBlock}>
           <p>
-            <Link to="/register">Sign In</Link>
+            <Link to="/register">Sign Up</Link>
           </p>
           <div className={styles.borderLine} />
           <p>or</p>
@@ -91,7 +55,39 @@ export const Auth = () => {
             <YandexIcon />
           </Link>
         </div>
-      </div>
-    </main>
+      }>
+      <form onSubmit={onLogin}>
+        <div className={styles.formGroup}>
+          <Input
+            title="Login"
+            id="login"
+            name="login"
+            value={formFields.login}
+            onChange={onChangeField}
+            className={styles.input}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <Input
+            type="password"
+            title="Password"
+            id="password"
+            name="password"
+            value={formFields.password}
+            onChange={onChangeField}
+            className={styles.input}
+          />
+        </div>
+        <Link to="/" className={styles.remindLink}>
+          Remind me of my password
+        </Link>
+        <div className={styles.buttonContainer}>
+          <Button type="submit" className={styles.buttonSubmit}>
+            Login
+          </Button>
+        </div>
+        {error && <p className={styles.errorMessage}>{error}</p>}
+      </form>
+    </FormLayout>
   )
 }

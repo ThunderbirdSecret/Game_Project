@@ -1,3 +1,16 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .layout {
   padding: 30px 50px 55px;
   background: #1B5366;
@@ -6,4 +19,10 @@
 
   max-width: 433px;
   width: 100%;
+  margin-top: 50px;
+}
+
+.title {
+  color: #fff;
+  margin-bottom: 20px;
 }

@@ -10,8 +10,12 @@ html {
   background-color: var(--color-bg-body);
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
 body {
-  overflow: hidden;
   margin: 0;
 }
 
