@@ -1,10 +1,10 @@
 interface LoaderProps {
     isLoading?: boolean;
-    userInput: any;
+    userInput?: User;
 }
 
-function Loader(Component: React.FC<LoaderProps>) {
-    return function LoadingPersonsData({ isLoading, userInput }:LoaderProps) {
+function Loader(Component: React.FC<{ userInput?: User }>) {
+    return function LoadingPersonsData({ isLoading, userInput }:LoaderProps): JSX.Element {
         if (!isLoading){ 
             return <Component userInput={userInput} />
         }

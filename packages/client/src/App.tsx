@@ -14,8 +14,8 @@ import Register from './pages/register/register'
 import { Auth } from './pages/auth/auth'
 import Documentation from './pages/documentation/documentation'
 import { ROUTES } from './routes'
-import { Profile } from './pages/profile/Profile'
 import style from './styles/index.module.scss'
+import Profile from './pages/profile/Profile'
 
 function App() {
   // TODO: приватные роуты будут готовы после того, как будет готова авторизация
