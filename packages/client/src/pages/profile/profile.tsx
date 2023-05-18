@@ -4,7 +4,7 @@ import { BASE_URL } from '@/api/index'
 import axios from 'axios'
 import { ProfileForm } from './ProfileForm'
 
-export function Profile(){
+export const Profile = () => {
 
     const DataLoading = Loader(ProfileForm)
     const [userData, setUserData] = useState({
