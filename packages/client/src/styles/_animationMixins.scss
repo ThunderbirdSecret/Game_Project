@@ -1,5 +1,15 @@
 @mixin animation-wrapper {
+  // media
   @media (prefers-reduced-motion: no-preference) {
     @content;
+  }
+}
+
+@mixin hover-wrapper {
+  @include animation-wrapper {
+    // media
+    @media (any-hover: hover) {
+      @content;
+    }
   }
 }

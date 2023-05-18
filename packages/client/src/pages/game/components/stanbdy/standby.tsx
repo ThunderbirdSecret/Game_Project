@@ -38,70 +38,55 @@ export const Standby = ({ gameState, onChangeState }: Pops) => {
 
   // имя класса по статусу
   const standbyClassName = () => {
-    const key = GAME_STATES[Number(gameState)]
+    const key = String(GAME_STATES[Number(gameState)])
 
     const styleKey = `statdby${key}`
     return styles[styleKey]
   }
 
-  // все возможные кнопки для панели
-  const homeButton = () => (
-    <TransparentButton type="button" onClick={() => navigate(ROUTES.MAIN)}>
-      home
-    </TransparentButton>
-  )
-  const resumeButton = () => (
-    <TransparentButton
-      type="button"
-      onClick={() => onChangeState(GAME_STATES.Progress)}>
-      resume
-    </TransparentButton>
-  )
-  const newGameButton = () => (
-    <TransparentButton
-      type="button"
-      onClick={() => onChangeState(GAME_STATES.Initialize)}>
-      new game
-    </TransparentButton>
-  )
-  const nextTest = () => (
-    <TransparentButton
-      type="button"
-      onClick={() => {
-        onChangeState(nextState(gameState))
-      }}>
-      next
-    </TransparentButton>
-  )
+  // прозрачная кнопка для панели
+  let buttonIndex = 0
+  const button = (text: string, onClick: () => void) => {
+    buttonIndex += 1
+    return (
+      <TransparentButton key={buttonIndex} type="button" onClick={onClick}>
+        {text}
+      </TransparentButton>
+    )
+  }
 
   // набор кнопок для статуса
   const standbyButtons = () => {
-    const buttons = [homeButton()]
+    const buttons = [button('home', () => navigate(ROUTES.MAIN))]
 
     switch (gameState) {
       case GAME_STATES.Pause:
-        buttons.push(resumeButton())
+        buttons.push(
+          button('resume', () => onChangeState(GAME_STATES.Progress))
+        )
         break
       case GAME_STATES.FinishWinner:
       case GAME_STATES.FinishLoser:
-        buttons.push(newGameButton())
+        buttons.push(
+          button('new game', () => onChangeState(GAME_STATES.Initialize))
+        )
         break
       default:
         break
     }
 
-    buttons.push(nextTest())
+    buttons.push(button('next', () => onChangeState(nextState(gameState))))
 
     return buttons
   }
 
   return (
-    <div className={cn(styles.statdby, standbyClassName())}>
+    <section className={cn(styles.statdby, standbyClassName())}>
       <div className={styles.statdbyBody}>
         <div className={styles.statdbyText}>{standbyText[gameState]}</div>
 
         <div className={styles.statdbyButtonCont}>{standbyButtons()}</div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -21,16 +21,16 @@
     opacity: 0;
 
     content: '';
-
-    @include animationMixins.animation-wrapper {
-      transition: opacity 0.5s;
-    }
   }
 
-  &:hover::before {
-    opacity: 0.6;
+  @include animationMixins.hover-wrapper {
+    &::before {
+      transition: opacity 1s;
+    }
 
-    @include animationMixins.animation-wrapper {
+    &:hover::before {
+      opacity: 0.6;
+
       transition: opacity 0.5s;
     }
   }

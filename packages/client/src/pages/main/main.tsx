@@ -17,7 +17,7 @@ export default function Main() {
   }
 
   return (
-    <div className={style.root}>
+    <main className={style.root}>
       <div className={style.body}>
         <div className={style.left}>
           <div className={style.gameName}>
@@ -54,6 +54,6 @@ export default function Main() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }

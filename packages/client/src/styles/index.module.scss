@@ -1,6 +1,7 @@
 @use './variables';
 @use './normalize';
 @use './mixins';
+@use './animationMixins';
 
 html {
   color: var(--color-font-primary);
@@ -11,8 +12,8 @@ html {
 }
 
 body {
-  overflow: hidden;
   margin: 0;
+  overflow: hidden;
 }
 
 input {
@@ -31,6 +32,8 @@ input {
   @include mixins.wh100;
 }
 
-a:hover {
-  color: var(--color-font-secondary);
+@include animationMixins.hover-wrapper {
+  a:hover {
+    color: var(--color-font-secondary);
+  }
 }
