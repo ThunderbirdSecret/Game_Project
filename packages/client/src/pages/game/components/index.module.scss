@@ -1,0 +1,7 @@
+@use '@/styles/mixins';
+
+.main {
+  @include mixins.wh100;
+
+  background: white;
+}
