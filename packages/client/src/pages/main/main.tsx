@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
-import BigButton from './components/bigButton'
-import style from './index.module.scss'
+
+import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
 import { ROUTES } from '../../routes'
+
+import style from './index.module.scss'
 
 export default function Main() {
   const navigate = useNavigate()
@@ -15,7 +17,7 @@ export default function Main() {
   }
 
   return (
-    <div className={style.root}>
+    <main className={style.root}>
       <div className={style.body}>
         <div className={style.left}>
           <div className={style.gameName}>
@@ -27,20 +29,18 @@ export default function Main() {
           </div>
 
           <nav>
-            <BigButton
+            <TransparentButton
               className={style.buttonStart}
               bodyClassName={style.buttonStartBody}
-              backgroundClassName={style.buttonStartBack}
               onClick={onClickStartGame}>
               Get started
-            </BigButton>
-            <BigButton
+            </TransparentButton>
+            <TransparentButton
               className={style.buttonDoc}
               bodyClassName={style.buttonDocBody}
-              backgroundClassName={style.buttonDocBack}
               onClick={onClickDocum}>
               Documentation
-            </BigButton>
+            </TransparentButton>
           </nav>
         </div>
 
@@ -54,6 +54,6 @@ export default function Main() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }

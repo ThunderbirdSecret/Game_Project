@@ -9,7 +9,6 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export const Button: FC<ButtonProps> = ({
   className,
-  onClick,
   type = 'button',
   styles,
   ...props
