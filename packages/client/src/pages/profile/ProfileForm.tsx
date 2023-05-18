@@ -4,94 +4,62 @@ import AvatarUploader from '@/components/ui/avatar-uploader/AvatarUploader'
 import { Button } from '@/components/ui/Button/Button'
 import Input from '@/components/ui/input/Input'
 import Logout from '@/components/ui/logout/Logout'
+import { useState } from 'react'
+import { UserDTO, userService } from '@/services/user.service'
 import styles from './index.module.scss'
 import { dataInput } from './dataInput'
 
 
-export function ProfileForm (props: any) {
+export const ProfileForm = (props: User | undefined) => {
   const { userInput } = props
+  const [formInputs, setFormInputs] = useState(dataInput);
 
-  if(!userInput || userInput.length === 0) return <p>Error upload data</p>
-
-
- /* const [formInputs, setFormInputs] = useState(dataInput);
-
-   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-
-    const updatedFormInputs = formInputs
-      .map((input) => input.name === name ? { ...input, value } : input)
-      // .reduce((arr, item) => {
-      //   const key = item.name
-
-      //   if (tempStrogage[key]) {
-      //     item.placeholder = tempStrogage[key];
-      //   } else {
-      //     item.placeholder = 'no';
-      //   }
-      //   arr.push(item);
-      //   return arr;
-      
-      // },[]);
+    const updatedFormInputs = formInputs.map((input) =>
+      input.name === name ? { ...input, value } : input
+    );
     setFormInputs(updatedFormInputs);
   };
 
-  
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): UserDTO => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    
-    userService.getUser().then(data => const tempStrogage = (data))
-
-    console.log('rere', tempStrogage)
-    const inputContent: any = {};
-    formInputs.forEach((input: FormInput) => {inputContent[input.name] = input.value as string || 'unknown' } )
-
-    return inputContent as UserDTO
-  }
   
-  const profileChange = async(event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-      userService.getUser()
+    const updatedUser = { ...userInput };
+    delete updatedUser.id
+    formInputs.forEach((input) => {
+      const value = input.value || userInput[input.name];
+      updatedUser[input.name] = value;
+    });
+  
+    // Pass the updated user object to a function that will handle saving the changes
+    console.log(updatedUser);
+    userService.changeProfileUser(updatedUser as UserDTO)
+  };
 
-    const userData:UserDTO = handleSubmit(event)
-    const response = await userService.changeProfileUser(userData)
-
-    console.log(response)
-  }
-
-  // const userData = () => {
-  //   const el = []
-  //   userService.getUser().then(data => el.push(data))
-
-  // } */
-
-
-
+  if(!userInput || userInput.length === 0) return <p>Error upload data</p>
 
   return (
     <main className={styles.container}>
       <div className={styles.content}>
         <FormLayout>
           <Title className={styles.title}>Settings Profile</Title>
-          <AvatarUploader preview='/photo.jpg'/>
+          <AvatarUploader preview={userInput.avatar}/>
           <form className={styles.textContent}
-          //  onSubmit={profileChange}
+            onSubmit={handleSubmit}
            >
           
-            {dataInput.map((item) => (<div className={styles.formGroup} key={userInput[item.name]}>
+            {formInputs.map((item) => (<div className={styles.formGroup} key={userInput[item.name]}>
               <Input
                 title={item.title}
-                id={userInput.id}
-                name={userInput.name}
-                // onChange={handleInputChange}
+                name={item.name}
+                onChange={handleInputChange}
                 className={styles.input}  
-                value={item.value || userInput[item.name]}
-                placeholder={userInput.first_name}
+                value={item.value || ''}
+                type={item.type}
+                placeholder={userInput[item.name]}
               />
             </div>))}
-            <div>
-              <h2>{userInput.name}</h2>
-            </div>
             <div className={styles.buttonContainer}>
               <Button type="submit" className={styles.buttonSubmit}>
                 Change

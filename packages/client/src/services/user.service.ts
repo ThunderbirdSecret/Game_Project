@@ -24,28 +24,19 @@ export const userService = {
       withCredentials: true,
     });
   },
-  
-  updateUser(data: User) {
-    return API.put("/user", data, {
-      withCredentials: true,
-    });
-  },
 
   async changeProfileUser(data: UserDTO){
     return (await API.put<UserDTO>('/user/profile', data)).data
 
   },
 
-  // async changeAvatar(file: FormData) {        
-  //   try {
-  //     const res = await API.put('/user/profile/avatar', file, {
-  //         withCredentials: true,
-  //       })
-  //     return res.data
-  //   } catch(e) {
-  //  //@ts-expect-error
-  //       alert(e.reason)
-  //   }
-  // }
+  async changeAvatar(file: FormData) {      
+      return (await API.put('/user/profile/avatar', file, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": 'multipart/form-data'
+        }
+      })).data
+  }
 }
 
