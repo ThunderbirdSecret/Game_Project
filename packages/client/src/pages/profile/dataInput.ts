@@ -3,31 +3,35 @@ export const dataInput = [
         title: "Login",
         id: "login",
         name: "login",
-        value: ''
+        value: '',
     },
     {
         title: "First name",
         id: "first_name",
         name: "first_name",
-        value: ''
+        value: '',
+        placeholder: ''
     },
     {
         title: "Second name",
         id: "second_name",
         name: "second_name",
-        value: ''
+        value: '',
+        placeholder: ''
     },
     {
         title: "Display name",
         id: "display_name",
         name: "display_name",
-        value: ''
+        value: '',
+        placeholder: ''
     },
     {
         title: "phone",
         id: "phone",
         name: "phone",
-        value: ''
+        value: '',
+        placeholder: ''
     },
     {
         title: "email",

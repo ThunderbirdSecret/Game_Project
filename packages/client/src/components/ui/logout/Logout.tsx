@@ -1,18 +1,23 @@
-import { authService } from "@/services/auth.service";
+import { authService } from "@/services/auth.service"
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"
+import style from './index.module.scss'
 
 interface LogoutProps {
     styles?: string;
 }
 
 const Logout: React.FC = ({styles}:LogoutProps) => {
-  const handleLogout = () => {
-    authService.logout()
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    await authService.logout()
+
+    navigate('/auth')
   };
 
   return (
-    <div>
+    <div className={style.logout}>
         <Link to="/" 
             onClick={handleLogout} 
             className={styles}

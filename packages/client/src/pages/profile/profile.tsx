@@ -1,81 +1,34 @@
-import { FormEvent, useState } from 'react'
-import { UserDTO, userService } from '@/services/user.service'
-import { FormLayout } from '@/components/form/FormLayout/FormLayout'
-import { Title } from '@/components/ui/Title/Title'
-import AvatarUploader from '@/components/ui/avatar-uploader/AvatarUploader'
-import { Button } from '@/components/ui/Button/Button'
-import Input from '@/components/ui/input/Input'
-import { dataInput } from './dataInput'
-import styles from './index.module.scss'
+import Loader from "@/components/ui/loader/Loader"
+import { useEffect, useState } from "react"
+import { BASE_URL } from "@/api/index"
+import axios from "axios"
+import { ProfileForm } from "./ProfileForm"
 
+export function Profile(){
 
-interface FormInput {
-  name: string;
-  value: string;
-}
+    const DataLoading = Loader(ProfileForm)
+    const [userData, setUserData] = useState({
+        loading: true,
+        userInput: undefined
+    })
+  // Временное решение пока нет redux
+    useEffect(() => {
+        setUserData({ loading: true, userInput: undefined })
+        const fetch = async() => {
+            await axios.get(`${BASE_URL}/auth/user`, {
+                withCredentials: true
+            }).then((res) => {
+                const allDataUser = res.data
+                setUserData({
+                    loading: false,
+                    userInput: allDataUser
+                })
+            })
+        } 
+        fetch()
+    },[setUserData])
 
-export const Profile = () => {
-  const [formInputs, setFormInputs] = useState(dataInput);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    const updatedFormInputs = formInputs.map((input) =>
-      input.name === name ? { ...input, value } : input
-    );
-    setFormInputs(updatedFormInputs);
-  };
-
-  
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): UserDTO => {
-    event.preventDefault();
-
-    const inputContent: any = {};
-    formInputs.forEach((input: FormInput) => {inputContent[input.name] = input.value as string || 'unknown' } )
-
-    return inputContent as UserDTO
+    return <div className="">
+        <DataLoading isLoading={userData.loading} userInput={userData.userInput} />
+    </div>
   }
-  
-  const profileChange = async(event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    userService.getUser()
-
-    const userData:UserDTO = handleSubmit(event)
-    const response = await userService.changeProfileUser(userData)
-
-    console.log(response)
-  }
-
-
-
-
-  return (
-    <main className={styles.container}>
-      <div className={styles.content}>
-        <FormLayout>
-          <Title className={styles.title}>Settings Profile</Title>
-          <AvatarUploader preview='/photo.jpg'/>
-          <form className={styles.textContent} onSubmit={profileChange}>
-            {formInputs.map((item) => (
-            <div className={styles.formGroup} key={item.name}>
-              <Input
-                title={item.title}
-                id={item.id}
-                name={item.name}
-                onChange={handleInputChange}
-                className={styles.input}  
-                value={item.value || ''}
-                placeholder='data'
-              />
-            </div>))}
-            <div className={styles.buttonContainer}>
-              <Button type="submit" className={styles.buttonSubmit}>
-                Change
-              </Button>
-            </div>
-            <div className='logout'>Logout</div>
-          </form>
-        </FormLayout>
-      </div>
-    </main>
-  )
-}

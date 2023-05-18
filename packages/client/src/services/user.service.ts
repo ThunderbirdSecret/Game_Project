@@ -1,3 +1,4 @@
+
 import { API } from '../api'
 
 export type UserDTO = {
@@ -10,9 +11,12 @@ export type UserDTO = {
   email: string
 }
 
+
+
 export const userService = {
   async getUser() {
-    return (await API.get<User>('/auth/user')).data
+    const user = await API.get<User>('/auth/user')
+    return user
   },
 
   reading(): Promise<User> {
