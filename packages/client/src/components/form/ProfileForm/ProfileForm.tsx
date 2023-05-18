@@ -15,6 +15,7 @@ export interface InputContent {
 export interface ProfileProps {
   userInput?: InputContent;
 }
+// При типизации все падает, если знаете как лучше - скажите
 const ProfileForm = (props: ProfileProps) => {
   const { userInput } = props
   const [formInputs, setFormInputs] = useState(dataInput);
