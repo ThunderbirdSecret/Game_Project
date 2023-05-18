@@ -4,6 +4,7 @@ export const dataInput = [
         id: "login",
         name: "login",
         value: '',
+        placeholder: '',
         type: 'text'
     },
     {
@@ -43,6 +44,7 @@ export const dataInput = [
         id: "email",
         name: "email",
         value: '',
+        placeholder: '',
         type: 'email'
     }
     

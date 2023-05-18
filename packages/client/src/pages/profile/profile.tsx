@@ -2,12 +2,12 @@ import Loader from '@/components/ui/loader/Loader'
 import { useEffect, useState } from 'react'
 import { BASE_URL } from '@/api/index'
 import axios from 'axios'
-import { ProfileForm } from './ProfileForm'
+import ProfileForm, { InputContent } from '@/components/form/ProfileForm/ProfileForm'
 
-const Profile = (): JSX.Element  => {
+const Profile = ()  => {
 
     const DataLoading = Loader(ProfileForm)
-    const [userData, setUserData] = useState<{ loading: boolean; userInput?: User }>({
+    const [userData, setUserData] = useState<{ loading: boolean; userInput?: InputContent }>({
         loading: true,
         userInput: undefined
     })

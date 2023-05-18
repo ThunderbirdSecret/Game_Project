@@ -6,11 +6,17 @@ import Input from '@/components/ui/input/Input'
 import Logout from '@/components/ui/logout/Logout'
 import { useState } from 'react'
 import { UserDTO, userService } from '@/services/user.service'
+import { dataInput } from '@/pages/profile/dataInput'
 import styles from './index.module.scss'
-import { dataInput } from './dataInput'
 
+export interface InputContent {
+  [key: string]: string;
+}
+export interface ProfileProps {
+  userInput?: InputContent;
+}
 // При типизации все падает, если знаете как лучше - скажите
-export const ProfileForm = (props: any) => {
+const ProfileForm = (props: ProfileProps) => {
   const { userInput } = props
   const [formInputs, setFormInputs] = useState(dataInput);
 
@@ -28,15 +34,15 @@ export const ProfileForm = (props: any) => {
     const updatedUser = { ...userInput };
     delete updatedUser.id
     formInputs.forEach((input) => {
+      if(!userInput) return
       const value = input.value || userInput[input.name];
       updatedUser[input.name] = value;
     });
   
-    console.log(updatedUser);
     userService.changeProfileUser(updatedUser as UserDTO)
   };
 
-  if(!userInput || userInput.length === 0) return <p>Error upload data</p>
+  if(!userInput) return <p>Error upload data</p>
 
   return (
     <main className={styles.container}>
@@ -71,3 +77,5 @@ export const ProfileForm = (props: any) => {
     </main>
   )
 }
+
+export default ProfileForm;

@@ -1,10 +1,12 @@
+import { InputContent } from "@/components/form/ProfileForm/ProfileForm";
+
 interface LoaderProps {
     isLoading?: boolean;
-    userInput?: User;
+    userInput?: InputContent;
 }
 
-function Loader(Component: React.FC<{ userInput?: User }>) {
-    return function LoadingPersonsData({ isLoading, userInput }:LoaderProps): JSX.Element {
+function Loader(Component: React.FC<{ userInput?: InputContent }>) {
+    return function LoadingPersonsData({ isLoading, userInput }:LoaderProps) {
         if (!isLoading){ 
             return <Component userInput={userInput} />
         }
