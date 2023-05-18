@@ -1,4 +1,5 @@
 @use '@/styles/mixins';
+@use '@/styles/animationMixins';
 
 $text-size: 6rem;
 $wait-color: rgb(39 44 60 / 87%);
@@ -38,8 +39,10 @@ $loser-color: rgb(162 0 0 / 65%);
     font-size: $text-size;
   }
 
-  &Initialize &Text {
-    animation: 5s infinite alternate slidein;
+  @include animationMixins.animation-wrapper {
+    &Initialize &Text {
+      animation: 5s infinite alternate slidein;
+    }
   }
 
   &ButtonCont {

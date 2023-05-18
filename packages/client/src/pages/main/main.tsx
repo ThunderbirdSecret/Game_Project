@@ -9,12 +9,10 @@ export default function Main() {
   const navigate = useNavigate()
 
   const onClickStartGame = () => {
-    
     navigate(ROUTES.GAME)
   }
 
   const onClickDocum = () => {
-    
     navigate(ROUTES.DOCUMENTAION)
   }
 
@@ -34,14 +32,12 @@ export default function Main() {
             <TransparentButton
               className={style.buttonStart}
               bodyClassName={style.buttonStartBody}
-              backgroundClassName={style.buttonStartBack}
               onClick={onClickStartGame}>
               Get started
             </TransparentButton>
             <TransparentButton
               className={style.buttonDoc}
               bodyClassName={style.buttonDocBody}
-              backgroundClassName={style.buttonDocBack}
               onClick={onClickDocum}>
               Documentation
             </TransparentButton>

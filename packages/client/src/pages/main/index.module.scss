@@ -90,7 +90,7 @@ $image-radius: 200px;
     font-weight: 700;
   }
 
-  & &Back {
+  &::before {
     @include mixins.btn-gradient;
     opacity: 1;
   }

@@ -1,0 +1,5 @@
+@mixin animation-wrapper {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}

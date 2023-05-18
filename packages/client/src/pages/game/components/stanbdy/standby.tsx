@@ -9,12 +9,22 @@ import styles from './index.module.scss'
 
 type Pops = {
   gameState: GAME_STATES
-  onChangeState: (gameState: GAME_STATES) => void
+  onChangeState(gameState: GAME_STATES): void
 }
 
+const standbyText: Record<GAME_STATES, string> = {
+  [GAME_STATES.Initialize]: 'Start...',
+  [GAME_STATES.Pause]: 'Pause',
+  [GAME_STATES.FinishWinner]: 'You Win',
+  [GAME_STATES.FinishLoser]: 'You Died',
+  [GAME_STATES.Progress]: '',
+}
+
+// Standby
 export const Standby = ({ gameState, onChangeState }: Pops) => {
   const navigate = useNavigate()
 
+  // для тестирования - временный вариант смены статусов
   const nextState = (state: GAME_STATES) => {
     const index = Number(state)
     const key = GAME_STATES[index + 1]
@@ -24,36 +34,17 @@ export const Standby = ({ gameState, onChangeState }: Pops) => {
       : GAME_STATES.Initialize
     return newState
   }
+  // end для тестирования
 
-  const getKeyState = (state: GAME_STATES) =>
-    GAME_STATES[Number(state)];
+  // имя класса по статусу
+  const standbyClassName = () => {
+    const key = GAME_STATES[Number(gameState)]
 
-  const standbyClassName = () =>{
-    const key = `statdby${getKeyState(gameState)}`;
-    return styles[key];
+    const styleKey = `statdby${key}`
+    return styles[styleKey]
   }
 
-  const standbyText = () => {
-    let text
-    switch (gameState) {
-      case GAME_STATES.Initialize:
-        text = 'Start...'
-        break
-      case GAME_STATES.Pause:
-        text = 'Pause'
-        break
-      case GAME_STATES.FinishWinner:
-        text = 'You Win'
-        break
-      case GAME_STATES.FinishLoser:
-        text = 'You Died'
-        break
-      default:
-        text = ''
-    }
-    return text
-  }
-
+  // все возможные кнопки для панели
   const homeButton = () => (
     <TransparentButton type="button" onClick={() => navigate(ROUTES.MAIN)}>
       home
@@ -83,6 +74,7 @@ export const Standby = ({ gameState, onChangeState }: Pops) => {
     </TransparentButton>
   )
 
+  // набор кнопок для статуса
   const standbyButtons = () => {
     const buttons = [homeButton()]
 
@@ -106,7 +98,7 @@ export const Standby = ({ gameState, onChangeState }: Pops) => {
   return (
     <div className={cn(styles.statdby, standbyClassName())}>
       <div className={styles.statdbyBody}>
-        <div className={styles.statdbyText}>{standbyText()}</div>
+        <div className={styles.statdbyText}>{standbyText[gameState]}</div>
 
         <div className={styles.statdbyButtonCont}>{standbyButtons()}</div>
       </div>
