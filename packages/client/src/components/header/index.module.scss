@@ -1,35 +1,49 @@
+@use '@/styles/animationMixins';
+
 .header {
+
   margin: 0;
   background: var(--color-bg-primary);
   height: 60px;
   font-family: var(--font);
+
   top: 0;
-  width: 100%;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+
   color: white;
-  
-  .container  {
-    justify-content: center;
+  font-family: var(--font);
+
+  background: var(--color-title-gradient-end);
+
+  .container {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 90%;
 
     .logo {
-        flex-grow: 1;
+      flex-grow: 1;
 
-        .logoContent {
-          display: flex;
-          align-items: center;
-          justify-content: start;
-          font-weight: 500;
-          font-size: 26px;
-          letter-spacing: -1;
-        
+      .logoContent {
+        display: flex;
+        align-items: center;
+        justify-content: start;
 
-        &:hover {
-          color: #ff7f49;
+        font-weight: 500;
+        font-size: 26px;
+        letter-spacing: -1;
+
+        // todo возможно #ff7f49; надо вынести в variables.css
+        @include animationMixins.hover-wrapper {
+          &:hover {
+            color: #ff7f49;
+          }
         }
       }
     }
@@ -38,13 +52,12 @@
       flex-grow: 1;
 
       ul {
-          display: flex;
+        display: flex;
 
         li {
           display: inline-block;
           margin: 2em;
         }
-
       }
     }
 
@@ -61,8 +74,4 @@
 
 .yesAuth {
   display: none;
- }
-
- a:hover {
-  color: var(--color-font-secondary);
- }
+}
