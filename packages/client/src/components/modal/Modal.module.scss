@@ -1,0 +1,74 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.content {
+  width: 400px;
+  height: 250px;
+  background-color: var(--color-bg-primary);
+  color: var(--color-font-white);
+  border: 1px solid var(--color-border-forum-primary);
+  border-radius: var(--border-radius-m);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  z-index: 50;
+}
+
+.title {
+  margin: 0;
+}
+
+.form {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.input {
+  height: 40px;
+  padding: 15px 10px;
+  outline: none;
+}
+
+.button {
+  color: var(--color-font-white);
+  outline: none;
+  border: none;
+  background-color: var(--color-border-forum-primary);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.closeButton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 100;
+}

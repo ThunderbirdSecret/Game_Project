@@ -1,0 +1,35 @@
+@use '../../styles/mixins';
+
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.mainTheme {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--color-br);
+  flex-shrink: 0;
+}
+
+.mainWrapper {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: calc(100% - 90px);
+}
+
+.tape {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-forum-primary);
+  border-radius: var(--border-radius-s);
+  overflow-y: auto;
+  flex-grow: 1;
+}

@@ -1,27 +1,34 @@
+import { useState } from 'react'
+import { TTopic } from '@/mock/index'
+import { TopicList } from '@/components/topicList/TopicList'
+import { MessagesBlock } from '@/components/messagesBlock/MessagesBlock'
+import { Modal } from '@/components/modal/Modal'
+import { useModal } from '@/hooks/useModal'
 import styles from './forum.module.scss'
 
 export default function Forum() {
+  const [selectedTopic, setSelectedTopic] = useState<TTopic | null>(null)
+  const { isOpen, toggle } = useModal()
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.left}>
-          <form className={styles.searchForm}>
-            <input
-              placeholder="search"
-              type="text"
-              className={styles.searchInput}
-            />
-          </form>
-          <div className={styles.wrapper}>
-            <button className={styles.createBtn}>
-              Сreate a new discussion ✉
-            </button>
-          </div>
-          <span>test</span>
-          <div className={styles.wrapper}></div>
-        </div>
-        <div className={styles.main}></div>
+        <TopicList
+          selectedTopic={selectedTopic}
+          setSelectedTopic={setSelectedTopic}
+          openModal={toggle}
+        />
+        <section className={styles.main}>
+          {selectedTopic ? (
+            <MessagesBlock selectedTopic={selectedTopic} />
+          ) : (
+            <div className={styles.unselected}>
+              Create or select a discussion
+            </div>
+          )}
+        </section>
       </div>
+      <Modal isOpen={isOpen} closeModal={toggle} />
     </div>
   )
 }

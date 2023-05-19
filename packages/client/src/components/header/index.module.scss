@@ -12,6 +12,7 @@
   font-family: var(--font);
 
   background: var(--color-title-gradient-end);
+  flex-shrink: 0;
 
   .container {
     display: flex;

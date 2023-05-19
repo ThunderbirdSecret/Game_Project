@@ -1,0 +1,49 @@
+.commentsBlock {
+  flex-shrink: 0;
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--color-br);
+  position: relative;
+}
+
+.commentsTitle {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--color-br);
+  flex-shrink: 0;
+}
+
+.commentCloseButton {
+  font-size: 20px;
+  line-height: 29px;
+  background-color: transparent;
+  border: none;
+  color: var(--color-font-white);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.wrapper {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-height: calc(100% - 90px);
+}
+
+.commentTape {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-forum-primary);
+  border-radius: var(--border-radius-s);
+  overflow-y: auto;
+  flex-grow: 1;
+}

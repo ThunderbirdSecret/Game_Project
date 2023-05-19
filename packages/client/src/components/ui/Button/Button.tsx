@@ -16,6 +16,7 @@ export const Button: FC<ButtonProps> = ({
 }) => (
   <button
     className={cn(classes.button, className, styles)}
+    onClick={onClick}
     // eslint-disable-next-line react/button-has-type
     type={type}
     {...props}

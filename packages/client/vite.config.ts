@@ -28,6 +28,8 @@ export default ({ mode }) => {
         '@/pages': path.resolve(__dirname, './src/pages'),
         '@/services': path.resolve(__dirname, './src/services'),
         '@/styles': path.resolve(__dirname, './src/styles'),
+        '@/mock': path.resolve(__dirname, './src/mock'),
+        '@/hooks': path.resolve(__dirname, './src/hooks'),
         '@/utils': path.resolve(__dirname, './src/utils'),
       },
     },

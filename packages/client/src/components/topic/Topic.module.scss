@@ -1,0 +1,29 @@
+.topic {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border-forum-primary);
+  color: var(--color-font-white);
+  background-color: transparent;
+  margin-top: 30px;
+  border-radius: var(--border-radius-s);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-bg-selected-topic);
+  }
+}
+
+.avatarWrapper {
+  width: 50px;
+  height: 50px;
+}
+
+.selectedTopic {
+  background-color: var(--color-bg-selected-topic);
+}
+
+.topicTheme {
+  display: inline-block;
+  margin-left: 20px;
+}

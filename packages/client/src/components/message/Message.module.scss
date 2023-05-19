@@ -1,0 +1,55 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-bottom: 1px solid var(--color-bg-another-answer);
+}
+
+.messageSupportAnswer {
+  background-color: var(--color-bg-another-answer);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.avatarWrapper {
+  width: 50px;
+  height: 50px;
+}
+
+.name {
+  display: inline-block;
+  margin-left: 20px;
+  color: var(--color-font-secondary);
+}
+
+.content {
+  margin-top: 20px;
+  word-break: break-all;
+  hyphens: auto;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+}
+
+.button {
+  background-color: transparent;
+  color: var(--color-comments-button);
+  outline: none;
+  border: none;
+  border: 1px solid var(--color-comments-button);
+  border-radius: var(--border-radius-s);
+  padding: 5px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.emojiButton {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,63 @@
+.formBlock {
+  margin-top: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  height: 100%;
+  width: 40px;
+  border-radius: var(--border-radius-s);
+}
+
+.formInput {
+  height: 40px;
+  flex-grow: 1;
+  border: 1px solid var(--color-border-forum-primary);
+  border-radius: var(--border-radius-s);
+  margin-left: 10px;
+  outline: none;
+  color: var(--color-font-white);
+  padding: 10px;
+
+  &::placeholder {
+    color: var(--color-font-white);
+  }
+}
+
+.emojiButton {
+  border: 1px solid var(--color-comments-button);
+  margin-left: 10px;
+}
+
+.submitButton {
+  background-color: var(--color-border-forum-primary);
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.treangle {
+  background-color: transparent;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &::after {
+    content: '';
+    position: absolute; /* Абсолютное позиционирование */
+    left: 50%;
+    top: 50%;
+    transform: translate(-25%, -50%);
+    border: 12px solid transparent; /* Прозрачные границы */
+    border-left: 20px solid var(--color-font-white); /* Добавляем треугольник */
+  }
+}
