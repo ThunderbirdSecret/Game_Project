@@ -32,19 +32,13 @@ input {
   @include mixins.wh100;
 }
 
-
 ::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
-}
-
-a:hover {
-  color: var(--color-font-secondary);
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 @include animationMixins.hover-wrapper {
   a:hover {
     color: var(--color-font-secondary);
   }
-
 }

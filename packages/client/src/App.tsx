@@ -19,7 +19,7 @@ import style from './styles/index.module.scss'
 
 function App() {
   // TODO: приватные роуты будут готовы после того, как будет готова авторизация
- /* useEffect(() => {
+  /* useEffect(() => {
      const fetchServerData = async () => {
       const url = `http://localhost:${__SERVER_PORT__}`
       const response = await fetch(url)

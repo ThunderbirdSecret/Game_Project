@@ -14,7 +14,7 @@ export default ({ mode }) => {
 
   return defineConfig({
     server: {
-      port: Number(process.env.CLIENT_PORT) || 3000
+      port: Number(process.env.CLIENT_PORT) || 3000,
     },
     define: {
       __SERVER_PORT__: process.env.SERVER_PORT,
@@ -27,8 +27,9 @@ export default ({ mode }) => {
         '@/components': path.resolve(__dirname, './src/components'),
         '@/pages': path.resolve(__dirname, './src/pages'),
         '@/services': path.resolve(__dirname, './src/services'),
+        '@/src': path.resolve(__dirname, './src'),
         '@/styles': path.resolve(__dirname, './src/styles'),
-        '@/utils': path.resolve(__dirname, './src/utils')
+        '@/utils': path.resolve(__dirname, './src/utils'),
       },
     },
     css: {
@@ -37,7 +38,7 @@ export default ({ mode }) => {
         scss: {},
       },
       modules: {
-        localsConvention: 'camelCase'
+        localsConvention: 'camelCase',
       },
     },
   })

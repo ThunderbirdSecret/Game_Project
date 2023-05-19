@@ -1,16 +1,5 @@
 .logout {
-    align-self: center;
-    text-align: center;
-    padding-top: 20px;
+  align-self: center;
+  text-align: center;
+  padding-top: 20px;
 }
-
-a {
-    font-family: var(--font);
-    color: var(--color-font-primary);
-
-    &:hover {
-        color: var(--color-font-secondary);
-    }
-}
-
-

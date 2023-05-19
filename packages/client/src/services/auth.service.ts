@@ -29,14 +29,11 @@ export const authService = {
     }
   },
 
-  async logout(){
-    try{
+  async logout() {
+    try {
       await API.post(`/auth/logout`)
-      
-    } catch(error: unknown) {
+    } catch (error: unknown) {
       console.error((error as AxiosError).response)
-
     }
-
-  }
+  },
 }
