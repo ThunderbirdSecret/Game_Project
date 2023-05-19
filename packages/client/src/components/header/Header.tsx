@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom'
 import { items } from './header-items'
 
 import style from './index.module.scss'
+import { ROUTES } from '../../routes'
 
 export default function Header() {
   return (
     <nav className={style.header}>
       <div className={style.container}>
         <div className={style.logo}>
-          <Link to="/" className={style.logoContent}>
+          <Link to={ROUTES.MAIN} className={style.logoContent}>
             <img alt="logo" src="/link-main.svg" />
             <p>Burning Worms</p>
           </Link>
@@ -28,11 +29,11 @@ export default function Header() {
         <div className="profile">
           <ul>
             <li className={style.noAuth}>
-              <Link className="" to="/auth">
+              <Link className="" to={ROUTES.AUTH}>
                 Login
               </Link>
               <span>/</span>
-              <Link className="" to="/register">
+              <Link className="" to={ROUTES.REGISTER}>
                 Register
               </Link>
             </li>

@@ -1,9 +1,9 @@
 @use '../../../styles/mixins';
 
 .input {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .label {
@@ -12,6 +12,5 @@
 
 .element {
   height: calc(1.25rem + 2px);
-
   @include mixins.input-form;
 }

@@ -3,5 +3,8 @@
 *.iml
 out
 gen
-
-vite.config.ts
+.eslintrc.js
+*.config.js
+*.config.ts
+/node_modules
+.vscode

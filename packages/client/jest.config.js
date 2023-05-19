@@ -4,7 +4,7 @@
 // export default {
 //   preset: 'ts-jest',
 //   testEnvironment: 'jsdom',
-  
+
 //   moduleNameMapper: {
 //     '^.*\\.scss$': '<rootDir>/test/unit/stubs/style.js',
 //     '^@/(.*)$': '<rootDir>/src/$1',

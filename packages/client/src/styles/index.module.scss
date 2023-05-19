@@ -1,6 +1,7 @@
 @use './variables';
 @use './normalize';
 @use './mixins';
+@use './animationMixins';
 
 * {
   box-sizing: border-box;
@@ -18,6 +19,7 @@ body {
   margin: 0;
   overflow: hidden;
   margin: 0;
+  overflow: hidden;
 }
 
 input {
@@ -37,6 +39,13 @@ main {
   color: var(--color-font-secondary);
 }
 
-a:hover {
-  color: var(--color-font-secondary);
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+@include animationMixins.hover-wrapper {
+  a:hover {
+    color: var(--color-font-secondary);
+  }
 }

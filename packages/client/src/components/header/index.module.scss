@@ -1,4 +1,11 @@
+@use '@/styles/animationMixins';
+
 .header {
+  margin: 0;
+  background: var(--color-bg-primary);
+  height: 60px;
+  font-family: var(--font);
+
   top: 0;
 
   display: flex;
@@ -32,8 +39,11 @@
         font-size: 26px;
         letter-spacing: -1;
 
-        &:hover {
-          color: #ff7f49;
+        // todo возможно #ff7f49; надо вынести в variables.css
+        @include animationMixins.hover-wrapper {
+          &:hover {
+            color: #ff7f49;
+          }
         }
 
         p {
@@ -68,8 +78,4 @@
 
 .yesAuth {
   display: none;
-}
-
-a:hover {
-  color: var(--color-font-secondary);
 }

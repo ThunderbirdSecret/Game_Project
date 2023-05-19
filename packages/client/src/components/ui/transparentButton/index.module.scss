@@ -1,0 +1,49 @@
+@use '@/styles/mixins';
+@use '@/styles/animationMixins';
+
+.root {
+  position: relative;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background: transparent;
+  border: none;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background: var(--color-bg-body-mask);
+    opacity: 0;
+
+    content: '';
+  }
+
+  @include animationMixins.hover-wrapper {
+    &::before {
+      transition: opacity 1s;
+    }
+
+    &:hover::before {
+      opacity: 0.6;
+
+      transition: opacity 0.5s;
+    }
+  }
+
+  &Body {
+    @include mixins.submit-btn;
+    position: relative;
+
+    z-index: 2;
+
+    padding: 0.5rem;
+
+    background: transparent;
+    border-color: var(--color-bg-body-mask);
+  }
+}
