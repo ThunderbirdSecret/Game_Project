@@ -3,13 +3,15 @@
     "stylelint-config-standard-scss",
     "stylelint-config-rational-order"
   ],
-  "plugins": [
-    "stylelint-prettier"
-  ],
+  "plugins": ["stylelint-prettier"],
   "rules": {
     "prettier/prettier": true,
+
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
+
+    "order/properties-order": [[], { "severity": "warning" }],
+
     "declaration-empty-line-before": null,
     "plugin/rational-order": [
       true,
@@ -17,6 +19,14 @@
         "border-in-box-model": false,
         "empty-line-between-groups": true
       }
-    ]
-  }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+  },
+  "defaultSeverity": "warning"
 }

@@ -1,7 +1,7 @@
 .layout {
   padding: 30px 50px 55px;
-  background: #1B5366;
-  border: 1px solid #257B8E;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
   border-radius: 11px;
 
   max-width: 433px;

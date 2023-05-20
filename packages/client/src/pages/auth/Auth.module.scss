@@ -1,4 +1,4 @@
-@use "../../styles/mixins";
+@use '../../styles/mixins';
 
 .title {
   color: #fff;
@@ -69,11 +69,9 @@
     text-align: center;
   }
 
-
   .borderLine {
     width: 580px;
     height: 1px;
-    background: radial-gradient(ellipse, #64E2FF, var(--color-bg-primary));
+    background: radial-gradient(ellipse, #64e2ff, var(--color-bg-primary));
   }
 }
-

@@ -13,6 +13,11 @@ import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
 import { login } from '@/store/user/user.action'
 import { useAppDispatch, useAppSelector } from '@/store/index'
 
+import { authService, LoginDto } from '@/services/auth.service'
+import { hasErrorReason } from '@/utils/hasError'
+import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
+import { ROUTES } from '../../routes'
+
 import styles from './Auth.module.scss'
 
 export const Auth = () => {
@@ -39,7 +44,7 @@ export const Auth = () => {
     const resultAction = await dispatch(login(formFields))
     try {
       unwrapResult(resultAction)
-      navigate('/')
+      navigate(ROUTES.MAIN)
     } catch (e) {
       /* empty */
     }
@@ -72,7 +77,7 @@ export const Auth = () => {
                 className={styles.input}
               />
             </div>
-            <Link to="/" className={styles.remindLink}>
+            <Link to={ROUTES.MAIN} className={styles.remindLink}>
               Remind me of my password
             </Link>
             <div className={styles.buttonContainer}>
@@ -86,11 +91,11 @@ export const Auth = () => {
 
         <div className={styles.afterFormBlock}>
           <p>
-            <Link to="/register">Sign In</Link>
+            <Link to={ROUTES.REGISTER}>Sign Up</Link>
           </p>
           <div className={styles.borderLine} />
           <p>or</p>
-          <Link to="/">
+          <Link to={ROUTES.MAIN}>
             <YandexIcon />
           </Link>
         </div>
