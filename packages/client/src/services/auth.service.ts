@@ -1,6 +1,5 @@
 import { AxiosError } from 'axios'
 import { API } from '../api'
-import { userService } from './user.service'
 
 export type LoginDto = {
   login: string
@@ -10,13 +9,9 @@ export type LoginDto = {
 export const authService = {
   async login(dto: LoginDto) {
     try {
-      const response = await API.post(`/auth/signin`, dto, {
+      return await API.post<string>(`/auth/signin`, dto, {
         withCredentials: true,
       })
-
-      const user = userService.getUser()
-
-      return response.data
     } catch (err: unknown) {
       const error = err as AxiosError
       console.error(error.response)
