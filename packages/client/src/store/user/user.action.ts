@@ -4,6 +4,9 @@ import { userService } from '@/services/user.service'
 
 export const login = createAsyncThunk<User, LoginDto>(
   'auth/login',
+  // временное решение
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   async (arg, thunkAPI) => {
     const response = await authService.login(arg)
 
