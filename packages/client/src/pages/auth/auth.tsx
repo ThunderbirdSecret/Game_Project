@@ -13,9 +13,6 @@ import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
 import { login } from '@/store/user/user.action'
 import { useAppDispatch, useAppSelector } from '@/store/index'
 
-import { authService, LoginDto } from '@/services/auth.service'
-import { hasErrorReason } from '@/utils/hasError'
-import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
 import { ROUTES } from '../../routes'
 
 import styles from './Auth.module.scss'
