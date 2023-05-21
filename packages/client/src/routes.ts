@@ -7,5 +7,6 @@ export const enum ROUTES {
   AUTH = '/auth',
   REGISTER = '/register',
   ERROR_404 = '/not-found',
+  ERROR_500 = '/server-error',
   DOCUMENTAION = '/documentation',
 }
