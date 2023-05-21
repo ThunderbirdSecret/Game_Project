@@ -6,7 +6,7 @@ import ProfileForm, {
   InputContent,
 } from '@/components/form/ProfileForm/ProfileForm'
 
-export const Profile = () => {
+const Profile = () => {
   const DataLoading = Loader(ProfileForm)
   const [userData, setUserData] = useState<{
     loading: boolean
@@ -43,3 +43,5 @@ export const Profile = () => {
     </div>
   )
 }
+
+export default (Profile);

@@ -1,6 +1,7 @@
+import { withAuth } from '@/hoc/withAuth'
 import './index.scss'
 
-export default function LeaderBord() {
+function LeaderBord() {
   return (
     <div>
       <h1>LeaderBord</h1>
@@ -9,3 +10,5 @@ export default function LeaderBord() {
     </div>
   )
 }
+
+export default withAuth(LeaderBord);

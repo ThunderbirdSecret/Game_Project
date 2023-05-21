@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { GAME_STATES, Main } from '@/pages/game/components/main'
 import { Standby } from '@/pages/game/components/stanbdy/standby'
 
+import { withAuth } from '@/hoc/withAuth'
 import styles from './index.module.scss'
 
-export default function Game() {
+function Game() {
   const [gameState, setGameState] = useState(GAME_STATES.Initialize)
 
   const handlehangeState = (st: GAME_STATES) => {
@@ -22,3 +23,5 @@ export default function Game() {
     </div>
   )
 }
+
+export default withAuth(Game)

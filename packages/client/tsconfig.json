@@ -25,7 +25,9 @@
       "@/styles/*": ["styles/*"],
       "@/utils/*": ["utils/*"],
       "@/mock/*": ["mock/*"],
-      "@/hooks/*": ["hooks/*"]
+      "@/hooks/*": ["hooks/*"],
+      "@/hoc/*": ["hoc/*"],
+      "@/store/*": ["store/*"]
     }
   },
   "include": [
