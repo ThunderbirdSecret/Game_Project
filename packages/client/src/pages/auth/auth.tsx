@@ -1,15 +1,13 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
 import { FormLayout } from '@/components/form/FormLayout/FormLayout'
 import { Title } from '@/components/ui/Title/Title'
 import { Button } from '@/components/ui/Button/Button'
 import Input from '@/components/ui/input/Input'
-
 import { authService, LoginDto } from '@/services/auth.service'
 import { hasErrorReason } from '@/utils/hasError'
-
 import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
+import { ROUTES } from '../../routes'
 import styles from './Auth.module.scss'
 
 export const Auth = () => {
@@ -39,7 +37,7 @@ export const Auth = () => {
       return
     }
 
-    navigate('/')
+    navigate(ROUTES.MAIN)
   }
 
   return (
@@ -69,7 +67,7 @@ export const Auth = () => {
                 className={styles.input}
               />
             </div>
-            <Link to="/" className={styles.remindLink}>
+            <Link to={ROUTES.MAIN} className={styles.remindLink}>
               Remind me of my password
             </Link>
             <div className={styles.buttonContainer}>
@@ -83,11 +81,11 @@ export const Auth = () => {
 
         <div className={styles.afterFormBlock}>
           <p>
-            <Link to="/register">Sign In</Link>
+            <Link to={ROUTES.REGISTER}>Sign Up</Link>
           </p>
           <div className={styles.borderLine} />
           <p>or</p>
-          <Link to="/">
+          <Link to={ROUTES.MAIN}>
             <YandexIcon />
           </Link>
         </div>

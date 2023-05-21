@@ -28,4 +28,12 @@ export const authService = {
       return error.response
     }
   },
+
+  async logout() {
+    try {
+      await API.post(`/auth/logout`)
+    } catch (error: unknown) {
+      console.error((error as AxiosError).response)
+    }
+  },
 }

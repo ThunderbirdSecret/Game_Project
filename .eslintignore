@@ -1,4 +1,4 @@
 /node_modules
 yarn.lock
-jest.config.js 
-
+*.config.js
+*.config.ts
