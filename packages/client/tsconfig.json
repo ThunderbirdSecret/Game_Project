@@ -24,7 +24,7 @@
       "@/services/*": ["services/*"],
       "@/styles/*": ["styles/*"],
       "@/utils/*": ["utils/*"],
-      "@/canvas/*": ["canvas/*"]
+      "@/canvas/*": ["canvas/*"],
       "@/store/*": ["store/*"]
     }
   },
