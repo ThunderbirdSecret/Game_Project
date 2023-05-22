@@ -33,6 +33,8 @@ export default ({ mode }) => {
         '@/models': path.resolve(__dirname, './src/models'),
         '@/hooks': path.resolve(__dirname, './src/hooks'),
         '@/utils': path.resolve(__dirname, './src/utils'),
+        '@/canvas': path.resolve(__dirname, './src/canvas'),
+        '@/store': path.resolve(__dirname, './src/store')
       },
     },
     css: {
