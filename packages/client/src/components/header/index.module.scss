@@ -1,14 +1,11 @@
 @use '@/styles/animationMixins';
 
 .header {
-  margin: 0;
-  background: var(--color-bg-primary);
-  height: 60px;
-  font-family: var(--font);
 
   top: 0;
 
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -19,7 +16,6 @@
   font-family: var(--font);
 
   background: var(--color-title-gradient-end);
-  flex-shrink: 0;
 
   .container {
     display: flex;
