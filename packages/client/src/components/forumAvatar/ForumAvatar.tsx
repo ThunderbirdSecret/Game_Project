@@ -1,10 +1,8 @@
 import cn from 'classnames'
 
-import { TUser } from '@/mock/index'
-
 import styles from './ForumAvatar.module.scss'
 
-export const ForumAvatar = ({ author }: { author: TUser }) => {
+export const ForumAvatar = ({ author }: { author: User }) => {
   if (author.avatar) {
     return (
       <img

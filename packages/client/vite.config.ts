@@ -30,6 +30,7 @@ export default ({ mode }) => {
         '@/src': path.resolve(__dirname, './src'),
         '@/styles': path.resolve(__dirname, './src/styles'),
         '@/mock': path.resolve(__dirname, './src/mock'),
+        '@/models': path.resolve(__dirname, './src/models'),
         '@/hooks': path.resolve(__dirname, './src/hooks'),
         '@/utils': path.resolve(__dirname, './src/utils'),
       },

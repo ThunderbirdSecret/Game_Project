@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { TTopic } from '@/mock/index'
 import { TopicList } from '@/components/topicList/TopicList'
 import { MessagesBlock } from '@/components/messagesBlock/MessagesBlock'
 import { Modal } from '@/components/modal/Modal'
 import { useModal } from '@/hooks/useModal'
+import { TTopic } from '@/models/forum'
 import styles from './forum.module.scss'
 
 export default function Forum() {
@@ -16,7 +16,7 @@ export default function Forum() {
         <TopicList
           selectedTopic={selectedTopic}
           setSelectedTopic={setSelectedTopic}
-          openModal={toggle}
+          openModalToCreateNewTopic={toggle}
         />
         <section className={styles.main}>
           {selectedTopic ? (

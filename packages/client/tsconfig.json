@@ -25,6 +25,7 @@
       "@/styles/*": ["styles/*"],
       "@/utils/*": ["utils/*"],
       "@/mock/*": ["mock/*"],
+      "@/models/*": ["models/*"],
       "@/hooks/*": ["hooks/*"]
     }
   },

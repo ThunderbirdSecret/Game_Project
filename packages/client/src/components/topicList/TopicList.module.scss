@@ -29,6 +29,7 @@
   font-size: 14px;
   line-height: 20px;
   height: 40px;
+  color: var(--color-font-white);
 
   &::placeholder {
     color: var(--color-font-white);
@@ -45,7 +46,6 @@
   color: var(--color-font-white);
   font-size: 20px;
   line-height: 29px;
-  margin-top: 24px;
   outline: none;
 }
 
@@ -53,10 +53,11 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  padding: 0 24px;
+  padding: 24px;
 }
 
 .wrapperOverflow {
   overflow-y: auto;
-  padding-bottom: 24px;
+  padding-top: 0px;
+  gap: 24px;
 }

@@ -19,12 +19,17 @@
 
 .name {
   display: inline-block;
+  max-width: 200px;
   margin-top: 12px;
   color: var(--color-font-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content {
   margin-top: 10px;
+  margin-bottom: 0;
   word-break: break-all;
   hyphens: auto;
 }

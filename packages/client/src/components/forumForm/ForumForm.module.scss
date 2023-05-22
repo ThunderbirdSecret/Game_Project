@@ -15,6 +15,10 @@
   height: 100%;
   width: 40px;
   border-radius: var(--border-radius-s);
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .formInput {
@@ -34,15 +38,10 @@
 
 .emojiButton {
   border: 1px solid var(--color-comments-button);
-  margin-left: 10px;
 }
 
 .submitButton {
   background-color: var(--color-border-forum-primary);
-  margin-left: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .treangle {
@@ -53,11 +52,11 @@
 
   &::after {
     content: '';
-    position: absolute; /* Абсолютное позиционирование */
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-25%, -50%);
-    border: 12px solid transparent; /* Прозрачные границы */
-    border-left: 20px solid var(--color-font-white); /* Добавляем треугольник */
+    border: 12px solid transparent;
+    border-left: 20px solid var(--color-font-white);
   }
 }

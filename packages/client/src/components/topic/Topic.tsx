@@ -1,6 +1,6 @@
 import { ForumAvatar } from '@/components/forumAvatar/ForumAvatar'
 import cn from 'classnames'
-import { users, TTopic } from '@/mock/index'
+import { TTopic } from '@/models/forum'
 import styles from './Topic.module.scss'
 import { Button } from '../ui/Button/Button'
 
@@ -8,12 +8,14 @@ type TTopicProps = {
   selectedTopic: TTopic | null
   setSelectedTopic: React.Dispatch<React.SetStateAction<TTopic | null>>
   topic: TTopic
+  author: User
 }
 
 export const Topic = ({
   selectedTopic,
   setSelectedTopic,
   topic,
+  author,
 }: TTopicProps) => (
   <Button
     type="button"
@@ -22,8 +24,8 @@ export const Topic = ({
     })}
     onClick={() => setSelectedTopic(topic)}>
     <div className={styles.avatarWrapper}>
-      <ForumAvatar author={users.filter(u => u.id === topic.author_id)[0]} />
+      <ForumAvatar author={author} />
     </div>
-    <span className={styles.topicTheme}>{topic.theme}</span>
+    <span className={styles.topicTheme}>{topic.title}</span>
   </Button>
 )
