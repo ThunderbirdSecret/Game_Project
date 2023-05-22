@@ -32,18 +32,6 @@ export const Modal = ({ isOpen, closeModal }: TModalProps) => {
     }
   }, [closeOnEscKeyDown])
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    e.stopPropagation()
-    const { target } = e
-    if (
-      target &&
-      target instanceof HTMLButtonElement &&
-      target.classList.contains(styles.closeButton)
-    ) {
-      closeModal()
-    }
-  }
-
   return (
     <div
       className={cn(styles.modal, {
@@ -54,7 +42,8 @@ export const Modal = ({ isOpen, closeModal }: TModalProps) => {
       <div
         className={styles.content}
         aria-hidden="true"
-        onClick={e => handleClick(e)}>
+        role="dialog"
+        onClick={e => e.stopPropagation()}>
         <h3 className={styles.title}>Print name for new discussion</h3>
         <form className={styles.form} onSubmit={e => handleSubmit(e)}>
           <Input className={styles.input} placeholder="Write name" />
@@ -62,7 +51,9 @@ export const Modal = ({ isOpen, closeModal }: TModalProps) => {
             Create
           </Button>
         </form>
-        <Button className={styles.closeButton}>X</Button>
+        <Button className={styles.closeButton} onClick={closeModal}>
+          X
+        </Button>
       </div>
     </div>
   )

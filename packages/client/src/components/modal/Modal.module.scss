@@ -1,15 +1,16 @@
 .modal {
   position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-color: rgb(0 0 0 / 50%);
   opacity: 0;
+
   transition: all 0.3s ease-in-out;
+
   pointer-events: none;
 }
 
@@ -19,18 +20,21 @@
 }
 
 .content {
-  width: 400px;
-  height: 250px;
-  background-color: var(--color-bg-primary);
-  color: var(--color-font-white);
-  border: 1px solid var(--color-border-forum-primary);
-  border-radius: var(--border-radius-m);
+  position: relative;
+  z-index: 50;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 400px;
+  height: 250px;
   padding: 30px;
-  position: relative;
-  z-index: 50;
+
+  color: var(--color-font-white);
+
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-forum-primary);
+  border-radius: var(--border-radius-m);
 }
 
 .title {
@@ -38,13 +42,13 @@
 }
 
 .form {
-  margin-top: 30px;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   align-items: center;
   justify-content: space-between;
-  flex-grow: 1;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .input {
@@ -54,21 +58,25 @@
 }
 
 .button {
-  color: var(--color-font-white);
-  outline: none;
-  border: none;
-  background-color: var(--color-border-forum-primary);
   padding: 10px 20px;
+
+  color: var(--color-font-white);
+
+  background-color: var(--color-border-forum-primary);
+  border: none;
+  outline: none;
   cursor: pointer;
 }
 
 .closeButton {
   position: absolute;
-  right: 10px;
   top: 10px;
+  right: 10px;
+  z-index: 100;
+
+  padding: 0;
+
   background-color: transparent;
   border: none;
-  padding: 0;
   cursor: pointer;
-  z-index: 100;
 }

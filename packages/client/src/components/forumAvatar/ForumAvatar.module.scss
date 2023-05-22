@@ -10,10 +10,12 @@
 }
 
 .avatarSkeleton {
-  background-color: var(--color-bg-empty-avatar);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   font-size: 32px;
   line-height: 46px;
+
+  background-color: var(--color-bg-empty-avatar);
 }

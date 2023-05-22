@@ -27,7 +27,9 @@
       "@/mock/*": ["mock/*"],
       "@/hooks/*": ["hooks/*"],
       "@/hoc/*": ["hoc/*"],
-      "@/store/*": ["store/*"],
+      "@/models/*": ["models/*"],
+      "@/canvas/*": ["canvas/*"],
+      "@/store/*": ["store/*"]
     }
   },
   "include": [

@@ -5,6 +5,7 @@ import axios from 'axios'
 import ProfileForm, {
   InputContent,
 } from '@/components/form/ProfileForm/ProfileForm'
+import { withAuth } from '@/hoc/withAuth'
 
 const Profile = () => {
   const DataLoading = Loader(ProfileForm)
@@ -44,4 +45,4 @@ const Profile = () => {
   )
 }
 
-export default (Profile);
+export default withAuth(Profile)

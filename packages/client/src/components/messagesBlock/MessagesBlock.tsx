@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { Message } from '@/components/message/Message'
-import { messages, TMessage, TTopic } from '@/mock/index'
+import { comments, messages } from '@/mock/index'
 
+import { TMessage, TTopic } from '@/models/forum'
 import styles from './MessagesBlock.module.scss'
 import { ForumForm } from '../forumForm/ForumForm'
 import { CommentsBlock } from '../commentsBlock/CommentsBlock'
@@ -13,6 +14,11 @@ type TMessagesBlockProps = {
 export const MessagesBlock = ({ selectedTopic }: TMessagesBlockProps) => {
   const [selectedMessage, setSelectedMessage] = useState<TMessage | null>(null)
   const [messagesArray, setMessagesArray] = useState<TMessage[] | null>(null)
+  const visibleComments = useMemo(
+    () =>
+      comments.filter(comment => comment.message_id === selectedMessage?.id),
+    [selectedMessage]
+  )
 
   useEffect(() => {
     if (!selectedTopic) {
@@ -26,15 +32,16 @@ export const MessagesBlock = ({ selectedTopic }: TMessagesBlockProps) => {
   return (
     <>
       <div className={styles.mainBlock}>
-        <div className={styles.mainTheme}>Theme: {selectedTopic.theme}</div>
+        <p className={styles.mainTheme}>Theme: {selectedTopic.title}</p>
         <div className={styles.mainWrapper}>
           <div className={styles.tape}>
             {messagesArray &&
-              messagesArray.map(message => (
+              messagesArray.map((message, index) => (
                 <Message
                   key={message.id}
                   message={message}
                   setSelectedMessage={setSelectedMessage}
+                  anotherBackgroundColor={index % 2 === 1}
                 />
               ))}
           </div>
@@ -45,6 +52,7 @@ export const MessagesBlock = ({ selectedTopic }: TMessagesBlockProps) => {
         <CommentsBlock
           selectedMessage={selectedMessage}
           setSelectedMessage={setSelectedMessage}
+          comments={visibleComments}
         />
       )}
     </>
