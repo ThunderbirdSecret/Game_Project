@@ -1,0 +1,69 @@
+.left {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  width: 310px;
+
+  background-color: var(--color-bg-forum-secondary);
+  border-radius: var(--border-radius-s);
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  width: 100%;
+  height: 90px;
+  padding: 0 24px;
+
+  border-bottom: 1px solid var(--color-br);
+}
+
+.searchInput {
+  width: 100%;
+  height: 40px;
+  padding: 7px 10px;
+
+  color: var(--color-font-white);
+  font-size: 14px;
+  line-height: 20px;
+
+  background-color: transparent;
+  border: 1px solid #21d4fd;
+  border-radius: var(--border-radius-s);
+  outline: none;
+
+  &::placeholder {
+    color: var(--color-font-white);
+  }
+}
+
+.createBtn {
+  width: 100%;
+  padding: 15px 10px;
+
+  color: var(--color-font-white);
+  font-size: 20px;
+  line-height: 29px;
+
+  background: #21d4fd;
+  border: none;
+  border-radius: var(--border-radius-s);
+  outline: none;
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 24px;
+}
+
+.wrapperOverflow {
+  gap: 24px;
+  padding-top: 0;
+  overflow-y: auto;
+}

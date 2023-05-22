@@ -27,7 +27,7 @@ function App() {
       console.log(data)
     }
 
-    fetchServerData() 
+    fetchServerData()
   }, []) */
   return (
     <div className={style.app}>
@@ -42,7 +42,6 @@ function App() {
           <Route path={ROUTES.AUTH} element={<Auth />} />
           <Route path={ROUTES.REGISTER} element={<Register />} />
           <Route path={ROUTES.ERROR_404} element={<Error404 />} />
-          <Route path={ROUTES.DOCUMENTAION} element={<Documentation />} />
           <Route
             path="*"
             element={<Navigate to={ROUTES.ERROR_404} replace />}

@@ -1,0 +1,50 @@
+.comment {
+  display: flex;
+  padding: 15px;
+
+  border-bottom: 1px solid var(--color-bg-another-answer);
+}
+
+.avatarWrapper {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.name {
+  display: inline-block;
+  max-width: 200px;
+  margin-top: 12px;
+  overflow: hidden;
+
+  color: var(--color-font-secondary);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content {
+  margin-top: 10px;
+  margin-bottom: 0;
+
+  word-break: break-all;
+  hyphens: auto;
+}
+
+.emojiButton {
+  align-self: flex-end;
+  padding: 0;
+
+  color: var(--color-comments-button);
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

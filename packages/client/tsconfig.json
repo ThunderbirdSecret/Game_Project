@@ -24,6 +24,9 @@
       "@/services/*": ["services/*"],
       "@/styles/*": ["styles/*"],
       "@/utils/*": ["utils/*"],
+      "@/mock/*": ["mock/*"],
+      "@/models/*": ["models/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/canvas/*": ["canvas/*"],
       "@/store/*": ["store/*"]
     }

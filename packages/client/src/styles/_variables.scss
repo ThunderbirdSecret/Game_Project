@@ -21,6 +21,17 @@
   --color-bg-body: #202029;
   --color-bg-body-mask: rgba(255 255 255 / 30%);
 
+  // forum
+  --color-bg-forum-primary: rgb(27 83 102 / 30%);
+  --color-bg-forum-secondary: rgb(14 207 252 / 30%);
+  --color-bg-selected-topic: rgb(255 255 255 / 30%);
+  --color-bg-another-answer: rgb(137 137 137 / 30%);
+  --color-bg-empty-avatar: #28263a;
+  --color-border-forum-primary: #21d4fd;
+  --color-border-forum-darken: rgb(33 212 253 / 30%);
+  --color-br: #64e2ff;
+  --color-comments-button: rgb(255 255 255 / 60%);
+
   // gradient
   // использовать цвета только для градиента
   --color-gradient-1: #21d4fd;
@@ -28,7 +39,7 @@
   --color-gradient-3: #1b5366; //#257b8e;
 
   // font
-  // использовать цвета только для шрифта
+  --color-font-white: #fff;
   --color-font-primary: #eee;
   --color-font-primary-muted: #8ac2d1;
   --color-font-primary-error: #f00;
