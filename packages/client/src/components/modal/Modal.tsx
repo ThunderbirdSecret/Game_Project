@@ -51,7 +51,7 @@ export const Modal = ({ isOpen, closeModal }: TModalProps) => {
             Create
           </Button>
         </form>
-        <Button className={styles.closeButton} onClick={() => closeModal()}>
+        <Button className={styles.closeButton} onClick={closeModal}>
           X
         </Button>
       </div>

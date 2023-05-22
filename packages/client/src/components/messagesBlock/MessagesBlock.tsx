@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { Message } from '@/components/message/Message'
 import { comments, messages } from '@/mock/index'
 
@@ -14,6 +14,11 @@ type TMessagesBlockProps = {
 export const MessagesBlock = ({ selectedTopic }: TMessagesBlockProps) => {
   const [selectedMessage, setSelectedMessage] = useState<TMessage | null>(null)
   const [messagesArray, setMessagesArray] = useState<TMessage[] | null>(null)
+  const visibleComments = useMemo(
+    () =>
+      comments.filter(comment => comment.message_id === selectedMessage?.id),
+    [selectedMessage]
+  )
 
   useEffect(() => {
     if (!selectedTopic) {
@@ -47,9 +52,7 @@ export const MessagesBlock = ({ selectedTopic }: TMessagesBlockProps) => {
         <CommentsBlock
           selectedMessage={selectedMessage}
           setSelectedMessage={setSelectedMessage}
-          comments={comments.filter(
-            comment => comment.message_id === selectedMessage.id
-          )}
+          comments={visibleComments}
         />
       )}
     </>
