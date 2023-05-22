@@ -25,6 +25,7 @@
       "@/styles/*": ["styles/*"],
       "@/utils/*": ["utils/*"],
       "@/canvas/*": ["canvas/*"]
+      "@/store/*": ["store/*"]
     }
   },
   "include": [

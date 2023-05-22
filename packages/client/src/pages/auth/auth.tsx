@@ -1,22 +1,30 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { unwrapResult } from '@reduxjs/toolkit'
+
 import { FormLayout } from '@/components/form/FormLayout/FormLayout'
 import { Title } from '@/components/ui/Title/Title'
 import { Button } from '@/components/ui/Button/Button'
 import Input from '@/components/ui/input/Input'
-import { authService, LoginDto } from '@/services/auth.service'
-import { hasErrorReason } from '@/utils/hasError'
+
+import { LoginDto } from '@/services/auth.service'
 import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
+
+import { login } from '@/store/user/user.action'
+import { useAppDispatch, useAppSelector } from '@/store/index'
+
 import { ROUTES } from '../../routes'
+
 import styles from './Auth.module.scss'
 
 export const Auth = () => {
+  const dispatch = useAppDispatch()
+  const { error } = useAppSelector(state => state.user)
+
   const [formFields, setFormFields] = useState<LoginDto>({
     login: '',
     password: '',
   })
-
-  const [error, setError] = useState<string>('')
 
   const navigate = useNavigate()
 
@@ -30,14 +38,13 @@ export const Auth = () => {
   const onLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const response = await authService.login(formFields)
-
-    if (hasErrorReason(response.data)) {
-      setError(response.data.reason)
-      return
+    const resultAction = await dispatch(login(formFields))
+    try {
+      unwrapResult(resultAction)
+      navigate(ROUTES.MAIN)
+    } catch (e) {
+      /* empty */
     }
-
-    navigate(ROUTES.MAIN)
   }
 
   return (
@@ -75,7 +82,7 @@ export const Auth = () => {
                 Login
               </Button>
             </div>
-            {error && <p className={styles.errorMessage}>{error}</p>}
+            {error && <p className={styles.errorMessage}>{error.reason}</p>}
           </form>
         </FormLayout>
 
