@@ -11,8 +11,10 @@ export const Fullscreen = forwardRef(function Fullscreen(props: any, ref: any) {
     if (canvas) {
       if (canvas.requestFullscreen) {
         canvas.requestFullscreen()
-        canvas.exitFullscreen()
         setTitle('toggle on')
+      } else {
+        canvas.exitFullscreen()
+        setTitle('toggle off')
       }
     }
   }
