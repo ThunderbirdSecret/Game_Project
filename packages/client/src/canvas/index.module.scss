@@ -3,3 +3,13 @@
   height: 800px;
   background: black;
 }
+
+.fullscreenBtn {
+  max-width: max-content;
+  margin-left: auto;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column-reverse;
+}

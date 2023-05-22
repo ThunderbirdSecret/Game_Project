@@ -1,4 +1,4 @@
-import { Canvas } from '../../canvas/canvas'
+import { Canvas } from '@/canvas/canvas'
 import style from './index.module.scss'
 
 export function Game() {
