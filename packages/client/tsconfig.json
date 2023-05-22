@@ -27,7 +27,7 @@
       "@/mock/*": ["mock/*"],
       "@/hooks/*": ["hooks/*"],
       "@/hoc/*": ["hoc/*"],
-      "@/store/*": ["store/*"]
+      "@/store/*": ["store/*"],
     }
   },
   "include": [
