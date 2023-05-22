@@ -8,8 +8,6 @@ export const Fullscreen = forwardRef(function Fullscreen(props: any, ref: any) {
     const canvas = ref
     if (canvas && canvas.requestFullscreen) {
       canvas.requestFullscreen()
-    } else {
-      canvas.exitFullscreen()
     }
   }
 
