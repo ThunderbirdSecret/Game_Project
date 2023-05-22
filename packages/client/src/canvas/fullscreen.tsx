@@ -1,21 +1,18 @@
 import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
-import { forwardRef, useState } from 'react'
+import { forwardRef } from 'react'
 import style from './index.module.scss'
+
+export type Ref = HTMLButtonElement;
 
 /* eslint prefer-arrow-callback: ["error", { "allowNamedFunctions": true }] */
 export const Fullscreen = forwardRef(function Fullscreen(props: any, ref: any) {
-  const [title, setTitle] = useState<string>(props.toggler)
 
   const handleFullScreen = () => {
-    const canvas = ref
-    if (canvas) {
-      if (canvas.requestFullscreen) {
-        canvas.requestFullscreen()
-        setTitle('toggle on')
+    const nodeDom = ref
+    if (nodeDom && nodeDom.requestFullscreen) {
+        nodeDom.requestFullscreen()
       } else {
-        canvas.exitFullscreen()
-        setTitle('toggle off')
-      }
+        nodeDom.exitFullscreen()
     }
   }
 
@@ -23,7 +20,7 @@ export const Fullscreen = forwardRef(function Fullscreen(props: any, ref: any) {
     <TransparentButton
       className={style.fullscreenBtn}
       onClick={handleFullScreen}>
-      {title}
+      {props.toggler}
     </TransparentButton>
   )
 })

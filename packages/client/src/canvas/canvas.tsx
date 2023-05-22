@@ -12,7 +12,6 @@ export const Canvas = (props: any) => {
     setComponents(canvasRef.current)
   }, [])
 
-  console.log(components)
 
   return (
     <div className={style.screen}>
