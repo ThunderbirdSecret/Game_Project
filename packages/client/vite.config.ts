@@ -31,7 +31,7 @@ export default ({ mode }) => {
         '@/styles': path.resolve(__dirname, './src/styles'),
         '@/utils': path.resolve(__dirname, './src/utils'),
         '@/canvas': path.resolve(__dirname, './src/canvas'),
-        '@/store': path.resolve(__dirname, './src/store'),
+        '@/store': path.resolve(__dirname, './src/store')
       },
     },
     css: {
