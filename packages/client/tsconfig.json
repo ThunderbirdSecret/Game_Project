@@ -26,6 +26,7 @@
       "@/utils/*": ["utils/*"],
       "@/mock/*": ["mock/*"],
       "@/models/*": ["models/*"],
+      "@/hoc/*": ["hoc/*"],
       "@/hooks/*": ["hooks/*"],
       "@/canvas/*": ["canvas/*"],
       "@/store/*": ["store/*"]

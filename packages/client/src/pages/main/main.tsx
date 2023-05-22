@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 
 import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
+import { withAuth } from '@/hoc/withAuth'
 import { ROUTES } from '../../routes'
 
 import style from './index.module.scss'
 
-export default function Main() {
+function Main() {
   const navigate = useNavigate()
 
   const onClickStartGame = () => {
@@ -57,3 +58,7 @@ export default function Main() {
     </main>
   )
 }
+export default withAuth(Main, {
+  onAuthPath: null,
+  onUnAuthPath: null,
+})

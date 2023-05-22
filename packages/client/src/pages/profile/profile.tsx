@@ -5,8 +5,9 @@ import axios from 'axios'
 import ProfileForm, {
   InputContent,
 } from '@/components/form/ProfileForm/ProfileForm'
+import { withAuth } from '@/hoc/withAuth'
 
-export const Profile = () => {
+const Profile = () => {
   const DataLoading = Loader(ProfileForm)
   const [userData, setUserData] = useState<{
     loading: boolean
@@ -43,3 +44,4 @@ export const Profile = () => {
     </div>
   )
 }
+export default withAuth(Profile)

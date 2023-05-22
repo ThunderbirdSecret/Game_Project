@@ -1,7 +1,8 @@
+import { withAuth } from '@/hoc/withAuth'
 import { Canvas } from '../../canvas/canvas'
 import style from './index.module.scss'
 
-export function Game() {
+function Game() {
   const draw = (ctx: any, frameCount: number) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = '#21d4fd'
@@ -17,3 +18,5 @@ export function Game() {
     </div>
   )
 }
+
+export default withAuth(Game)
