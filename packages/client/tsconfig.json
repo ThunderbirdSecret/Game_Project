@@ -23,7 +23,8 @@
       "@/pages/*": ["pages/*"],
       "@/services/*": ["services/*"],
       "@/styles/*": ["styles/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/canvas/*": ["canvas/*"]
     }
   },
   "include": [

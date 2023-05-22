@@ -30,6 +30,7 @@ export default ({ mode }) => {
         '@/src': path.resolve(__dirname, './src'),
         '@/styles': path.resolve(__dirname, './src/styles'),
         '@/utils': path.resolve(__dirname, './src/utils'),
+        '@/canvas': path.resolve(__dirname, './src/canvas'),
       },
     },
     css: {

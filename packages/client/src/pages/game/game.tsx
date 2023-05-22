@@ -1,24 +1,19 @@
-import { useState } from 'react'
-import { GAME_STATES, Main } from '@/pages/game/components/main'
-import { Standby } from '@/pages/game/components/stanbdy/standby'
+import { Canvas } from '../../canvas/canvas'
+import style from './index.module.scss'
 
-import styles from './index.module.scss'
-
-export default function Game() {
-  const [gameState, setGameState] = useState(GAME_STATES.Initialize)
-
-  const handlehangeState = (st: GAME_STATES) => {
-    setGameState(st)
+export function Game() {
+  const draw = (ctx: any, frameCount: number) => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+    ctx.fillStyle = '#21d4fd'
+    ctx.beginPath()
+    ctx.arc(50, 100, 20 * Math.sin(frameCount * 0.05) ** 2, 0, 2 * Math.PI)
+    ctx.fill()
   }
 
   return (
-    <div className={styles.game}>
-      <div className={styles.gameBody}>
-        <Main />
-        {gameState !== GAME_STATES.Progress && (
-          <Standby gameState={gameState} onChangeState={handlehangeState} />
-        )}
-      </div>
+    <div className={style.game}>
+      <h1>Game</h1>
+      <Canvas draw={draw} />
     </div>
   )
 }
