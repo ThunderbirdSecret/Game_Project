@@ -23,8 +23,9 @@ export const withAuth =
 
     const options = { ...defaultOptions, ...initOption }
 
+    const redirectPath = isAuth ? options.onAuthPath : options.onUnAuthPath
+
     if (isAuth) {
-      const redirectPath = options.onAuthPath
 
       if (redirectPath) {
         return <Navigate to={redirectPath} />
@@ -33,7 +34,6 @@ export const withAuth =
       return <Component {...props} />
     }
 
-    const redirectPath = options.onUnAuthPath
 
     if (redirectPath) {
       return <Navigate to={redirectPath} />
