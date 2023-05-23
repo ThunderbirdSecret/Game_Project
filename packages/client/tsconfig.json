@@ -23,7 +23,12 @@
       "@/pages/*": ["pages/*"],
       "@/services/*": ["services/*"],
       "@/styles/*": ["styles/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/mock/*": ["mock/*"],
+      "@/models/*": ["models/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/canvas/*": ["canvas/*"],
+      "@/store/*": ["store/*"]
     }
   },
   "include": [

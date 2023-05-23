@@ -1,6 +1,11 @@
 @use './variables';
 @use './normalize';
 @use './mixins';
+@use './animationMixins';
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   color: var(--color-font-primary);
@@ -17,6 +22,7 @@ html {
 
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 input {
@@ -24,17 +30,26 @@ input {
   border: inherit;
 }
 
+main {
+  @include mixins.wh100;
+}
+
 .app {
   @include mixins.wh100;
-
   display: flex;
   flex-direction: column;
-}
 
-:global(#root) {
-  @include mixins.wh100;
-}
-
-a:hover {
   color: var(--color-font-secondary);
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+@include animationMixins.hover-wrapper {
+  a:hover {
+    color: var(--color-font-secondary);
+  }
 }

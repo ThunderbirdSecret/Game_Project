@@ -1,8 +1,9 @@
-@use "../../styles/mixins";
+@use '../../styles/mixins';
 
 .title {
-  color: #fff;
   margin-bottom: 20px;
+
+  color: #fff;
 }
 
 .formGroup {
@@ -19,11 +20,12 @@
 
 .remindLink {
   display: block;
-  color: rgba(255, 255, 255, 0.34);
+  margin-top: 26px;
+
+  color: rgb(255 255 255 / 34%);
   font-size: 14px;
   line-height: 16px;
   text-align: center;
-  margin-top: 26px;
 }
 
 .buttonContainer {
@@ -44,19 +46,18 @@
 .afterFormBlock {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   p {
     color: #fff;
     text-align: center;
   }
 
-
   .borderLine {
     width: 580px;
     height: 1px;
-    background: radial-gradient(ellipse, #64E2FF, var(--color-bg-primary));
+
+    background: radial-gradient(ellipse, #64e2ff, var(--color-bg-primary));
   }
 }
-

@@ -1,0 +1,69 @@
+.formBlock {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 40px;
+  margin-top: 24px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 100%;
+  margin-left: 10px;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  border-radius: var(--border-radius-s);
+  outline: none;
+  cursor: pointer;
+}
+
+.formInput {
+  flex-grow: 1;
+  height: 40px;
+  margin-left: 10px;
+  padding: 10px;
+
+  color: var(--color-font-white);
+
+  border: 1px solid var(--color-border-forum-primary);
+  border-radius: var(--border-radius-s);
+  outline: none;
+
+  &::placeholder {
+    color: var(--color-font-white);
+  }
+}
+
+.emojiButton {
+  border: 1px solid var(--color-comments-button);
+}
+
+.submitButton {
+  background-color: var(--color-border-forum-primary);
+}
+
+.treangle {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: transparent;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border: 12px solid transparent;
+    border-left: 20px solid var(--color-font-white);
+    transform: translate(-25%, -50%);
+
+    content: '';
+  }
+}

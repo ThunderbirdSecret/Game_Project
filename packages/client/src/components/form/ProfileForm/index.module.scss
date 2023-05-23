@@ -1,0 +1,62 @@
+@use '@/styles/mixins';
+
+.title {
+  margin-bottom: 20px;
+
+  color: #fff;
+}
+
+.container {
+  position: relative;
+
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.input {
+  @include mixins.input-form;
+  width: 335px;
+  height: 43px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.remindLink {
+  display: block;
+  margin-top: 26px;
+
+  color: rgb(255 255 255 / 34%);
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 23px;
+
+  .buttonSubmit {
+    @include mixins.input-btn;
+  }
+}
+
+.errorMessage {
+  color: var(--color-font-primary-error);
+  text-align: center;
+}
+
+.afterFormBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

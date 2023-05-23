@@ -47,5 +47,6 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     '@typescript-eslint/naming-convention': 'off',
+    'no-param-reassign': ['error', { props: false }],
   },
 }

@@ -1,12 +1,45 @@
-import { Button } from '@/components/ui/Button/Button'
-import Input from '@/components/ui/input/Input'
-import style from './index.module.scss'
-import btnStyle from '../../components/button/index.module.scss'
+import Loader from '@/components/ui/loader/Loader'
+import { useEffect, useState } from 'react'
+import { BASE_URL } from '@/api/index'
+import axios from 'axios'
+import ProfileForm, {
+  InputContent,
+} from '@/components/form/ProfileForm/ProfileForm'
 
-export default function Profile() {
+export const Profile = () => {
+  const DataLoading = Loader(ProfileForm)
+  const [userData, setUserData] = useState<{
+    loading: boolean
+    userInput?: InputContent
+  }>({
+    loading: true,
+    userInput: undefined,
+  })
+  // Временное решение пока нет редакса
+  useEffect(() => {
+    setUserData({ loading: true, userInput: undefined })
+    const fetch = async () => {
+      await axios
+        .get(`${BASE_URL}/auth/user`, {
+          withCredentials: true,
+        })
+        .then(res => {
+          const allDataUser = res.data
+          setUserData({
+            loading: false,
+            userInput: allDataUser,
+          })
+        })
+    }
+    fetch()
+  }, [setUserData])
+
   return (
     <div>
-      <h1>Profile</h1>
+      <DataLoading
+        isLoading={userData.loading}
+        userInput={userData.userInput}
+      />
     </div>
   )
 }
