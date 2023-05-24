@@ -1,10 +1,30 @@
+.container {
+  position: relative;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .layout {
   width: 100%;
-
   max-width: 433px;
+  margin-top: 50px;
   padding: 30px 50px 55px;
-
   background: var(--color-bg-primary);
   border: 1px solid var(--color-border-primary);
   border-radius: 11px;
+}
+
+.title {
+  color: #fff;
+  margin-bottom: 20px;
+
+
 }

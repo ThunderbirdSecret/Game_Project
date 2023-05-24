@@ -6,6 +6,15 @@ export type LoginDto = {
   password: string
 }
 
+export type RegisterDto = {
+  email: string
+  password: string
+  login: string
+  name: string
+  second_name: string
+  phone: string
+}
+
 export const authService = {
   async login(dto: LoginDto) {
     try {

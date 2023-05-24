@@ -1,13 +1,22 @@
-@use '../../styles/mixins';
+@use "../../styles/mixins";
 
 .title {
-  margin-bottom: 20px;
-
   color: #fff;
+  margin-bottom: 20px;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
 }
 
 .formGroup {
-  &:first-child {
+  &:not(:last-child) {
     margin-bottom: 20px;
   }
 }
@@ -18,14 +27,11 @@
   height: 43px;
 }
 
-.remindLink {
-  display: block;
-  margin-top: 26px;
-
-  color: rgb(255 255 255 / 34%);
-  font-size: 14px;
-  line-height: 16px;
-  text-align: center;
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonContainer {
@@ -46,18 +52,18 @@
 .afterFormBlock {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   p {
     color: #fff;
     text-align: center;
   }
 
+
   .borderLine {
     width: 580px;
     height: 1px;
-
-    background: radial-gradient(ellipse, #64e2ff, var(--color-bg-primary));
+    background: radial-gradient(ellipse, #64E2FF, var(--color-bg-primary));
   }
 }
