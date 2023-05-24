@@ -7,10 +7,6 @@ export interface HeaderItems {
 
 export const items: HeaderItems[] = [
   {
-    title: 'Logo',
-    link: ROUTES.MAIN,
-  },
-  {
     title: 'Game',
     link: ROUTES.GAME,
   },

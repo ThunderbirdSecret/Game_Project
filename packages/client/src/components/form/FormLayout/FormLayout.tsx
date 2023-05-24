@@ -6,8 +6,8 @@ import styles from './FormLayout.module.scss'
 
 type FormLayoutProps = {
   className?: string
-  title: string
-  bottom: ReactNode
+  title?: string
+  bottom?: ReactNode
 }
 
 export const FormLayout: FC<PropsWithChildren<FormLayoutProps>> = ({
