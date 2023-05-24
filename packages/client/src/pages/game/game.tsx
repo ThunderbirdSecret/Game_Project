@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Canvas } from '../../canvas/canvas'
 import style from './index.module.scss'
 import iconWorm from '../../assets/Icon_Worm.png'

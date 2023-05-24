@@ -7,6 +7,10 @@ import Logout from '@/components/ui/logout/Logout'
 import { useState } from 'react'
 import { UserDTO, userService } from '@/services/user.service'
 import { dataInput } from '@/pages/profile/dataInput'
+import { Modal } from '@/components/modal/Modal'
+import { useModal } from '@/hooks/useModal'
+import { ModalPassword } from '@/components/modal/modalPassword'
+
 import styles from './index.module.scss'
 
 export interface InputContent {
@@ -18,6 +22,7 @@ export interface ProfileProps {
 
 const ProfileForm = (props: ProfileProps) => {
   const { userInput } = props
+  const { isOpen, toggle } = useModal()
   const [formInputs, setFormInputs] = useState(dataInput)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,6 +73,10 @@ const ProfileForm = (props: ProfileProps) => {
               <Button type="submit" className={styles.buttonSubmit}>
                 Change
               </Button>
+              <Button type='button' onClick={toggle} className={styles.buttonSubmit}>
+                Change password
+              </Button>
+              <ModalPassword isOpen={isOpen} closeModal={toggle} />
             </div>
             <Logout />
           </form>
