@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+// eslint-disable-next-line import/no-cycle
 import { login } from '@/store/user/user.action'
 import { APIError } from '@/api/types'
 
@@ -20,6 +21,21 @@ const userSlice = createSlice({
   name: 'userSlice',
   initialState,
   reducers: {
+    userFetching(state) {
+      state.isLoading = true
+    },
+    userFetchingSuccess(state, action: PayloadAction<User>) {
+      state.user = action.payload
+      state.isLoading = false
+      state.isAuth = true
+      state.error = null
+    },
+    userFetchingError(state, action: PayloadAction<APIError>) {
+      state.user = null
+      state.isLoading = false
+      state.isLoading = false
+      state.error = action.payload
+    },
     logout(state) {
       state.user = null
       state.isAuth = false
@@ -49,3 +65,5 @@ const userSlice = createSlice({
 })
 
 export const { reducer: userReducer } = userSlice
+export const { userFetching, userFetchingSuccess, userFetchingError, logout } =
+  userSlice.actions

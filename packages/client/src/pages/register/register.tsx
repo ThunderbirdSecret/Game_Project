@@ -1,5 +1,4 @@
 import { withAuth } from '@/hoc/withAuth'
-import { ROUTES } from '../../routes'
 
 function Register() {
   return (
@@ -8,7 +7,4 @@ function Register() {
     </div>
   )
 }
-export default withAuth(Register, {
-  onAuthPath: ROUTES.GAME,
-  onUnAuthPath: null,
-})
+export default withAuth(Register)

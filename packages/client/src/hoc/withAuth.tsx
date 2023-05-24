@@ -1,42 +1,34 @@
 import { FC } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { ROUTES } from '../routes'
 
-type Options = {
-  onUnAuthPath: null | string
-  onAuthPath: null | string
-}
-
-const defaultOptions: Options = {
-  onAuthPath: null,
-  onUnAuthPath: ROUTES.AUTH,
-}
-
 export const withAuth =
-  <T extends Record<string, unknown>>(
-    Component: FC<T>,
-    initOption?: Options
-  ): FC<T> =>
+  <T extends Record<string, unknown>>(Component: FC<T>): FC<T> =>
   props => {
-    const { isAuth } = useAuth()
+    const { isAuth, isLoading } = useAuth()
+    const { pathname } = useLocation()
 
-    const options = { ...defaultOptions, ...initOption }
-
-    const redirectPath = isAuth ? options.onAuthPath : options.onUnAuthPath
+    // чтобы при перезагрузке не перекидывало '/auth
+    if (isLoading) {
+      return <Navigate to={pathname} />
+    }
 
     if (isAuth) {
-
-      if (redirectPath) {
-        return <Navigate to={redirectPath} />
+      if (pathname === ROUTES.AUTH || pathname === ROUTES.REGISTER) {
+        return <Navigate to={ROUTES.MAIN} />
       }
 
       return <Component {...props} />
     }
 
-
-    if (redirectPath) {
-      return <Navigate to={redirectPath} />
+    if (
+      pathname === ROUTES.GAME ||
+      pathname === ROUTES.PROFILE ||
+      pathname === ROUTES.FORUM ||
+      pathname === ROUTES.LEADER_BOARD
+    ) {
+      return <Navigate to={ROUTES.AUTH} />
     }
 
     return <Component {...props} />

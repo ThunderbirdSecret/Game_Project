@@ -58,7 +58,4 @@ function Main() {
     </main>
   )
 }
-export default withAuth(Main, {
-  onAuthPath: null,
-  onUnAuthPath: null,
-})
+export default withAuth(Main)

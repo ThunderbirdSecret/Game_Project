@@ -13,11 +13,15 @@ import Register from '@/pages/register/register'
 import Auth from '@/pages/auth/auth'
 import Documentation from '@/pages/documentation/documentation'
 import Profile from '@/pages/profile/profile'
+import { useEffect } from 'react'
 import { ROUTES } from './routes'
 import style from './styles/index.module.scss'
 import Game from './pages/game/game'
+import { useAppDispatch } from './store'
+import { fetchUser } from './store/user/user.action'
 
 function App() {
+  const dispatch = useAppDispatch()
   // TODO: приватные роуты будут готовы после того, как будет готова авторизация
   /* useEffect(() => {
      const fetchServerData = async () => {
@@ -29,6 +33,10 @@ function App() {
 
     fetchServerData()
   }, []) */
+  useEffect(() => {
+    dispatch(fetchUser())
+  }, [])
+
   return (
     <div className={style.app}>
       <Router>

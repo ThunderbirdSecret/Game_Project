@@ -102,7 +102,4 @@ const Auth = () => {
   )
 }
 
-export default withAuth(Auth, {
-  onAuthPath: ROUTES.GAME,
-  onUnAuthPath: null,
-})
+export default withAuth(Auth)

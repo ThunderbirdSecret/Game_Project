@@ -7,7 +7,4 @@ function Error404() {
     </div>
   )
 }
-export default withAuth(Error404, {
-  onAuthPath: null,
-  onUnAuthPath: null,
-})
+export default withAuth(Error404)
