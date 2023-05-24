@@ -1,5 +1,17 @@
+@use '@/styles/mixins';
+
+
 .game {
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  &Body {
+    position: relative;
+
+    width: 1100px;
+    height: 600px;
+
+    margin: auto;
+  }
 }
