@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import useCanvas from './useCanvas'
 import style from './index.module.scss'
+import map1 from '../assets/map_1.png'
 
 export const Canvas = (props: any) => {
   const { draw, ...rest } = props
