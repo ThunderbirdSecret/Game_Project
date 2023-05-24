@@ -68,6 +68,10 @@ class Sprite implements Sprite {
 
     // console.log(Resources.get(this.url))
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     window.ctx.drawImage(
       Resources.get(this.url),
       x,

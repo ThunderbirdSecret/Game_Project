@@ -92,6 +92,10 @@ export function Game() {
     terrainPattern = firstCtx?.createPattern(Resources.get(map1), 'repeat')
     lastTime = Date.now()
     ctx = firstCtx
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     window.ctx = firstCtx
 
     player = {
