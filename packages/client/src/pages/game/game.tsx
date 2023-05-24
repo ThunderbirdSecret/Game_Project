@@ -12,7 +12,7 @@ anticlockwise — против часовой стрелки.
 */
 
 export function Game() {
-  const draw = (ctx: any, frameCount: number) => {
+  const draw = (ctx: CanvasRenderingContext2D, frameCount: number) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = '#21d4fd'
     ctx.beginPath()
