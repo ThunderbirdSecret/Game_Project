@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
+import { isProtectedRoutes, isAuthRoutes } from '@/utils/isProtectedRoutes'
 import { ROUTES } from '../routes'
 
 export const withAuth =
@@ -15,19 +16,14 @@ export const withAuth =
     }
 
     if (isAuth) {
-      if (pathname === ROUTES.AUTH || pathname === ROUTES.REGISTER) {
+      if (isAuthRoutes(pathname)) {
         return <Navigate to={ROUTES.MAIN} />
       }
 
       return <Component {...props} />
     }
 
-    if (
-      pathname === ROUTES.GAME ||
-      pathname === ROUTES.PROFILE ||
-      pathname === ROUTES.FORUM ||
-      pathname === ROUTES.LEADER_BOARD
-    ) {
+    if (isProtectedRoutes(pathname)) {
       return <Navigate to={ROUTES.AUTH} />
     }
 
