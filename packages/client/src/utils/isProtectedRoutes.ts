@@ -1,4 +1,4 @@
-import { ROUTES } from 'routes'
+import { ROUTES } from '../routes'
 
 export const isProtectedRoutes = (path: string) =>
   path === ROUTES.GAME ||
