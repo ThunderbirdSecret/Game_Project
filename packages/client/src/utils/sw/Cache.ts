@@ -1,6 +1,3 @@
-
-const DEL = "::";
-
 export default class Cache {
 
   cacheNameBase: string;
@@ -12,7 +9,7 @@ export default class Cache {
   constructor({ cacheName, version }: { cacheName: string, version: string }) {
     this.cacheNameBase = cacheName
     this.version = version
-    this.cacheName = `${cacheName}${DEL}${version}`;
+    this.cacheName = `${cacheName}::${version}`;
   }
 
   private async open() {
@@ -35,7 +32,7 @@ export default class Cache {
 
   async deteleOld() {
     const cacheNames = await caches.keys()
-
+     
     return Promise.all(
       cacheNames
         .filter(name => name !== this.cacheName && name.startsWith(this.cacheNameBase))

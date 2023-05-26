@@ -5,14 +5,13 @@
   "scripts": {
     "build": "rm -rf ./dist && tsc --p ./tsconfig.prod.json",
     "preview": "node ./dist/index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.ts",
+    "dev": "cross-env NODE_ENV=development nodemon --watch '*.ts' --exec 'ts-node' --files index.ts",
     "lint": "eslint .",
     "style-lint": "",
     "format": "prettier --write .",
     "test": "jest ."
   },
   "dependencies": {
-    "@types/connect-history-api-fallback": "^1.5.0",
     "cors": "2.8.5",
     "cross-env": "7.0.3",
     "dotenv": "16.0.3",

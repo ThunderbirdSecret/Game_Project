@@ -27,17 +27,19 @@ export default ({ mode }) => {
       strategies: "injectManifest",
       injectManifest: {
         globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico,woff,woff2}"]
-        //rollupFormat: 'iife'
+        //maximumFileSizeToCacheInBytes: по умолчанию 2 МБ, можно увеличить этой настройкой
       },
       injectRegister: false,
       manifest: false,
-      //devOptions: {
-      //  enabled: true, 
-      //  type: 'module',
-      //},
+      devOptions: {
+        enabled: process.env.SW_DEV === 'true',
+        type: 'module',
+      },
       workbox: {
         sourcemap: true
-      }
+      },
+      registerType: 'autoUpdate',
+      // selfDestroying: true,
     })],
 
     build: {
@@ -47,6 +49,7 @@ export default ({ mode }) => {
           "utils/sw/Cache",
           "utils/sw/sw",
           "utils/hashCode",
+          "utils/logger"
         ],
       },
     },

@@ -1,10 +1,14 @@
 /// <reference lib="webworker" />д
 
 import Cache from './utils/sw/Cache';
-import WormServiceWorker, { calcVersion, createWormServiceWorker, ManifestItem } from './utils/sw/sw';
+import WormServiceWorker, { calcVersion, ManifestItem } from './utils/sw/sw';
+// import { NavigationRoute } from 'workbox-routing/NavigationRoute';
+// import { createHandlerForURL } from 'workbox-precaching/createHandlerForURL';
 
 declare const self: ServiceWorkerGlobalScope;
 
+// по-хорошему, надо сообщить пользователю, что он offline и попробовать анализировать флаг в utils/sw/sw
+// window.addEventListener('offline', () => showOfflineBar());
 
 // export empty type because of tsc --isolatedModules flag
 export type { };
@@ -20,33 +24,28 @@ function getPathItems() {
 
 async function startServiceWorker() {
   const pathItems = getPathItems();
-  console.log("pathItems", pathItems);
 
   const cache = new Cache({
     cacheName: SW_CACHE_NAME,
     version: calcVersion(pathItems)
   })
 
-  try {
-
-    sw = await createWormServiceWorker({ cache, pathItems });
-  }
-  catch (exp) {
-    console.error(exp);
-  }
+  sw = new WormServiceWorker({ cache, pathItems });
 }
 
 self.addEventListener('install', event => {
+
+  // self.skipWaiting()
   event.waitUntil(sw.install())
 })
 
 self.addEventListener('activate', event => {
-  console.info('activate111ggg');
+
   event.waitUntil(sw.activate())
 })
 
 self.addEventListener('fetch', event => {
-  if (WormServiceWorker.defaultFetch(event)) return;
+  if (WormServiceWorker.useDefaultFetch(event)) return;
 
   event.respondWith(sw.fetch(event))
 })

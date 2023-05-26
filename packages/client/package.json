@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "SW_DEV=true vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint ./src/**/*{.ts,.tsx,.js,.jsx}",

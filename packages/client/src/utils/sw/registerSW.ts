@@ -1,7 +1,10 @@
+import logger from '@/utils/logger';
 import { registerSW } from 'virtual:pwa-register';
 
-console.info("тут")
-
 if ('serviceWorker' in navigator) {
-  registerSW();
+
+  registerSW({
+    // immediate: true,
+    onRegisterError(error) { logger.error(error) }
+  }); 
 }

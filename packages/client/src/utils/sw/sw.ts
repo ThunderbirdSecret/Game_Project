@@ -9,26 +9,20 @@ export type ManifestItem = {
 }
 
 type Props = {
-  // register: ServiceWorkerRegistration;
   cache: Cache;
   pathItems: ManifestItem[];
 }
 
 export default class WormServiceWorker {
 
-  // private register?: ServiceWorkerRegistration = undefined;
-
   private cache: Cache;
 
   private pathItems: ManifestItem[];
 
   constructor({ cache, pathItems }: Props) {
-
-    // this.register = register;
     this.cache = cache
     this.pathItems = pathItems;
   }
-
 
   install() {
     // добавляем новую статику в кеш
@@ -41,21 +35,20 @@ export default class WormServiceWorker {
   }
 
   private static isOkResponse(response: Response) {
-    // basic: Normal, same origin response, with all headers exposed except "Set-Cookie".
+    // response.type = basic: Normal, same origin response, with all headers exposed except "Set-Cookie".
 
     return (response && (response.status >= 200 && response.status < 300) && response.type === 'basic')
   }
 
-  static defaultFetch(event: FetchEvent) {
-    return (!IGNORE_METHODS.has(event.request.method.toLocaleLowerCase()));
+  static useDefaultFetch(event: FetchEvent) {
+    return (IGNORE_METHODS.has(event.request.method.toLocaleLowerCase()));
   }
 
   async fetch(event: FetchEvent) {
     // Пытаемся найти ответ на такой запрос в кеше 
-    // Если ответ найден, выдаём его 
-
     const cachedResponse = await this.cache.getSavedFetch(event.request)
 
+    // Если ответ найден, выдаём его 
     if (cachedResponse) {
       return cachedResponse;
     }
@@ -63,7 +56,6 @@ export default class WormServiceWorker {
     // В противном случае делаем запрос на сервер 
     const fetchRequest = event.request.clone();
     const response = await fetch(fetchRequest);
-
 
     // Если что-то пошло не так, выдаём в основной поток результат, но не кладём его в кеш 
     if (!WormServiceWorker.isOkResponse(response)) {
@@ -82,17 +74,4 @@ export function calcVersion(pathItems: ManifestItem[]) {
   const str = pathItems.map(item => `${item.url}::${item.revision || ""}`).join("::");
   return String(hashCode(str));
 }
-
-export function availableServiceWorker() {
-  return ('serviceWorker' in navigator);
-}
-
-export async function createWormServiceWorker({ cache, pathItems }: { cache: Cache; pathItems: ManifestItem[] }) {
-  // if (!availableServiceWorker) throw new Error("Not supported ServiceWorker");
-
- // const register = await navigator.serviceWorker.register(path);
-  const sw = new WormServiceWorker({ cache, pathItems });
-  return sw
-}
-
 
