@@ -41,6 +41,7 @@ function App() {
           <Route path={ROUTES.PROFILE} element={<Profile />} />
           <Route path={ROUTES.AUTH} element={<Auth />} />
           <Route path={ROUTES.REGISTER} element={<Register />} />
+          <Route path={ROUTES.DOCUMENTAION} element={<Documentation />} />
           <Route path={ROUTES.ERROR_404} element={<Error404 />} />
           <Route
             path="*"

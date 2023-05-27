@@ -96,6 +96,6 @@ export default class WormServiceWorker {
 
 export function calcVersion(pathItems: ManifestItem[]) {
   const str = pathItems.map(item => `${item.url}::${item.revision || ""}`).join("::");
-  return String(hashCode(str));
+  return pathItems.length > 0 ? String(hashCode(str)) : String((new Date()).getTime());
 }
 

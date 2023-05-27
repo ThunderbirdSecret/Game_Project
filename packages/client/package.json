@@ -58,7 +58,7 @@
     "ts-jest": "28.0.8",
     "typescript": "4.9.5",
     "vite": "3.2.6",
-    "vite-plugin-pwa": "^0.15.0"
+    "vite-plugin-pwa": "0.15.0"
   },
   "license": "MIT"
 }
