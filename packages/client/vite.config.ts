@@ -26,8 +26,8 @@ export default ({ mode }) => {
       filename: "sw.ts",
       strategies: "injectManifest",
       injectManifest: {
-        globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico,woff,woff2}"]
-        //maximumFileSizeToCacheInBytes: по умолчанию 2 МБ, можно увеличить этой настройкой
+        globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico,woff,woff2}"],
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024 // по умолчанию 2 МБ, можно увеличить этой настройкой
       },
       injectRegister: false,
       manifest: false,
@@ -49,7 +49,8 @@ export default ({ mode }) => {
           "utils/sw/Cache",
           "utils/sw/sw",
           "utils/hashCode",
-          "utils/logger"
+          "utils/logger",
+          "routes"
         ],
       },
     },

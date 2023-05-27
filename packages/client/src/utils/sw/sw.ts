@@ -1,5 +1,7 @@
+import { isRoute } from '../../routes';
 import { hashCode } from '../hashCode';
 import Cache from './Cache';
+import logger from '../logger';
 
 const IGNORE_METHODS = new Set(["put", "post"]);
 
@@ -45,14 +47,36 @@ export default class WormServiceWorker {
   }
 
   async fetch(event: FetchEvent) {
+
+    let { url } = event.request;
+    let isRouteUrl = false;
+
+    const urlObj = new URL(url);
+    const firstPath = urlObj.pathname.split("/")[1];
+    if (firstPath) {
+      isRouteUrl = (isRoute(`/${firstPath}`));
+      if (isRouteUrl) {
+        url = `${urlObj.origin}/index.html`;
+      }
+    }
+     
     // Пытаемся найти ответ на такой запрос в кеше 
-    const cachedResponse = await this.cache.getSavedFetch(event.request)
+    let cachedResponse;
+    if (isRouteUrl) {
+      logger.log("route to ", url);
+      cachedResponse = await this.cache.getSavedFetch(url)
+    }
+    else {
+      cachedResponse = await this.cache.getSavedFetch(event.request)
+    }
 
     // Если ответ найден, выдаём его 
     if (cachedResponse) {
+      logger.log("cachedResponse");
       return cachedResponse;
     }
 
+    logger.log("network");
     // В противном случае делаем запрос на сервер 
     const fetchRequest = event.request.clone();
     const response = await fetch(fetchRequest);

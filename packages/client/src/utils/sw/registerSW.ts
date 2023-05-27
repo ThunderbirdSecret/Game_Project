@@ -4,7 +4,7 @@ import { registerSW } from 'virtual:pwa-register';
 if ('serviceWorker' in navigator) {
 
   registerSW({
-    // immediate: true,
+    immediate: true,
     onRegisterError(error) { logger.error(error) }
   }); 
 }

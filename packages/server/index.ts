@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import express from 'express'
 
-//import fallback from "express-history-api-fallback";
+import fallback from "express-history-api-fallback";
 import path from 'path';
 
 //import { createClientAndConnect } from './db'
@@ -20,14 +20,9 @@ const port = Number(process.env.SERVER_PORT) || 4002
 //  res.json('👋 Howdy from the server :)')
 //})
 
- app.use(function (_req, _res, next) {
-  console.log(_req.url);
-  //res.setHeader('Cache-Control', 'public, max-age=120'); //, must-revalidate
-  next();
-}); 
 
 app.use(express.static(root));
-//app.use(fallback("index.html", { root }));
+app.use(fallback("index.html", { root }));
 
 
 app.listen(port, () => {
