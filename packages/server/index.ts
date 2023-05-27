@@ -12,7 +12,7 @@ const root = path.resolve(__dirname, '../client/dist');
 
 const app = express()
 app.use(cors())
-const port = Number(process.env.SERVER_PORT) || 4002
+const port = Number(process.env.SERVER_PORT) || 3001
 
 //createClientAndConnect()
 
