@@ -30,15 +30,13 @@
       "@/canvas/*": ["canvas/*"],
       "@/store/*": ["store/*"]
     },
-    "types": [
-      "vite-plugin-pwa/client"
-    ]
+    "types": ["vite-plugin-pwa/client"]
   },
   "include": [
     ".eslintrc.js",
     "./src/**/*",
     "typing/app.d.ts",
     "typing/react.d.ts"
- ],
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

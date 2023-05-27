@@ -20,37 +20,40 @@ export default ({ mode }) => {
     define: {
       __SERVER_PORT__: process.env.SERVER_PORT,
     },
-    plugins: [svgr(), react(),
-    VitePWA({
-      srcDir: "src",
-      filename: "sw.ts",
-      strategies: "injectManifest",
-      injectManifest: {
-        globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico,woff,woff2}"],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024 // по умолчанию 2 МБ, можно увеличить этой настройкой
-      },
-      injectRegister: false,
-      manifest: false,
-      devOptions: {
-        enabled: process.env.SW_DEV === 'true',
-        type: 'module',
-      },
-      workbox: {
-        sourcemap: true
-      },
-      registerType: 'autoUpdate',
-      // selfDestroying: true,
-    })],
+    plugins: [
+      svgr(),
+      react(),
+      VitePWA({
+        srcDir: 'src',
+        filename: 'sw.ts',
+        strategies: 'injectManifest',
+        injectManifest: {
+          globPatterns: ['**/*.{js,css,html,svg,png,jpg,ico,woff,woff2}'],
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // по умолчанию 2 МБ, можно увеличить этой настройкой
+        },
+        injectRegister: false,
+        manifest: false,
+        devOptions: {
+          enabled: process.env.SW_DEV === 'true',
+          type: 'module',
+        },
+        workbox: {
+          sourcemap: true,
+        },
+        registerType: 'autoUpdate',
+        // selfDestroying: true,
+      }),
+    ],
 
     build: {
       manifest: true,
       rollupOptions: {
         external: [
-          "utils/sw/Cache",
-          "utils/sw/sw",
-          "utils/hashCode",
-          "utils/logger",
-          "routes"
+          'utils/sw/Cache',
+          'utils/sw/sw',
+          'utils/hashCode',
+          'utils/logger',
+          'routes',
         ],
       },
     },
