@@ -4,9 +4,10 @@ import { MessagesBlock } from '@/components/messagesBlock/MessagesBlock'
 import { Modal } from '@/components/modal/Modal'
 import { useModal } from '@/hooks/useModal'
 import { TTopic } from '@/models/forum'
+import { withAuth } from '@/hoc/withAuth'
 import styles from './forum.module.scss'
 
-export default function Forum() {
+function Forum() {
   const [selectedTopic, setSelectedTopic] = useState<TTopic | null>(null)
   const { isOpen, toggle } = useModal()
 
@@ -32,3 +33,5 @@ export default function Forum() {
     </div>
   )
 }
+
+export default withAuth(Forum)

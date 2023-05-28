@@ -1,7 +1,8 @@
 import { Canvas } from '@/canvas/canvas'
+import { withAuth } from '@/hoc/withAuth'
 import style from './index.module.scss'
 
-/* 
+/*
 x, y — это центр дуги,
 radius — радиус дуги в радианах,
 startAngle — начальный угол,
@@ -11,7 +12,7 @@ anticlockwise — против часовой стрелки.
 
 */
 
-export function Game() {
+function Game() {
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = '#21d4fd'
@@ -43,3 +44,5 @@ export function Game() {
     </div>
   )
 }
+
+export default withAuth(Game)
