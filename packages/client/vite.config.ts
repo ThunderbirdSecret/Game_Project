@@ -41,7 +41,6 @@ export default ({ mode }) => {
           sourcemap: true,
         },
         registerType: 'autoUpdate',
-        // selfDestroying: true,
       }),
     ],
 

@@ -11,17 +11,16 @@ export const enum ROUTES {
 }
 
 export function isRoute(path: string) {
-  return (
-    [
-      ROUTES.MAIN,
-      ROUTES.GAME,
-      ROUTES.FORUM,
-      ROUTES.LEADER_BOARD,
-      ROUTES.PROFILE,
-      ROUTES.AUTH,
-      ROUTES.REGISTER,
-      ROUTES.ERROR_404,
-      ROUTES.DOCUMENTAION,
-    ] as string[]
-  ).includes(path)
+  const routes: string[] = [
+    ROUTES.MAIN,
+    ROUTES.GAME,
+    ROUTES.FORUM,
+    ROUTES.LEADER_BOARD,
+    ROUTES.PROFILE,
+    ROUTES.AUTH,
+    ROUTES.REGISTER,
+    ROUTES.ERROR_404,
+    ROUTES.DOCUMENTAION,
+  ]
+  return routes.includes(path)
 }
