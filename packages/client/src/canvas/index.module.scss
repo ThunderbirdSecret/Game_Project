@@ -1,5 +1,15 @@
 .pixelRatio {
-  width: 1350px;
-  height: 800px;
+  width: 1000px;
+  height: 600px;
   background: black;
+}
+
+.fullscreenBtn {
+  max-width: max-content;
+  margin-left: auto;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column-reverse;
 }
