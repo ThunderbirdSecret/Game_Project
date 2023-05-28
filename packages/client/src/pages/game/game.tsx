@@ -1,45 +1,89 @@
-import { Canvas } from '@/canvas/canvas'
+import { useEffect, useState } from 'react'
+import { Canvas } from '../../canvas/canvas'
 import style from './index.module.scss'
-
-/* 
-x, y — это центр дуги,
-radius — радиус дуги в радианах,
-startAngle — начальный угол,
-endAngle — конечный угол,
-anticlockwise — против часовой стрелки.
-
-
-*/
+import iconWorm from '../../assets/Icon_Worm.png'
+import map1 from '../../assets/map_1.png'
+import Resources from './resources'
+import Sprite from './sprite'
+import Input from './input'
 
 export function Game() {
-  const draw = (ctx: CanvasRenderingContext2D, frameCount: number) => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = '#21d4fd'
-    ctx.beginPath()
-    ctx.arc(50, 100, 20 * Math.sin(frameCount * 0.05) ** 2, 0, 2 * Math.PI)
-    ctx.fill()
-
-    ctx.beginPath()
-    ctx.lineWidth = 3
-    ctx.moveTo(60, 120)
-    ctx.bezierCurveTo(90, 30, 200, 130, 310, 55)
-    ctx.moveTo(60, 120)
-    ctx.bezierCurveTo(90, 170, 200, 110, 310, 160)
-    ctx.moveTo(310, 55)
-    ctx.quadraticCurveTo(320, 80, 280, 110)
-    ctx.moveTo(310, 160)
-    ctx.quadraticCurveTo(320, 120, 280, 110)
-    ctx.moveTo(100, 100)
-    ctx.arc(100, 100, 5, 0, 2 * Math.PI)
-    ctx.moveTo(60, 120)
-    ctx.lineTo(80, 120)
-    ctx.stroke()
+  let lastTime: number
+  let ctx: any
+  const playerSpeed = 100
+  let terrainPattern: any
+  const player = {
+    pos: [1200, 320],
+    sprite: new Sprite(
+      iconWorm,
+      [0, 0],
+      [128, 128],
+      16,
+      [0, 1],
+      'horizontal',
+      1
+    ),
   }
+
+  function handleInput(dt: number) {
+    if (Input.isDown('LEFT') || Input.isDown('a')) {
+      player.pos[0] -= playerSpeed * dt
+    }
+
+    if (Input.isDown('RIGHT') || Input.isDown('d')) {
+      player.pos[0] += playerSpeed * dt
+    }
+  }
+
+  const renderEntity = (entity: any) => {
+    ctx.save()
+    ctx.translate(entity.pos[0], entity.pos[1])
+    entity.sprite.render(ctx)
+    ctx.restore()
+  }
+  function render() {
+    ctx.fillRect(0, 0, 1350, 800)
+
+    renderEntity(player)
+  }
+
+  const main = () => {
+    const now = Date.now()
+    const dt = (now - lastTime) / 1000.0
+
+    handleInput(dt)
+
+    render()
+
+    lastTime = now
+    requestAnimationFrame(main)
+  }
+  const init = (firstCtx: any) => {
+    if (!Resources.get(map1)) {
+      return
+    }
+    terrainPattern = firstCtx?.createPattern(Resources.get(map1), 'repeat')
+    firstCtx.fillStyle = terrainPattern
+    lastTime = Date.now()
+    ctx = firstCtx
+    console.log('CTX')
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    window.ctx = firstCtx
+    main()
+  }
+
+  useEffect(() => {
+    Resources.load([iconWorm, map1])
+  }, [])
 
   return (
     <div className={style.game}>
       <h1>Game</h1>
-      <Canvas draw={draw} />
+      <Canvas draw={init} />
     </div>
   )
 }
