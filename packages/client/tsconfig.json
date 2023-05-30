@@ -23,8 +23,15 @@
       "@/pages/*": ["pages/*"],
       "@/services/*": ["services/*"],
       "@/styles/*": ["styles/*"],
-      "@/utils/*": ["utils/*"]
-    }
+      "@/utils/*": ["utils/*"],
+      "@/mock/*": ["mock/*"],
+      "@/models/*": ["models/*"],
+      "@/hoc/*": ["hoc/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/canvas/*": ["canvas/*"],
+      "@/store/*": ["store/*"]
+    },
+    "types": ["vite-plugin-pwa/client"]
   },
   "include": [
     ".eslintrc.js",

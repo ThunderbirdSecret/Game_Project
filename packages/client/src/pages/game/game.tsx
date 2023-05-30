@@ -1,24 +1,48 @@
-import { useState } from 'react'
-import { GAME_STATES, Main } from '@/pages/game/components/main'
-import { Standby } from '@/pages/game/components/stanbdy/standby'
+import { Canvas } from '@/canvas/canvas'
+import { withAuth } from '@/hoc/withAuth'
+import style from './index.module.scss'
 
-import styles from './index.module.scss'
+/*
+x, y — это центр дуги,
+radius — радиус дуги в радианах,
+startAngle — начальный угол,
+endAngle — конечный угол,
+anticlockwise — против часовой стрелки.
 
-export default function Game() {
-  const [gameState, setGameState] = useState(GAME_STATES.Initialize)
 
-  const handlehangeState = (st: GAME_STATES) => {
-    setGameState(st)
+*/
+
+function Game() {
+  const draw = (ctx: CanvasRenderingContext2D, frameCount: number) => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+    ctx.fillStyle = '#21d4fd'
+    ctx.beginPath()
+    ctx.arc(50, 100, 20 * Math.sin(frameCount * 0.05) ** 2, 0, 2 * Math.PI)
+    ctx.fill()
+
+    ctx.beginPath()
+    ctx.lineWidth = 3
+    ctx.moveTo(60, 120)
+    ctx.bezierCurveTo(90, 30, 200, 130, 310, 55)
+    ctx.moveTo(60, 120)
+    ctx.bezierCurveTo(90, 170, 200, 110, 310, 160)
+    ctx.moveTo(310, 55)
+    ctx.quadraticCurveTo(320, 80, 280, 110)
+    ctx.moveTo(310, 160)
+    ctx.quadraticCurveTo(320, 120, 280, 110)
+    ctx.moveTo(100, 100)
+    ctx.arc(100, 100, 5, 0, 2 * Math.PI)
+    ctx.moveTo(60, 120)
+    ctx.lineTo(80, 120)
+    ctx.stroke()
   }
 
   return (
-    <div className={styles.game}>
-      <div className={styles.gameBody}>
-        <Main />
-        {gameState !== GAME_STATES.Progress && (
-          <Standby gameState={gameState} onChangeState={handlehangeState} />
-        )}
-      </div>
+    <div className={style.game}>
+      <h1>Game</h1>
+      <Canvas draw={draw} />
     </div>
   )
 }
+
+export default withAuth(Game)

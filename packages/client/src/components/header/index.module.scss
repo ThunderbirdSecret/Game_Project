@@ -1,14 +1,10 @@
 @use '@/styles/animationMixins';
 
 .header {
-  margin: 0;
-  background: var(--color-bg-primary);
-  height: 60px;
-  font-family: var(--font);
-
   top: 0;
 
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -44,6 +40,10 @@
             color: #ff7f49;
           }
         }
+
+        p {
+          margin: 0;
+        }
       }
     }
 
@@ -55,7 +55,7 @@
 
         li {
           display: inline-block;
-          margin: 2em;
+          margin: 0 2em;
         }
       }
     }

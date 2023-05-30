@@ -1,0 +1,66 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  border-bottom: 1px solid var(--color-bg-another-answer);
+}
+
+.messageSupportAnswer {
+  background-color: var(--color-bg-another-answer);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.avatarWrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.name {
+  display: inline-block;
+  max-width: 200px;
+  margin-left: 20px;
+  overflow: hidden;
+
+  color: var(--color-font-secondary);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content {
+  margin-top: 20px;
+  margin-bottom: 0;
+
+  word-break: break-all;
+  hyphens: auto;
+}
+
+.actions {
+  display: flex;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 5px;
+
+  color: var(--color-comments-button);
+  font-weight: 400;
+
+  background-color: transparent;
+  border: none;
+  border: 1px solid var(--color-comments-button);
+  border-radius: var(--border-radius-s);
+  outline: none;
+  cursor: pointer;
+}
+
+.emojiButton {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+}
