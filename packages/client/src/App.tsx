@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Routes,
 } from 'react-router-dom'
+import { useEffect } from 'react'
 import Header from '@/components/header/Header'
 import Main from '@/pages/main/main'
 import Forum from '@/pages/forum/forum'
@@ -13,7 +14,6 @@ import Register from '@/pages/register/register'
 import Auth from '@/pages/auth/auth'
 import Documentation from '@/pages/documentation/documentation'
 import Profile from '@/pages/profile/profile'
-import { useEffect } from 'react'
 import { ROUTES } from './routes'
 import style from './styles/index.module.scss'
 import Game from './pages/game/game'
@@ -58,7 +58,6 @@ function App() {
             element={<ErrorPage code={500} text="Something went wrong" />}
           />
           <Route path={ROUTES.DOCUMENTAION} element={<Documentation />} />
-          <Route path={ROUTES.ERROR_404} element={<Error404 />} />
           <Route
             path="*"
             element={<Navigate to={ROUTES.ERROR_404} replace />}
