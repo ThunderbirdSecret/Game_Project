@@ -35,10 +35,11 @@
   },
   "include": [
     "**/*.tsx",
-    ".eslintrc.js",
+    ".eslintrc.cjs",
     "./src/**/*",
     "typing/app.d.ts",
-    "typing/react.d.ts"
+    "typing/react.d.ts",
+    "index.js"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

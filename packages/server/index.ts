@@ -6,7 +6,6 @@ dotenv.config()
 import cors from 'cors'
 import express from 'express'
 import * as fs from 'fs'
-import fallback from 'express-history-api-fallback'
 import * as path from 'path'
 import { createServer as createViteServer } from 'vite'
 import type { ViteDevServer } from 'vite'
@@ -41,7 +40,7 @@ async function createServer() {
   }
 
   app.get('/api', (_, res) => {
-    res.json('👋 Howdy from the server :)')
+    res.json('👋 Howdy from the server :) 2')
   })
 
 
@@ -98,18 +97,7 @@ async function createServer() {
 
 createServer()
 
-const root = path.resolve(__dirname, '../client/dist')
-
 
 //createClientAndConnect()
-
-//app.get('/', (_, res) => {
-//  res.json('👋 Howdy from the server :)')
-//})
-
-app.use(express.static(root))
-app.use(fallback('index.html', { root }))
-
-
 
 // lsof -i :3001 -t
