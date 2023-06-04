@@ -1,5 +1,5 @@
-import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
 import { forwardRef } from 'react'
+import TransparentButton from '../components/ui/transparentButton/TransparentButton'
 import style from './index.module.scss'
 
 export const Fullscreen = forwardRef<HTMLCanvasElement, { toggler: string }>(

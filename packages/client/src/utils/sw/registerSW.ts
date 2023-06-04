@@ -1,5 +1,5 @@
-import logger from '@/utils/logger'
 import { registerSW } from 'virtual:pwa-register'
+import logger from '../logger'
 
 if ('serviceWorker' in navigator) {
   registerSW({

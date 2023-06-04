@@ -1,6 +1,6 @@
-import { ForumAvatar } from '@/components/forumAvatar/ForumAvatar'
 import cn from 'classnames'
-import { TTopic } from '@/models/forum'
+import { ForumAvatar } from '../forumAvatar/ForumAvatar'
+import { TTopic } from '../../models/forum'
 import styles from './Topic.module.scss'
 import { Button } from '../ui/Button/Button'
 

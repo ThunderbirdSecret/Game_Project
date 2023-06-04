@@ -2,18 +2,18 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { unwrapResult } from '@reduxjs/toolkit'
 
-import { FormLayout } from '@/components/form/FormLayout/FormLayout'
-import { Title } from '@/components/ui/Title/Title'
-import { Button } from '@/components/ui/Button/Button'
-import Input from '@/components/ui/input/Input'
+import { FormLayout } from '../../components/form/FormLayout/FormLayout'
+import { Title } from '../../components/ui/Title/Title'
+import { Button } from '../../components/ui/Button/Button'
+import Input from '../../components/ui/input/Input'
 
-import { LoginDto } from '@/services/auth.service'
-import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
+import { LoginDto } from '../../services/auth.service'
+// import { ReactComponent as YandexIcon } from '../../assets/Yandex_icon.svg'
 
-import { login } from '@/store/user/user.action'
-import { useAppDispatch, useAppSelector } from '@/store/index'
+import { login } from '../../store/user/user.action'
+import { useAppDispatch, useAppSelector } from '../../store/index'
 
-import { withAuth } from '@/hoc/withAuth'
+import { withAuth } from '../../hoc/withAuth'
 import { ROUTES } from '../../routes'
 
 import styles from './Auth.module.scss'
@@ -94,7 +94,7 @@ const Auth = () => {
           <div className={styles.borderLine} />
           <p>or</p>
           <Link to={ROUTES.MAIN}>
-            <YandexIcon />
+            {/* <YandexIcon /> */}
           </Link>
         </div>
       </div>

@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import cn from 'classnames'
 
-import { GAME_STATES } from '@/pages/game/components/main'
-import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
+import { GAME_STATES } from '../main'
 import { ROUTES } from '../../../../routes'
 
 import styles from './index.module.scss'
+import TransparentButton from '../../../../components/ui/transparentButton/TransparentButton'
 
 type Pops = {
   gameState: GAME_STATES

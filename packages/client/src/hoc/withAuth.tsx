@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { useAuth } from '@/hooks/useAuth'
-import { isProtectedRoutes, isAuthRoutes } from '@/utils/isProtectedRoutes'
+import { useAuth } from '../hooks/useAuth'
+import { isProtectedRoutes, isAuthRoutes } from '../utils/isProtectedRoutes'
 import { ROUTES } from '../routes'
 
 export const withAuth =

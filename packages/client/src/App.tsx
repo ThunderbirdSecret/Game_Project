@@ -4,21 +4,21 @@ import {
   BrowserRouter as Router,
   Routes,
 } from 'react-router-dom'
-import Header from '@/components/header/Header'
-import Main from '@/pages/main/main'
-import Forum from '@/pages/forum/forum'
-import LeaderBord from '@/pages/leader-board/leader-board'
-import Error404 from '@/pages/page-error/Error404'
-import Register from '@/pages/register/register'
-import Auth from '@/pages/auth/auth'
-import Documentation from '@/pages/documentation/documentation'
-import Profile from '@/pages/profile/profile'
 import { useEffect } from 'react'
 import { ROUTES } from './routes'
 import style from './styles/index.module.scss'
 import Game from './pages/game/game'
 import { useAppDispatch } from './store'
 import { fetchUser } from './store/user/user.action'
+import Header from './components/header/Header'
+import Main from './pages/main/main'
+import Forum from './pages/forum/forum'
+import LeaderBoard from './pages/leader-board/leader-board'
+import Profile from './pages/profile/profile'
+import Auth from './pages/auth/auth'
+import Register from './pages/register/register'
+import Documentation from './pages/documentation/documentation'
+import Error404 from './pages/page-error/Error404'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -45,7 +45,7 @@ function App() {
           <Route path={ROUTES.MAIN} element={<Main />} />
           <Route path={ROUTES.GAME} element={<Game />} />
           <Route path={ROUTES.FORUM} element={<Forum />} />
-          <Route path={ROUTES.LEADER_BOARD} element={<LeaderBord />} />
+          <Route path={ROUTES.LEADER_BOARD} element={<LeaderBoard />} />
           <Route path={ROUTES.PROFILE} element={<Profile />} />
           <Route path={ROUTES.AUTH} element={<Auth />} />
           <Route path={ROUTES.REGISTER} element={<Register />} />

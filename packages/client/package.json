@@ -2,8 +2,9 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "dev": "node server",
+    "dev": "vite",
     "build": "tsc && vite build",
+    "build:ssr": "tsc && vite build --config ssr.config.ts",
     "preview": "vite preview",
     "lint": "eslint ./src/**/*{.ts,.tsx,.js,.jsx}",
     "style-lint": "stylelint **/*.scss --fix",

@@ -1,11 +1,11 @@
-import Loader from '@/components/ui/loader/Loader'
-import { useEffect, useState } from 'react'
-import { BASE_URL } from '@/api/index'
 import axios from 'axios'
+import { useEffect, useState } from 'react'
+import Loader from '../../components/ui/loader/Loader'
+import { BASE_URL } from '../../api/index'
 import ProfileForm, {
   InputContent,
-} from '@/components/form/ProfileForm/ProfileForm'
-import { withAuth } from '@/hoc/withAuth'
+} from '../../components/form/ProfileForm/ProfileForm'
+import { withAuth } from '../../hoc/withAuth'
 
 const Profile = () => {
   const DataLoading = Loader(ProfileForm)

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { authService, LoginDto } from '@/services/auth.service'
-import { userService } from '@/services/user.service'
-import { APIError } from '@/api/types'
+import { authService, LoginDto } from '../../services/auth.service'
+import { userService } from '../../services/user.service'
+import { APIError } from '../../api/types'
 // eslint-disable-next-line import/no-cycle
 import { AppDispatch } from '../store'
 import {

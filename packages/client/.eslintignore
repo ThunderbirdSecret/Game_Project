@@ -8,3 +8,4 @@ gen
 *.config.ts
 /node_modules
 .vscode
+ssr.tsx

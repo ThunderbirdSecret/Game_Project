@@ -1,4 +1,4 @@
-import { withAuth } from '@/hoc/withAuth'
+import { withAuth } from '../../hoc/withAuth'
 
 function Documentation() {
   return (
