@@ -1,27 +1,27 @@
-import {
-  Navigate,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from 'react-router-dom'
+// import {
+//   Navigate,
+//   Route,
+//   BrowserRouter as Router,
+//   Routes,
+// } from 'react-router-dom'
 import { useEffect } from 'react'
-import { ROUTES } from './routes'
+// import { ROUTES } from './routes'
 import style from './styles/index.module.scss'
-import Game from './pages/game/game'
-import { useAppDispatch } from './store'
-import { fetchUser } from './store/user/user.action'
-import Header from './components/header/Header'
-import Main from './pages/main/main'
-import Forum from './pages/forum/forum'
-import LeaderBoard from './pages/leader-board/leader-board'
-import Profile from './pages/profile/profile'
-import Auth from './pages/auth/auth'
-import Register from './pages/register/register'
-import Documentation from './pages/documentation/documentation'
-import Error404 from './pages/page-error/Error404'
+// import Game from './pages/game/game'
+// import { useAppDispatch } from './store'
+// import { fetchUser } from './store/user/user.action'
+// import Header from './components/header/Header'
+// import Main from './pages/main/main'
+// import Forum from './pages/forum/forum'
+// import LeaderBoard from './pages/leader-board/leader-board'
+// import Profile from './pages/profile/profile'
+// import Auth from './pages/auth/auth'
+// import Register from './pages/register/register'
+// import Documentation from './pages/documentation/documentation'
+// import Error404 from './pages/page-error/Error404'
 
 function App() {
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
   // TODO: приватные роуты будут готовы после того, как будет готова авторизация
   useEffect(() => {
     const fetchServerData = async () => {
@@ -33,13 +33,14 @@ function App() {
 
     fetchServerData()
   }, [])
-  useEffect(() => {
-    dispatch(fetchUser())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(fetchUser())
+  // }, [])
 
   return (
     <div className={style.app}>
-      <Router>
+      <h1>This is SSR</h1>
+      {/* <Router>
         <Header />
         <Routes>
           <Route path={ROUTES.MAIN} element={<Main />} />
@@ -56,7 +57,7 @@ function App() {
             element={<Navigate to={ROUTES.ERROR_404} replace />}
           />
         </Routes>
-      </Router>
+      </Router> */}
     </div>
   )
 }
