@@ -24,6 +24,8 @@ async function createServer() {
 
 
   let vite: ViteDevServer | undefined;
+  // Достаем файлы из node_modules
+  // Важно! папка client будет внутри server/dist только после создания и передачи yarn link "client"
   const distPath = path.dirname(require.resolve('client/dist/index.html'))
   const srcPath = path.dirname(require.resolve('client'))
   const ssrClientPath = require.resolve('client/ssr-dist/client.cjs')
@@ -54,7 +56,7 @@ async function createServer() {
     try {
       let template: string;
 
-      if (!isDev()) {
+      if (!isDev()) { // читаем index.html
         template = fs.readFileSync(
           path.resolve(distPath, 'index.html'),
           'utf-8',
@@ -74,12 +76,12 @@ async function createServer() {
       if (!isDev()) {
         render = (await import(ssrClientPath)).render;
       } else {
-        render = (await vite!.ssrLoadModule(path.resolve(srcPath, 'service.tsx'))).render;
+        render = (await vite!.ssrLoadModule(path.resolve(srcPath, 'ssr.tsx'))).render;
       }
 
       const appHtml = await render()
 
-      const html = template.replace(`<!--ssr-outlet-->`, appHtml)
+      const html = template.replace(`<!--ssr-outlet-->`, appHtml) // замена коммента на HTML разметку
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } catch (e) {

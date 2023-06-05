@@ -1,14 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import * as path from 'path'
+import dotenv from 'dotenv'
 
+dotenv.config()
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "ssr.tsx"),
+      entry: path.resolve(__dirname, 'ssr.tsx'),
       name: 'Client',
       formats: ['cjs'],
     },
@@ -16,6 +18,6 @@ export default defineConfig({
       output: {
         dir: 'ssr-dist',
       },
-    }
-  }
+    },
+  },
 })

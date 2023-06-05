@@ -23,8 +23,8 @@ import Error404 from './pages/page-error/Error404'
 function App() {
   const dispatch = useAppDispatch()
   // TODO: приватные роуты будут готовы после того, как будет готова авторизация
-  /* useEffect(() => {
-     const fetchServerData = async () => {
+  useEffect(() => {
+    const fetchServerData = async () => {
       const url = `http://localhost:${__SERVER_PORT__}`
       const response = await fetch(url)
       const data = await response.json()
@@ -32,7 +32,7 @@ function App() {
     }
 
     fetchServerData()
-  }, []) */
+  }, [])
   useEffect(() => {
     dispatch(fetchUser())
   }, [])

@@ -93,9 +93,7 @@ const Auth = () => {
           </p>
           <div className={styles.borderLine} />
           <p>or</p>
-          <Link to={ROUTES.MAIN}>
-            {/* <YandexIcon /> */}
-          </Link>
+          <Link to={ROUTES.MAIN}>{/* <YandexIcon /> */}</Link>
         </div>
       </div>
     </main>
