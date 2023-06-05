@@ -1,0 +1,26 @@
+@use './../../styles/mixins';
+
+.error_page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+
+  * {
+    font-weight: 400;
+  }
+
+  .error_code {
+    font-size: 80px;
+  }
+
+  .error_text {
+    font-size: 22px;
+  }
+
+  a {
+    margin-top: 1em;
+    font-size: 24px;
+  }
+}

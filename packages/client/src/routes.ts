@@ -7,6 +7,7 @@ export const enum ROUTES {
   AUTH = '/auth',
   REGISTER = '/register',
   ERROR_404 = '/not-found',
+  ERROR_500 = '/server-error',
   DOCUMENTAION = '/documentation',
 }
 
@@ -20,6 +21,7 @@ export function isRoute(path: string) {
     ROUTES.AUTH,
     ROUTES.REGISTER,
     ROUTES.ERROR_404,
+    ROUTES.ERROR_500,
     ROUTES.DOCUMENTAION,
   ]
   return routes.includes(path)
