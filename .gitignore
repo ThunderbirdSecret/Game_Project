@@ -7,3 +7,4 @@ tmp
 lerna-debug.log
 packages/*/lib
 yarn-error.log
+ssr-dist/*
