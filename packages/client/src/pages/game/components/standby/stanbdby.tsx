@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import cn from 'classnames'
-import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
-import { ROUTES } from 'routes'
 
-import { GAME_STATES } from '../main'
+import { GAME_STATES } from '@/pages/game/components/main'
+import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
+import { ROUTES } from '../../../../routes'
 
 import styles from './index.module.scss'
 

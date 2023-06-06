@@ -1,4 +1,4 @@
-import { TComment, TMessage, TTopic } from '../models/forum'
+import { TComment, TMessage, TTopic } from '@/models/forum'
 
 export const topics: TTopic[] = [
   {

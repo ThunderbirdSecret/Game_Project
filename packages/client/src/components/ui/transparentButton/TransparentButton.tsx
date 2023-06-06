@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
 
-import { Button } from '../Button/Button'
+import { Button } from '@/components/ui/Button/Button'
 import style from './index.module.scss'
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

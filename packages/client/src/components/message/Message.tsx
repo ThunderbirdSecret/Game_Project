@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { TMessage } from '../../models/forum'
+import { TMessage } from '@/models/forum'
 import { ForumAvatar } from '../forumAvatar/ForumAvatar'
 
 import styles from './Message.module.scss'

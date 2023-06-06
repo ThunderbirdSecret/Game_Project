@@ -1,9 +1,9 @@
+import { authService } from '@/services/auth.service'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { authService } from '@/services/auth.service'
 import { useAppDispatch } from '@/store/hooks'
 import { logout } from '@/store/user/user.slice'
-import { ROUTES } from 'routes'
+import { ROUTES } from '../../../routes'
 import style from './index.module.scss'
 
 interface LogoutProps {

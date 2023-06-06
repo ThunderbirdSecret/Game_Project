@@ -1,4 +1,4 @@
-import { InputContent } from "@/components/form/ProfileForm/ProfileForm"
+import { InputContent } from '@/components/form/ProfileForm/ProfileForm'
 
 interface LoaderProps {
   isLoading?: boolean

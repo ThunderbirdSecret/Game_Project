@@ -8,13 +8,13 @@ import { Button } from '@/components/ui/Button/Button'
 import Input from '@/components/ui/input/Input'
 
 import { LoginDto } from '@/services/auth.service'
- import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
+import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
 
 import { login } from '@/store/user/user.action'
 import { useAppDispatch, useAppSelector } from '@/store/index'
 
 import { withAuth } from '@/hoc/withAuth'
-import { ROUTES } from 'routes'
+import { ROUTES } from '../../routes'
 
 import styles from './Auth.module.scss'
 
@@ -93,7 +93,9 @@ const Auth = () => {
           </p>
           <div className={styles.borderLine} />
           <p>or</p>
-          <Link to={ROUTES.MAIN}><YandexIcon /></Link>
+          <Link to={ROUTES.MAIN}>
+            <YandexIcon />
+          </Link>
         </div>
       </div>
     </main>

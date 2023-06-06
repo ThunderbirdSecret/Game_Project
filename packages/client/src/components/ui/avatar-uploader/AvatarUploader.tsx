@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { AVATAR_URL } from '@/api/types'
+import { useState } from 'react'
 import { userService } from '@/services/user.service'
 import style from './index.module.scss'
 

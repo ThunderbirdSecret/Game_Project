@@ -1,7 +1,7 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
 import Loader from '@/components/ui/loader/Loader'
+import { useEffect, useState } from 'react'
 import { BASE_URL } from '@/api/index'
+import axios from 'axios'
 import ProfileForm, {
   InputContent,
 } from '@/components/form/ProfileForm/ProfileForm'

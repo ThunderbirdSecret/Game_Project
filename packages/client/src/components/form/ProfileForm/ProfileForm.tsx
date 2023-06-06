@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { FormLayout } from '@/components/form/FormLayout/FormLayout'
 import { Title } from '@/components/ui/Title/Title'
 import AvatarUploader from '@/components/ui/avatar-uploader/AvatarUploader'
 import { Button } from '@/components/ui/Button/Button'
 import Input from '@/components/ui/input/Input'
 import Logout from '@/components/ui/logout/Logout'
-import { dataInput } from '@/pages/profile/dataInput'
+import { useState } from 'react'
 import { UserDTO, userService } from '@/services/user.service'
+import { dataInput } from '@/pages/profile/dataInput'
 import styles from './index.module.scss'
-import { FormLayout } from '../FormLayout/FormLayout'
 
 export interface InputContent {
   [key: string]: string

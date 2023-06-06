@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom'
 
 import TransparentButton from '@/components/ui/transparentButton/TransparentButton'
 import { withAuth } from '@/hoc/withAuth'
-import { ROUTES } from 'routes'
+import { ROUTES } from '../../routes'
+
 import style from './index.module.scss'
 
 function Main() {

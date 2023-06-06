@@ -1,5 +1,5 @@
+import { Canvas } from '@/canvas/canvas'
 import { withAuth } from '@/hoc/withAuth'
-import { Canvas } from '../../canvas/canvas'
 import style from './index.module.scss'
 
 /*
