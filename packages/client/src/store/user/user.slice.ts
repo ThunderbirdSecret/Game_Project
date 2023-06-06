@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { APIError } from '@/api/types'
 // eslint-disable-next-line import/no-cycle
 import { login } from './user.action'
-import { APIError } from '../../api/types'
 
 type InitialStateType = {
   user: User | null

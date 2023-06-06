@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react'
+import { comments, messages } from '@/mock/index'
 import { Message } from '../message/Message'
-import { comments, messages } from '../../mock/index'
 
 import { TMessage, TTopic } from '../../models/forum'
 import styles from './MessagesBlock.module.scss'

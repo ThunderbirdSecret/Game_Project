@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { AVATAR_URL } from '../../../api/types'
-import { userService } from '../../../services/user.service'
+import { AVATAR_URL } from '@/api/types'
+import { userService } from '@/services/user.service'
 import style from './index.module.scss'
 
 interface AvatarProps {

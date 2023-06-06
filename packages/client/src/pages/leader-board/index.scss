@@ -1,4 +1,4 @@
-@use '../../styles/_mixins';
+@use '@/styles/_mixins';
 
 .test-button-gradient {
   @include mixins.btn-gradient;

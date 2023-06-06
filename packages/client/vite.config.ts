@@ -2,14 +2,13 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import { VitePWA } from 'vite-plugin-pwa'
-
 import dotenv from 'dotenv'
-
-import path from 'path'
+import * as path from 'path'
 
 dotenv.config()
 
 // https://vitejs.dev/config/
+// @ts-ignore
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
 
@@ -43,7 +42,6 @@ export default ({ mode }) => {
         registerType: 'autoUpdate',
       }),
     ],
-
     build: {
       manifest: true,
       rollupOptions: {
@@ -56,7 +54,6 @@ export default ({ mode }) => {
         ],
       },
     },
-
     resolve: {
       alias: {
         '@/api': path.resolve(__dirname, './src/api'),

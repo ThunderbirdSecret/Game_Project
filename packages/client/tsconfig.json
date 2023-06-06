@@ -29,7 +29,8 @@
       "@/hoc/*": ["hoc/*"],
       "@/hooks/*": ["hooks/*"],
       "@/canvas/*": ["canvas/*"],
-      "@/store/*": ["store/*"]
+      "@/store/*": ["store/*"],
+      "@/src/*": ["src/*"]
     },
     "types": ["vite-plugin-pwa/client"]
   },
@@ -39,7 +40,8 @@
     "./src/**/*",
     "typing/app.d.ts",
     "typing/react.d.ts",
-    "index.js"
-  ],
+    "index.js",
+    "*.config.ts"
+, "vite.base.config.ts"  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

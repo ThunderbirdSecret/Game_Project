@@ -1,12 +1,13 @@
 import { useState } from 'react'
 
+import { TopicList } from '@/components/topicList/TopicList'
+import { TTopic } from '@/models/forum'
+import { useModal } from '@/hooks/useModal'
+import { MessagesBlock } from '@/components/messagesBlock/MessagesBlock'
+import { Modal } from '@/components/modal/Modal'
+import { withAuth } from '@/hoc/withAuth'
 import styles from './forum.module.scss'
-import { TopicList } from '../../components/topicList/TopicList'
-import { TTopic } from '../../models/forum'
-import { useModal } from '../../hooks/useModal'
-import { MessagesBlock } from '../../components/messagesBlock/MessagesBlock'
-import { Modal } from '../../components/modal/Modal'
-import { withAuth } from '../../hoc/withAuth'
+
 
 function Forum() {
   const [selectedTopic, setSelectedTopic] = useState<TTopic | null>(null)

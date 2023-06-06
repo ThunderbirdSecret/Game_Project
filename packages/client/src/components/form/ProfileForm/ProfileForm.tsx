@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { FormLayout } from '../FormLayout/FormLayout'
-import { Title } from '../../ui/Title/Title'
-import AvatarUploader from '../../ui/avatar-uploader/AvatarUploader'
-import { Button } from '../../ui/Button/Button'
-import Input from '../../ui/input/Input'
-import Logout from '../../ui/logout/Logout'
+import { Title } from '@/components/ui/Title/Title'
+import AvatarUploader from '@/components/ui/avatar-uploader/AvatarUploader'
+import { Button } from '@/components/ui/Button/Button'
+import Input from '@/components/ui/input/Input'
+import Logout from '@/components/ui/logout/Logout'
+import { dataInput } from '@/pages/profile/dataInput'
+import { UserDTO, userService } from '@/services/user.service'
 import styles from './index.module.scss'
-import { dataInput } from '../../../pages/profile/dataInput'
-import { UserDTO, userService } from '../../../services/user.service'
+import { FormLayout } from '../FormLayout/FormLayout'
 
 export interface InputContent {
   [key: string]: string

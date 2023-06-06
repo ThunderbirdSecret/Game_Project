@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { topics } from '../../mock/index'
+import { topics } from '@/mock/index'
 import { TTopic } from '../../models/forum'
 import styles from './TopicList.module.scss'
 import { Topic } from '../topic/Topic'

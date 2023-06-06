@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
+
+import { ROUTES } from 'routes'
 import { items } from './header-items'
 
 import style from './index.module.scss'
-import { ROUTES } from '../../routes'
 
 export default function Header() {
   return (

@@ -1,4 +1,4 @@
-import { ROUTES } from '../../routes'
+import { ROUTES } from "routes"
 
 export interface HeaderItems {
   title: string
