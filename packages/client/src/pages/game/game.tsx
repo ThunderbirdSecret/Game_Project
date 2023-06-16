@@ -1,6 +1,9 @@
 import { Canvas } from '@/canvas/canvas'
 import { withAuth } from '@/hoc/withAuth'
+import { useState } from 'react'
 import style from './index.module.scss'
+import { GAME_STATES, Main } from './components/main'
+import { Standby } from './components/standby/stanbdby'
 
 /*
 x, y — это центр дуги,
@@ -12,34 +15,50 @@ anticlockwise — против часовой стрелки.
 
 */
 
+
+const FILL_TOP = 400
+const WORM_SIZE = 50
+// const FILL_BOTTOM = 200
 function Game() {
+  const [gameState, setGameState] = useState(GAME_STATES.Initialize)
+
+  const handlehangeState = (st: GAME_STATES) => {
+    setGameState(st)
+  }
+
   const draw = (ctx: CanvasRenderingContext2D, frameCount: number) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+    // sky
     ctx.fillStyle = '#21d4fd'
-    ctx.beginPath()
-    ctx.arc(50, 100, 20 * Math.sin(frameCount * 0.05) ** 2, 0, 2 * Math.PI)
-    ctx.fill()
+    // ctx.beginPath()
+    ctx.fillRect(0, 0, window.innerWidth, FILL_TOP)
+   
+    // grass
+    ctx.fillStyle = '#228b22'
+    ctx.fillRect(0, FILL_TOP , window.innerWidth, FILL_TOP/2)
 
-    ctx.beginPath()
-    ctx.lineWidth = 3
-    ctx.moveTo(60, 120)
-    ctx.bezierCurveTo(90, 30, 200, 130, 310, 55)
-    ctx.moveTo(60, 120)
-    ctx.bezierCurveTo(90, 170, 200, 110, 310, 160)
-    ctx.moveTo(310, 55)
-    ctx.quadraticCurveTo(320, 80, 280, 110)
-    ctx.moveTo(310, 160)
-    ctx.quadraticCurveTo(320, 120, 280, 110)
-    ctx.moveTo(100, 100)
-    ctx.arc(100, 100, 5, 0, 2 * Math.PI)
-    ctx.moveTo(60, 120)
-    ctx.lineTo(80, 120)
-    ctx.stroke()
+    // center point
+    ctx.fillStyle = 'pink'
+    const center = {
+      x: window.innerWidth /4,
+      y: FILL_TOP
+    }
+
+    const wormLocation = {
+      x: center.x,
+      y: center.y - WORM_SIZE
+    }
+
+    ctx.fillRect(wormLocation.x, wormLocation.y,  WORM_SIZE, WORM_SIZE )
   }
 
   return (
-    <div className={style.game}>
+    <div className={style.gameWrapper}>
       <h1>Game</h1>
+        <Main />
+        {gameState !== GAME_STATES.Progress && (
+          <Standby gameState={gameState} onChangeState={handlehangeState} />
+        )}
       <Canvas draw={draw} />
     </div>
   )
