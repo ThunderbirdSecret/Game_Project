@@ -1,7 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { unwrapResult } from '@reduxjs/toolkit'
-
 import { FormLayout } from '@/components/form/FormLayout/FormLayout'
 import { Title } from '@/components/ui/Title/Title'
 import { Button } from '@/components/ui/Button/Button'
@@ -13,14 +11,18 @@ import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
 import { login } from '@/store/user/user.action'
 import { useAppDispatch, useAppSelector } from '@/store/index'
 
+import { getServiceId } from '@/store/service/service.action'
 import { withAuth } from '@/hoc/withAuth'
+import { useAuth } from '@/hooks/useAuth'
 import { ROUTES } from '../../routes'
 
 import styles from './Auth.module.scss'
+import { getOauthUrl } from '../../config/oauth.config'
 
 const Auth = () => {
+  const { service_id } = useAppSelector(state => state.services)
+  const { error } = useAuth()
   const dispatch = useAppDispatch()
-  const { error } = useAppSelector(state => state.user)
 
   const [formFields, setFormFields] = useState<LoginDto>({
     login: '',
@@ -39,14 +41,18 @@ const Auth = () => {
   const onLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const resultAction = await dispatch(login(formFields))
     try {
-      unwrapResult(resultAction)
-      navigate(ROUTES.MAIN)
+      const response = await dispatch(login(formFields)).unwrap()
+
+      if (response) await navigate(ROUTES.MAIN)
     } catch (e) {
       /* empty */
     }
   }
+
+  useEffect(() => {
+    dispatch(getServiceId())
+  }, [dispatch])
 
   return (
     <main className={styles.container}>
@@ -93,7 +99,7 @@ const Auth = () => {
           </p>
           <div className={styles.borderLine} />
           <p>or</p>
-          <Link to={ROUTES.MAIN}>
+          <Link to={getOauthUrl(service_id)}>
             <YandexIcon />
           </Link>
         </div>
