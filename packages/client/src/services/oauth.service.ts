@@ -18,7 +18,7 @@ export const oauthService = {
     }
   },
   async sendAuthCode(code: string, redirectUri: string) {
-    return API.post('/oauth/yandex', {
+    return API.post<string>('/oauth/yandex', {
       code,
       redirect_uri: redirectUri,
     })

@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { getServiceId } from './service.action'
+import { getServiceOauthId } from './service.action'
 
 type ServiceType = {
-  service_id: string | null
+  service_oauth_id: string | null
 }
 
 const initialState: ServiceType = {
-  service_id: null,
+  service_oauth_id: null,
 }
 
 const serviceSlice = createSlice({
@@ -14,12 +14,16 @@ const serviceSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(
-      getServiceId.fulfilled,
-      (state, action: PayloadAction<string>) => {
-        state.service_id = action.payload
-      }
-    )
+    builder
+      .addCase(
+        getServiceOauthId.fulfilled,
+        (state, action: PayloadAction<string>) => {
+          state.service_oauth_id = action.payload
+        }
+      )
+      .addCase(getServiceOauthId.rejected, state => {
+        state.service_oauth_id = null
+      })
   },
 })
 

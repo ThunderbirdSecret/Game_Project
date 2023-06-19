@@ -9,9 +9,12 @@ import { LoginDto } from '@/services/auth.service'
 import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
 
 import { login } from '@/store/user/user.action'
-import { useAppDispatch, useAppSelector } from '@/store/index'
+import {
+  useAppDispatch,
+  useAppSelector,
+  getServiceOauthId,
+} from '@/store/index'
 
-import { getServiceId } from '@/store/service/service.action'
 import { withAuth } from '@/hoc/withAuth'
 import { useAuth } from '@/hooks/useAuth'
 import { ROUTES } from '../../routes'
@@ -20,7 +23,7 @@ import styles from './Auth.module.scss'
 import { getOauthUrl } from '../../config/oauth.config'
 
 const Auth = () => {
-  const { service_id } = useAppSelector(state => state.services)
+  const { service_oauth_id } = useAppSelector(state => state.services)
   const { error } = useAuth()
   const dispatch = useAppDispatch()
 
@@ -51,7 +54,7 @@ const Auth = () => {
   }
 
   useEffect(() => {
-    dispatch(getServiceId())
+    dispatch(getServiceOauthId())
   }, [dispatch])
 
   return (
@@ -99,7 +102,7 @@ const Auth = () => {
           </p>
           <div className={styles.borderLine} />
           <p>or</p>
-          <Link to={getOauthUrl(service_id)}>
+          <Link to={getOauthUrl(service_oauth_id)}>
             <YandexIcon />
           </Link>
         </div>

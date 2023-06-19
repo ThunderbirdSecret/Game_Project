@@ -1,12 +1,11 @@
 import { FC, useEffect } from 'react'
 import { Navigate, useLocation, useSearchParams } from 'react-router-dom'
+
 import { useAuth } from '@/hooks/useAuth'
 import { isProtectedRoutes, isAuthRoutes } from '@/utils/isProtectedRoutes'
-import { oauthService } from '@/services/oauth.service'
-import { useAppDispatch } from '@/store/hooks'
-import { fetchUser } from '@/store/user'
+import { sendAuthCode, useAppDispatch } from '@/store/index'
+
 import { ROUTES } from '../routes'
-import { REDIRECT_URL } from '../config/oauth.config'
 
 export const withAuth =
   <T extends Record<string, unknown>>(Component: FC<T>): FC<T> =>
@@ -19,12 +18,12 @@ export const withAuth =
 
     const authCode = search.get('code')
 
+    console.log(authCode, isAuth)
+
     useEffect(() => {
       if (authCode && !isAuth) {
-        oauthService.sendAuthCode(authCode, REDIRECT_URL).then(() => {
-          dispatch(fetchUser())
-          search.delete('code')
-        })
+        dispatch(sendAuthCode(authCode))
+        search.delete('code')
       }
     }, [authCode, dispatch, isAuth, search])
 
