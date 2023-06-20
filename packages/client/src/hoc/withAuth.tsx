@@ -18,8 +18,6 @@ export const withAuth =
 
     const authCode = search.get('code')
 
-    console.log(authCode, isAuth)
-
     useEffect(() => {
       if (authCode && !isAuth) {
         dispatch(sendAuthCode(authCode))

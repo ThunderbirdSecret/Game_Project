@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { FormLayout } from '@/components/form/FormLayout/FormLayout'
 import { Title } from '@/components/ui/Title/Title'
 import { Button } from '@/components/ui/Button/Button'
@@ -32,8 +32,6 @@ const Auth = () => {
     password: '',
   })
 
-  const navigate = useNavigate()
-
   // позднее это буду переписывать на react-hook-from
   const onChangeField = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -44,13 +42,7 @@ const Auth = () => {
   const onLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    try {
-      const response = await dispatch(login(formFields)).unwrap()
-
-      if (response) await navigate(ROUTES.MAIN)
-    } catch (e) {
-      /* empty */
-    }
+    await dispatch(login(formFields))
   }
 
   useEffect(() => {

@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { APIError } from '@/api/types'
-// eslint-disable-next-line import/no-cycle
 import { fetchUser, login, logoutAction } from './user.action'
 
 type InitialStateType = {
@@ -31,11 +30,8 @@ const userSlice = createSlice({
       .addCase(login.pending, state => {
         state.isLoading = true
       })
-      .addCase(login.fulfilled, (state, action: PayloadAction<User>) => {
-        state.user = action.payload
+      .addCase(login.fulfilled, state => {
         state.isLoading = false
-        state.isAuth = true
-        state.error = null
       })
       .addCase(
         login.rejected,

@@ -29,6 +29,12 @@ export const login = createAsyncThunk<unknown, LoginDto>(
       }
     } catch (e) {
       const error = e as AxiosError
+      console.error(error)
+
+      if (error.response && error.response.status >= 500) {
+        throw new Error(error.message)
+      }
+
       return thunkAPI.rejectWithValue(error?.response?.data)
     }
   }
