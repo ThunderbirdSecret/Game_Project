@@ -36,4 +36,8 @@ export const userService = {
       })
     ).data
   },
+
+  async logout() {
+    return API.post<string>('/auth/logout')
+  },
 }

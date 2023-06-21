@@ -1,7 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { unwrapResult } from '@reduxjs/toolkit'
-
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { FormLayout } from '@/components/form/FormLayout/FormLayout'
 import { Title } from '@/components/ui/Title/Title'
 import { Button } from '@/components/ui/Button/Button'
@@ -11,23 +9,28 @@ import { LoginDto } from '@/services/auth.service'
 import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
 
 import { login } from '@/store/user/user.action'
-import { useAppDispatch, useAppSelector } from '@/store/index'
+import {
+  useAppDispatch,
+  useAppSelector,
+  getServiceOauthId,
+} from '@/store/index'
 
 import { withAuth } from '@/hoc/withAuth'
+import { useAuth } from '@/hooks/useAuth'
 import { ROUTES } from '../../routes'
 
 import styles from './Auth.module.scss'
+import { getOauthUrl } from '../../config/oauth.config'
 
 const Auth = () => {
+  const { service_oauth_id } = useAppSelector(state => state.services)
+  const { error } = useAuth()
   const dispatch = useAppDispatch()
-  const { error } = useAppSelector(state => state.user)
 
   const [formFields, setFormFields] = useState<LoginDto>({
     login: '',
     password: '',
   })
-
-  const navigate = useNavigate()
 
   // позднее это буду переписывать на react-hook-from
   const onChangeField = (event: ChangeEvent<HTMLInputElement>) => {
@@ -39,14 +42,12 @@ const Auth = () => {
   const onLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const resultAction = await dispatch(login(formFields))
-    try {
-      unwrapResult(resultAction)
-      navigate(ROUTES.MAIN)
-    } catch (e) {
-      /* empty */
-    }
+    await dispatch(login(formFields))
   }
+
+  useEffect(() => {
+    dispatch(getServiceOauthId())
+  }, [dispatch])
 
   return (
     <main className={styles.container}>
@@ -93,7 +94,7 @@ const Auth = () => {
           </p>
           <div className={styles.borderLine} />
           <p>or</p>
-          <Link to={ROUTES.MAIN}>
+          <Link to={getOauthUrl(service_oauth_id)}>
             <YandexIcon />
           </Link>
         </div>

@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-// eslint-disable-next-line import/no-cycle
-import { login } from '@/store/user/user.action'
 import { APIError } from '@/api/types'
+import { fetchUser, login, logoutAction } from './user.action'
 
 type InitialStateType = {
   user: User | null
@@ -21,21 +20,6 @@ const userSlice = createSlice({
   name: 'userSlice',
   initialState,
   reducers: {
-    userFetching(state) {
-      state.isLoading = true
-    },
-    userFetchingSuccess(state, action: PayloadAction<User>) {
-      state.user = action.payload
-      state.isLoading = false
-      state.isAuth = true
-      state.error = null
-    },
-    userFetchingError(state, action: PayloadAction<APIError>) {
-      state.user = null
-      state.isLoading = false
-      state.isLoading = false
-      state.error = action.payload
-    },
     logout(state) {
       state.user = null
       state.isAuth = false
@@ -46,11 +30,8 @@ const userSlice = createSlice({
       .addCase(login.pending, state => {
         state.isLoading = true
       })
-      .addCase(login.fulfilled, (state, action: PayloadAction<User>) => {
-        state.user = action.payload
+      .addCase(login.fulfilled, state => {
         state.isLoading = false
-        state.isAuth = true
-        state.error = null
       })
       .addCase(
         login.rejected,
@@ -61,9 +42,37 @@ const userSlice = createSlice({
           state.error = action.payload as APIError
         }
       )
+      .addCase(logoutAction.fulfilled, state => {
+        state.isLoading = false
+        state.user = null
+        state.isAuth = false
+      })
+      .addCase(logoutAction.rejected, (state, action) => {
+        state.isLoading = false
+        state.user = null
+        state.isAuth = false
+        state.error = action.payload as APIError
+      })
+      .addCase(fetchUser.pending, state => {
+        state.isLoading = true
+      })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.user = action.payload
+        state.isLoading = false
+        state.isAuth = true
+        state.error = null
+      })
+      .addCase(
+        fetchUser.rejected,
+        (state, action: PayloadAction<APIError | unknown>) => {
+          state.user = null
+          state.isLoading = false
+          state.isAuth = false
+          state.error = action.payload as APIError
+        }
+      )
   },
 })
 
 export const { reducer: userReducer } = userSlice
-export const { userFetching, userFetchingSuccess, userFetchingError, logout } =
-  userSlice.actions
+export const { logout } = userSlice.actions
