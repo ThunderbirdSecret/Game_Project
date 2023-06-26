@@ -96,7 +96,7 @@ function LeaderBord() {
               {leaderboardList.map(({ data }, index) => (
                 <LeaderItem
                   key={data.id}
-                  position={index + 1}
+                  position={page + index + 1}
                   login={data.login}
                   numberOfGames={data.numberOfGames}
                   dateOfLastGame={data.dateOfLastGame}
