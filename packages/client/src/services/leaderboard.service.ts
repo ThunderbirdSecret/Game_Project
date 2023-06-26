@@ -7,11 +7,11 @@ import { API } from '../api'
 const teamName = '2501_Burning-worms'
 
 export const leaderboardService = {
-  getLeaders(ratingFieldName: string, limit = 10) {
+  getLeaders(ratingFieldName: string, cursor: number) {
     return API.post<Array<TLeaderboardPlayer>>(`/leaderboard/${teamName}`, {
       ratingFieldName,
-      cursor: 0,
-      limit,
+      cursor,
+      limit: 10,
     })
   },
 

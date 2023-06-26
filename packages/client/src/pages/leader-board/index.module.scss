@@ -2,12 +2,15 @@
 
 .container {
   max-width: 1176px;
+  width: 100%;
   margin: 0 auto;
   padding: 70px 0 120px;
   height: 100%;
 
+  display: flex;
+  flex-direction: column;
+
   color: var(--color-font-white);
-  width: 100%;
 }
 
 .title {
@@ -19,7 +22,7 @@
 
 .board {
   width: 100%;
-  max-height: calc(100% - 37px - 78px);
+  max-height: calc(100% - 37px - 78px - 82px);
   margin-top: 37px;
   display: flex;
   flex-direction: column;
@@ -81,4 +84,14 @@
   &:last-child {
     border-radius: 0 0 var(--border-radius-s) var(--border-radius-s);
   }
+}
+
+.fetchButton {
+  margin-top: 30px;
+  align-self: center;
+
+  border: 1px solid var(--color-border-leaderboard-primary);
+  background-color: var(--color-bg-primary);
+
+  cursor: pointer;
 }

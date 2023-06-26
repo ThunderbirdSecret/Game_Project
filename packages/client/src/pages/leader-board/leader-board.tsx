@@ -6,6 +6,7 @@ import { addNewLeader, fetchLeaders } from '@/store/leaderboard'
 import { LeaderItem } from '@/components/leaderItem/LeaderItem'
 import { Select } from '@/components/Select/Select'
 import { TLeaderboardPlayerData } from '@/models/leaderboard'
+import { Button } from '@/components/ui/Button/Button'
 import styles from './index.module.scss'
 
 const options: Array<{
@@ -21,22 +22,29 @@ const options: Array<{
 function LeaderBord() {
   const [sortedBy, setSortedBy] =
     useState<keyof Omit<TLeaderboardPlayerData, 'id'>>('points')
+  const [page, setPage] = useState(0)
   const dispatch = useAppDispatch()
 
   const leaderboardList = useAppSelector(state => state.leaderboard.leaders)
   const user = useAppSelector(state => state.user.user)
 
   useEffect(() => {
-    dispatch(fetchLeaders())
-  }, [])
+    dispatch(fetchLeaders({ rating: sortedBy, cursor: page }))
+  }, [sortedBy, page])
 
-  const handleSortedBy = (value: keyof Omit<TLeaderboardPlayerData, 'id'>) => {
+  useEffect(() => {
+    if (leaderboardList.length === 0 && page !== 0) {
+      setPage(prev => prev - 10)
+    }
+  }, [leaderboardList])
+
+  const changeSortedBy = (value: keyof Omit<TLeaderboardPlayerData, 'id'>) => {
     setSortedBy(value)
   }
 
   const selectedSortedBy = options.find(item => item.value === sortedBy)
 
-  function handleClick() {
+  const addLeader = () => {
     if (user) {
       const oldLeaderProps = leaderboardList.find(
         leader => leader.data.login === user.login
@@ -73,7 +81,7 @@ function LeaderBord() {
                 <Select
                   options={options}
                   selected={selectedSortedBy || null}
-                  onChange={handleSortedBy}
+                  onChange={changeSortedBy}
                 />
               </div>
             </div>
@@ -100,8 +108,19 @@ function LeaderBord() {
           </>
         )}
       </div>
-      <button type="button" onClick={handleClick}>
-        send new leader
+      {leaderboardList.length === 10 && (
+        <Button
+          className={styles.fetchButton}
+          onClick={() => setPage(prev => prev + 10)}>
+          Download more
+        </Button>
+      )}
+      {/* тестовая кнопка. после окончания игры надо вызывать функцию addLeader для добавления/обновления данных leaderboard`a */}
+      <button
+        type="button"
+        onClick={addLeader}
+        style={{ alignSelf: 'flex-end', backgroundColor: 'red' }}>
+        add leader
       </button>
     </div>
   )
