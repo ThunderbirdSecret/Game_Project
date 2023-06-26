@@ -41,7 +41,8 @@
     "typing/app.d.ts",
     "typing/react.d.ts",
     "index.js",
-    "*.config.ts"
-, "vite.base.config.ts"  ],
+    "*.config.ts",
+    "vite.base.config.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

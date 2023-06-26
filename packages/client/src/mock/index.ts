@@ -1,4 +1,5 @@
 import { TComment, TMessage, TTopic } from '@/models/forum'
+import { TLeaderboardPlayer } from '@/models/leaderboard'
 
 export const topics: TTopic[] = [
   {
@@ -206,5 +207,224 @@ export const comments: TComment[] = [
       avatar: null,
     },
     content: 'We apologize.',
+  },
+]
+
+export const leaderboardList: TLeaderboardPlayer[] = [
+  {
+    data: {
+      id: 0,
+      login: 'single1',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 1,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 3,
+      login: 'single1',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 4,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 5,
+      login: 'dimitrievk56',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 6,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 7,
+      login: 'single1',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 8,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 9,
+      login: 'single1',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 10,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 11,
+      login: 'dimitrievk56',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 12,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 13,
+      login: 'single1',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 14,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 15,
+      login: 'single1',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 16,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 17,
+      login: 'dimitrievk56',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 18,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 19,
+      login: 'single1',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 20,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 21,
+      login: 'single1',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 22,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
+  },
+  {
+    data: {
+      id: 23,
+      login: 'dimitrievk56',
+      numberOfGames: 1,
+      dateOfLastGame: '2020-01-02T14:22:22.000Z',
+      points: 8,
+    },
+  },
+  {
+    data: {
+      id: 24,
+      login: 'single2',
+      numberOfGames: 2,
+      dateOfLastGame: '2023-01-02T14:22:22.000Z',
+      points: 16,
+    },
   },
 ]
