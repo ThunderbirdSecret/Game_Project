@@ -45,4 +45,4 @@ export const leaderboardSlice = createSlice({
   },
 })
 
-export const { reducer: leaderboardReducer } = leaderboardSlice
+export const { reducer } = leaderboardSlice

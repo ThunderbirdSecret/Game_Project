@@ -48,5 +48,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     '@typescript-eslint/naming-convention': 'off',
     'no-param-reassign': ['error', { props: false }],
+    'import/no-cycle': 'off',
+    'consistent-return': 'off',
   },
 }

@@ -4,7 +4,7 @@ import {
 } from '@/models/leaderboard'
 import { API } from '../api'
 
-const teamName = '25_01_Burning-worms'
+const teamName = '2501_Burning-worms'
 
 export const leaderboardService = {
   getLeaders(ratingFieldName: string, limit = 10) {

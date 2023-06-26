@@ -1,7 +1,7 @@
 import { useAppSelector } from '../store'
 
 export const useAuth = () => {
-  const { isAuth, isLoading } = useAppSelector(state => state.user)
+  const { isAuth, isLoading, user, error } = useAppSelector(state => state.user)
 
-  return { isAuth, isLoading }
+  return { isAuth, isLoading, user, error }
 }

@@ -3,6 +3,7 @@ export type TLeaderboardPlayer = {
 }
 
 export type TLeaderboardPlayerData = {
+  id: number
   login: string
   numberOfGames: number
   dateOfLastGame: string

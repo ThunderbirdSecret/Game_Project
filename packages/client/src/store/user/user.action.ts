@@ -1,37 +1,55 @@
+import { AxiosError } from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+
 import { authService, LoginDto } from '@/services/auth.service'
 import { userService } from '@/services/user.service'
 import { APIError } from '@/api/types'
-// eslint-disable-next-line import/no-cycle
-import { AppDispatch } from '../store'
-import {
-  userFetching,
-  userFetchingError,
-  userFetchingSuccess,
-} from './user.slice'
 
-export const login = createAsyncThunk<User, LoginDto>(
-  'auth/login',
-  // временное решение
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  async (arg, thunkAPI) => {
-    const response = await authService.login(arg)
-
-    if (response?.status === 200) {
-      return userService.getUser()
+export const fetchUser = createAsyncThunk(
+  'user/getUser',
+  async (_, thunkAPI) => {
+    try {
+      const response = await userService.getUser()
+      return response.data
+    } catch (e: unknown) {
+      const error = e as AxiosError<APIError>
+      return thunkAPI.rejectWithValue(error.response?.data)
     }
-
-    return thunkAPI.rejectWithValue(response?.data)
   }
 )
 
-export const fetchUser = () => async (dispatch: AppDispatch) => {
-  try {
-    dispatch(userFetching())
-    const response = await userService.getUser()
-    dispatch(userFetchingSuccess(response.data))
-  } catch (e: unknown) {
-    dispatch(userFetchingError(e as APIError))
+export const login = createAsyncThunk<unknown, LoginDto>(
+  'auth/login',
+  async (arg, thunkAPI) => {
+    try {
+      const response = await authService.login(arg)
+
+      if (response?.status === 200) {
+        thunkAPI.dispatch(fetchUser())
+      }
+    } catch (e) {
+      const error = e as AxiosError
+      console.error(error)
+
+      if (error.response && error.response.status >= 500) {
+        throw new Error(error.message)
+      }
+
+      return thunkAPI.rejectWithValue(error?.response?.data)
+    }
   }
-}
+)
+
+export const logoutAction = createAsyncThunk(
+  'user/logout',
+  async (_, thunkAPI) => {
+    try {
+      await userService.logout()
+    } catch (e: unknown) {
+      const error = e as AxiosError<APIError>
+      console.error(error.message)
+
+      return thunkAPI.rejectWithValue(error.response?.data.reason)
+    }
+  }
+)
