@@ -10,10 +10,14 @@ import { addNewLeader, fetchLeaders } from '@/store/leaderboard'
 
 import styles from './index.module.scss'
 
-const options: Array<{
+export type TOptionValue = keyof Omit<TLeaderboardPlayerData, 'id'>
+
+export type TOption = {
   title: string
-  value: keyof Omit<TLeaderboardPlayerData, 'id'>
-}> = [
+  value: TOptionValue
+}
+
+const options: Array<TOption> = [
   { title: 'points', value: 'points' },
   { title: 'login', value: 'login' },
   { title: 'games', value: 'numberOfGames' },
@@ -21,8 +25,7 @@ const options: Array<{
 ]
 
 function LeaderBord() {
-  const [sortedBy, setSortedBy] =
-    useState<keyof Omit<TLeaderboardPlayerData, 'id'>>('points')
+  const [sortedBy, setSortedBy] = useState<TOptionValue>('points')
   const [page, setPage] = useState(0)
   const dispatch = useAppDispatch()
 
@@ -39,7 +42,7 @@ function LeaderBord() {
     }
   }, [leaderboardList])
 
-  const changeSortedBy = (value: keyof Omit<TLeaderboardPlayerData, 'id'>) => {
+  const changeSortedBy = (value: TOptionValue) => {
     setSortedBy(value)
   }
 
@@ -67,7 +70,7 @@ function LeaderBord() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>LeaderBord</h1>
+      <h1 className={styles.title}>Leader board</h1>
       <div className={styles.board}>
         {leaderboardList.length === 0 ? (
           <div className={styles.boardEmpty}>

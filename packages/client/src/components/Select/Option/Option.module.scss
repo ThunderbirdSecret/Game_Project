@@ -1,0 +1,22 @@
+.option {
+  display: flex;
+
+  height: 30px;
+  padding: 5px;
+  border-bottom: 1px solid var(--color-border-leaderboard-primary);
+
+  cursor: pointer;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+
+  background-color: var(--color-font-white);
+  color: var(--color-bg-leaderboard-header);
+}
+
+.option:hover {
+  background-color: transparent;
+  color: var(--color-font-white);
+}

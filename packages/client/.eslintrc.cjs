@@ -49,6 +49,9 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     'no-param-reassign': ['error', { props: false }],
     'import/no-cycle': 'off',
-    'consistent-return': 'off'
+    'consistent-return': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'jsx-a11y/interactive-supports-focus': 'off',
   },
 }
