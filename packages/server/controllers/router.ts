@@ -1,7 +1,6 @@
-import { ErrorRequestHandler, Router } from 'express';
+import { Router } from 'express';
 import { ForumController } from './forumController';
 import { userController } from './userController';
-import { RequestHandler } from 'sirv';
 
 // export const router: Router = Router();
 
@@ -38,25 +37,3 @@ export const userRouter = (apiRouter: Router) => {
   };
   // TODO: отдельный контроллер для темы + router.post
 // TODO: Раскидаться с редиректами
-
-export const router: Router = Router();
-forumRouter(router)
-userRouter(router)
-
-const middlewares: Array<RequestHandler | ErrorRequestHandler> = [];
-
-export function appRoutes(router: Router) {
-  router.get(  [
-    '/',
-    '/game',
-    '/forum',
-    '/leaderboard',
-    '/profile',
-    '/auth',
-    '/register',
-    '/not-found',
-    '/documentation',
-        '/*'], middlewares);
-}
-
-appRoutes(router);

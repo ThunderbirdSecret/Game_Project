@@ -12,6 +12,8 @@
     "test": ""
   },
   "dependencies": {
+    "@types/cookie-parser": "1.4.3",
+    "cookie-parser": "1.4.6",
     "@types/pg": "^8.10.2",
     "body-parser": "^1.20.2",
     "compression": "^1.7.4",

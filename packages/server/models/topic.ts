@@ -5,7 +5,7 @@ export interface ITopic {
   id?: string;
   title: string;
   description: string;
-  id_author: string;
+  id_owner: string;
   date: string;
   views: number;
 }
@@ -25,7 +25,7 @@ export const topicModel: ModelAttributes<Model, ITopic> = {
     type: DataType.STRING,
     allowNull: false,
   },
-  id_author: {
+  id_owner: {
     type: DataType.STRING,
     allowNull: false,
   },

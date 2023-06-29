@@ -12,12 +12,5 @@ export class userController {
           .json({ error: ['db error: unable to find or create user', err] })
       );
   };
-  setTheme = (_req: Request, res: Response) => {
-    userCrud
-      .update(_req.body.id, { theme: _req.body.theme })
-      .then(() => res.status(200).json('ok'))
-      .catch(err =>
-        res.status(500).json({ error: ['db error: unable to set theme', err] })
-      );
-  };
+
 }

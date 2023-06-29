@@ -8,7 +8,10 @@ export interface IReply {
 
 export const replyModel: ModelAttributes<Model, IReply> = {
     id_comment: {
-        type: DataType.NUMBER
+        type: DataType.UUID,
+        defaultValue: DataType.UUIDV4,
+        allowNull: false,
+        primaryKey: true,
     },
   };
   

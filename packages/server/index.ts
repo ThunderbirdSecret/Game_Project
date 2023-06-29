@@ -2,13 +2,16 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-
 import cors from 'cors'
 import express from 'express'
 import * as fs from 'fs'
 import * as path from 'path'
 import { createServer as createViteServer } from 'vite'
 import type { ViteDevServer } from 'vite'
+import { dbConnect } from './db'
+import { cookieParser, auth } from './middlewars'
+import { apiRouter } from './controllers/index.router'
+import https from 'https';
 
 
 
@@ -17,6 +20,10 @@ import type { ViteDevServer } from 'vite'
 const app = express()
 const isDev = () => process.env.NODE_ENV === 'development'
 
+// создание https сертификата нужно генерить
+// const key = fs.readFileSync(path.resolve(__dirname, 'keys/key.pem'));
+// const cert = fs.readFileSync(path.resolve(__dirname, 'keys/cert.pem'));
+// const server = https.createServer({ key: key, cert: cert }, app);
 
 async function createServer() {
   const port = Number(process.env.SERVER_PORT) || 3001
@@ -44,12 +51,6 @@ async function createServer() {
   app.get('/api', (_, res) => {
     res.json('👋 Howdy from the server :) 2')
   })
-
-  // async function init() {
-  //   await dbConnect();
-  // }
-    // app.use('/api', apiRouter);
-//TODO добавить db и роутер
 
   if (!isDev()) {
     app.use('/assets', express.static(path.resolve(distPath, 'assets')))
@@ -97,9 +98,23 @@ async function createServer() {
     }
   });
 
-  app.listen(port, () => {
-    console.log(`  ➜ 🎸 Server is listening on port: ${port}`)
-  })
+  async function init() {
+    await dbConnect();
+  
+    app.use(
+      '/assets',
+      express.static(path.resolve(__dirname, 'public/client/assets'))
+    );
+  
+    app.use(cookieParser);
+    app.use(auth);
+    app.use('/api', apiRouter);
+  
+    app.listen(port, () => {
+      console.log(` ➜ 🎸 Server is listening on port: ${port}`);
+    });
+  };
+  init()
 }
 
 createServer()

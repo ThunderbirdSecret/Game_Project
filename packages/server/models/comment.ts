@@ -2,7 +2,7 @@ import type { ModelAttributes } from 'sequelize';
 import { DataType, Model } from 'sequelize-typescript';
 
 export interface IComment {
-  id?: string;
+  id: string;
   id_topic: string;
   id_owner: string;
   text: string;
