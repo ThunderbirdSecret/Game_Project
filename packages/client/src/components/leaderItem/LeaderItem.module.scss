@@ -1,0 +1,19 @@
+.leader {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+}
+
+.isYou {
+  background-color: var(--color-bg-leaderboard-you);
+}
+
+.fields {
+  min-width: 110px;
+  max-width: 120px;
+  text-align: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
