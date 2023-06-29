@@ -36,17 +36,6 @@ async function createServer() {
     app.use(vite.middlewares)
   }
 
-  app.use(
-    '/api/v2',
-    createProxyMiddleware({
-      changeOrigin: true,
-      cookieDomainRewrite: {
-        '*': '',
-      },
-      target: 'https://ya-praktikum.tech',
-    })
-  )
-
   app.get('/api', (_, res) => {
     res.json('👋 Howdy from the server :) 2')
   })
