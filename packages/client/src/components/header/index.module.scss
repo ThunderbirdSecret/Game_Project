@@ -3,6 +3,7 @@
 .header {
 
   top: 0;
+  position: relative;
 
   display: flex;
   flex-shrink: 0;
@@ -72,6 +73,50 @@
   }
 }
 
-.yesAuth {
-  display: none;
+.userBtn {
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.userAvatar {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid red;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: inherit;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.userDropdown {
+  position: absolute;
+  right: 4%;
+  bottom: -100%;
+
+  .userLogoutBtn {
+    cursor: pointer;
+    background: #1B5366;
+    border: 1px solid #21D4FD;
+    border-radius: 10px;
+    width: 155px;
+    height: 43px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  span {
+    margin-left: 18px;
+  }
 }
