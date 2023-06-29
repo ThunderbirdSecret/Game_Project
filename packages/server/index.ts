@@ -9,18 +9,8 @@ import express from 'express'
 import * as fs from 'fs'
 import * as path from 'path'
 import { createProxyMiddleware } from 'http-proxy-middleware'
-import cookieParser from 'cookie-parser'
-import jsesc from 'jsesc'
-import { YandexAPIRepository } from './repository/YandexAPIRepository'
 
 //import { createClientAndConnect } from './db'
-
-interface SSRModule {
-  render: (
-    uri: string,
-    repository: any
-  ) => Promise<[Record<string, any>, string]>
-}
 
 const app = express()
 const isDev = () => process.env.NODE_ENV === 'development'
@@ -65,7 +55,7 @@ async function createServer() {
     app.use('/assets', express.static(path.resolve(distPath, 'assets')))
   }
 
-  app.use('*', cookieParser(), async (req, res, next) => {
+  app.use('*', async (req, res, next) => {
     const url = req.originalUrl
 
     try {
@@ -83,36 +73,22 @@ async function createServer() {
         template = await vite!.transformIndexHtml(url, template)
       }
 
-      let mod: SSRModule
+      let render: (url: string) => Promise<[Record<string, any>, string]>
 
-      if (isDev()) {
-        mod = (await vite!.ssrLoadModule(
-          path.resolve(srcPath, 'ssr.tsx')
-        )) as SSRModule
+      if (!isDev()) {
+        render = (await import(ssrClientPath)).render
       } else {
-        mod = await import(ssrClientPath)
+        render = (await vite!.ssrLoadModule(path.resolve(srcPath, 'ssr.tsx')))
+          .render
       }
 
-      const { render } = mod
-
-      const [initialState, appHtml] = await render(
-        url,
-        new YandexAPIRepository(req.headers['cookie'])
-      )
-
-      // Encoding for fast state parsing
-      const initStateSerialized = jsesc(JSON.stringify(initialState), {
-        json: true,
-        isScriptContext: true,
-      })
+      const [initialState, appHtml] = await render(url)
 
       // Encoding from Redux docs
-      /*const initStateSerialized = JSON.stringify(initialState).replace(
+      const initStateSerialized = JSON.stringify(initialState).replace(
         /</g,
         '\\u003c'
-      )*/
-
-      // const initStateSerialized = JSON.stringify(initialState)
+      )
 
       const html = template
         .replace(`<!--ssr-outlet-->`, appHtml) // замена коммента на HTML разметку

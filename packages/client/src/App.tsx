@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Main from '@/pages/main/main'
 import Forum from '@/pages/forum/forum'
 import LeaderBoard from '@/pages/leader-board/leader-board'
@@ -14,8 +14,7 @@ import Header from '@/components/header/Header'
 import { useEffect } from 'react'
 import { ROUTES } from './routes'
 import style from './styles/index.module.scss'
-import { useAppDispatch } from './store'
-import { fetchUser } from './store/user/user.action'
+import { fetchUser, useAppDispatch } from './store'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -35,8 +34,7 @@ function App() {
         <Route path={ROUTES.AUTH} element={<Auth />} />
         <Route path={ROUTES.REGISTER} element={<Register />} />
         <Route path={ROUTES.DOCUMENTAION} element={<Documentation />} />
-        <Route path={ROUTES.ERROR_404} element={<Error404 />} />
-        <Route path="*" element={<Navigate to={ROUTES.ERROR_404} replace />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
   )
