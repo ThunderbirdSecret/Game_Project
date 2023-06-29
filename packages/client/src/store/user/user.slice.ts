@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { APIError } from '@/api/types'
 import { fetchUser, login, logoutAction } from './user.action'
 
-type InitialStateType = {
+export type InitialStateType = {
   user: User | null
   isAuth: boolean
   isLoading: boolean

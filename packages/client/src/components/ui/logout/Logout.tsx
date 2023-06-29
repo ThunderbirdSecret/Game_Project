@@ -11,14 +11,14 @@ interface LogoutProps {
 }
 
 const Logout: React.FC = ({ styles }: LogoutProps) => {
-  const navigate = useNavigate()
+ // const navigate = useNavigate()
   const dispatch = useAppDispatch()
 
   const handleLogout = async () => {
     await authService.logout()
 
     dispatch(logout())
-    navigate(ROUTES.AUTH)
+   // navigate(ROUTES.AUTH)
   }
 
   return (

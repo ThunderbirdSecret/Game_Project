@@ -1,3 +1,4 @@
+// используется в ServiceWorkers и должен быть максимально простым
 export const enum ROUTES {
   MAIN = '/',
   GAME = '/game',

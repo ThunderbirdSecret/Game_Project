@@ -12,12 +12,15 @@
     "test": ""
   },
   "dependencies": {
+    "@types/cookie-parser": "^1.4.3",
     "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
     "cors": "2.8.5",
     "cross-env": "7.0.3",
     "dotenv": "16.0.3",
     "eslint-config-prettier": "8.8.0",
     "express": "4.18.2",
+    "http-proxy-middleware": "^2.0.6",
     "pg": "8.10.0",
     "prettier": "2.8.8",
     "sirv": "^2.0.2"

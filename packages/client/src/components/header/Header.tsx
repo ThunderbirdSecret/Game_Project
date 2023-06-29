@@ -6,12 +6,13 @@ import { AVATAR_URL } from '@/api/types'
 import { Button } from '@/components/ui/Button/Button'
 import { logoutAction } from '@/store/user/user.action'
 import { useAuth } from '@/hooks/useAuth'
+
+import { ReactComponent as LogoutIcon } from '@/assets/logout-icon.svg'
 import { items } from './header-items'
-// eslint-disable-next-line import/no-absolute-path
-import { ReactComponent as LogoutIcon } from '/public/logout-icon.svg'
+import { ROUTES } from '../../routes'
 
 import style from './index.module.scss'
-import { ROUTES } from '../../routes'
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -19,7 +20,7 @@ export default function Header() {
   const { isAuth, user } = useAuth()
   const userAvatarUrl = `${AVATAR_URL}/${user?.avatar}`
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const onToggleDropdown = () => {
     setIsOpen(prevState => !prevState)
@@ -29,7 +30,7 @@ export default function Header() {
     evt.preventDefault()
 
     await dispatch(logoutAction())
-    navigate(ROUTES.AUTH)
+    // navigate(ROUTES.AUTH)
     setIsOpen(false)
   }
 

@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Provider } from 'react-redux'
+import { BrowserRouter } from "react-router-dom";
+
+import { createStore } from '@/store/store'
+
 import App from './App'
-import { store } from './store'
+// import { store } from './store'
 
 /* ReactDOM.hydrateRoot(
   document.getElementById('root') as HTMLElement,
@@ -14,9 +17,13 @@ import { store } from './store'
 )
 */
 
+const store = createStore((window as any).initialState);
+
 ReactDOM.hydrateRoot(
   document.getElementById('root') as HTMLElement,
   <React.StrictMode>
-      <App />
+    <BrowserRouter>
+    <App store={store} />
+    </BrowserRouter>
   </React.StrictMode>
 )

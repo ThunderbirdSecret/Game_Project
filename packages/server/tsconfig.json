@@ -21,6 +21,7 @@
     "paths": {
       "*": ["types/*"]
     },
-    "outDir": "dist"
+    "outDir": "dist",
+    "jsx": "react"
   }
 }
