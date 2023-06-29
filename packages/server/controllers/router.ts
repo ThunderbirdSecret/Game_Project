@@ -31,6 +31,8 @@ export const userRouter = (apiRouter: Router) => {
   
     const router: Router = Router();
     
+    router.post('/theme', service.setTheme);
+
     router.post('/:id', service.findOrCreate);
   
     apiRouter.use('/user', router);

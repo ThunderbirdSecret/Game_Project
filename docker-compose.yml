@@ -27,7 +27,6 @@ services:
             - "${SERVER_PORT}:${SERVER_PORT}"
         environment:
           SERVER_PORT: ${SERVER_PORT}
-          POSTGRES_DB: ${POSTGRES_DB}
         depends_on:
           - postgres
 
