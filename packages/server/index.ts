@@ -45,6 +45,11 @@ async function createServer() {
     res.json('👋 Howdy from the server :) 2')
   })
 
+  // async function init() {
+  //   await dbConnect();
+  // }
+    // app.use('/api', apiRouter);
+//TODO добавить db и роутер
 
   if (!isDev()) {
     app.use('/assets', express.static(path.resolve(distPath, 'assets')))
