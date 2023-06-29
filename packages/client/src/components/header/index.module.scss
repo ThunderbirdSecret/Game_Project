@@ -1,7 +1,6 @@
 @use '@/styles/animationMixins';
 
 .header {
-
   top: 0;
   position: relative;
 
@@ -63,17 +62,49 @@
     }
 
     .profile {
+      display: flex;
+      justify-content: flex-end;
       flex-grow: 1;
+      height: 35px;
+
+      .themeBtn {
+        width: 35px;
+        height: 100%;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid #ffc43d;
+        padding: 0;
+        margin-right: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 25px;
+          height: 25px;
+          object-fit: cover;
+        }
+      }
+
+      .themeLight {
+        border-color: #464646;
+      }
 
       ul {
-        display: flex;
-        justify-content: flex-end;
+        li {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
   }
 }
 
 .userBtn {
+  height: 35px;
   background-color: inherit;
   border: none;
   padding: 0;
@@ -105,8 +136,8 @@
 
   .userLogoutBtn {
     cursor: pointer;
-    background: #1B5366;
-    border: 1px solid #21D4FD;
+    background: #1b5366;
+    border: 1px solid #21d4fd;
     border-radius: 10px;
     width: 155px;
     height: 43px;

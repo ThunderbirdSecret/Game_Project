@@ -1,6 +1,12 @@
 @use '@fontsource/almarai';
 @use '@fontsource/jost';
 
+html[data-theme='light'] {
+  --color-bg-body: #eee;
+
+  --color-leaderboard-title: #000;
+}
+
 :root {
   // если неудобно использовать цвета по принадлежности,
   // то можно просто завести палитру color1, color12, ...
@@ -21,8 +27,10 @@
   --color-bg-body: #202029;
   --color-bg-body-mask: rgba(255 255 255 / 30%);
 
+  // main
+  --color-bg-transparent-btn: #202029;
+
   // forum
-  --color-bg-forum-primary: rgb(27 83 102 / 30%);
   --color-bg-forum-secondary: rgb(14 207 252 / 30%);
   --color-bg-selected-topic: rgb(255 255 255 / 30%);
   --color-bg-another-answer: rgb(137 137 137 / 30%);
@@ -33,6 +41,7 @@
   --color-comments-button: rgb(255 255 255 / 60%);
 
   //leaderboard
+  --color-leaderboard-title: #fff;
   --color-bg-leaderboard-header: #1b202f;
   --color-border-leaderboard-primary: #21d4fd;
   --color-leaderboard-fields: #dcdcdc;

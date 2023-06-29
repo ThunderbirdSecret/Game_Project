@@ -1,11 +1,14 @@
 import { useState, MouseEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
+import cn from 'classnames'
+
 import { useAppDispatch } from '@/store/hooks'
 import { AVATAR_URL } from '@/api/types'
 import { Button } from '@/components/ui/Button/Button'
 import { logoutAction } from '@/store/user/user.action'
 import { useAuth } from '@/hooks/useAuth'
+import { useTheme } from '@/hooks/useTheme'
 import { items } from './header-items'
 // eslint-disable-next-line import/no-absolute-path
 import { ReactComponent as LogoutIcon } from '/public/logout-icon.svg'
@@ -16,10 +19,22 @@ import { ROUTES } from '../../routes'
 export default function Header() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  const { isAuth, user } = useAuth()
-  const userAvatarUrl = `${AVATAR_URL}/${user?.avatar}`
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+
+  const { theme, setTheme } = useTheme()
+  const { isAuth, user } = useAuth()
+
+  const userAvatarUrl = `${AVATAR_URL}/${user?.avatar}`
+
+  const onThemeBtnClick = () => {
+    if (theme === 'dark') {
+      setTheme('light')
+      return
+    }
+
+    setTheme('dark')
+  }
 
   const onToggleDropdown = () => {
     setIsOpen(prevState => !prevState)
@@ -54,7 +69,17 @@ export default function Header() {
             ))}
           </ul>
         </div>
-        <div className="profile">
+        <div className={style.profile}>
+          <Button
+            className={cn(style.themeBtn, {
+              [style.themeLight]: theme === 'light',
+            })}
+            onClick={onThemeBtnClick}>
+            <img
+              src={theme === 'dark' ? '/light-theme.svg' : '/dark-theme.svg'}
+              alt="icon theme"
+            />
+          </Button>
           <ul>
             {!isAuth ? (
               <li className={style.noAuth}>
