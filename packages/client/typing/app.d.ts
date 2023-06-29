@@ -9,6 +9,10 @@ declare global {
     phone: string
     email: string
   }
+
+  interface Window {
+    __PRELOADED_STATE__?: string
+  }
 }
 
 export {}
