@@ -3,7 +3,6 @@ import type { MouseEventHandler } from 'react'
 import type { TOption } from '@/pages/leader-board/leader-board'
 
 import { TLeaderboardPlayerData } from '@/models/leaderboard'
-import { ReactComponent as ArrowDown } from '@/assets/arrow-down.svg'
 import { Option } from './Option/Option'
 
 import styles from './Select.module.scss'
@@ -71,7 +70,7 @@ export const Select = (props: SelectProps) => {
   return (
     <div className={styles.selectWrapper} ref={rootRef} data-is-active={isOpen}>
       <div className={styles.arrow}>
-        <ArrowDown />
+        <img src="/arrow-down.svg" alt="arrow down icon" />
       </div>
       <div
         className={styles.placeholder}

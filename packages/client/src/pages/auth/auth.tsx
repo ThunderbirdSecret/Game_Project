@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/Button/Button'
 import Input from '@/components/ui/input/Input'
 
 import { LoginDto } from '@/services/auth.service'
-import { ReactComponent as YandexIcon } from '@/assets/Yandex_icon.svg'
 
 import { login } from '@/store/user/user.action'
 import {
@@ -95,7 +94,7 @@ const Auth = () => {
           <div className={styles.borderLine} />
           <p>or</p>
           <Link to={getOauthUrl(service_oauth_id)}>
-            <YandexIcon />
+            <img src="/Yandex_icon.svg" alt="yandex svg" />
           </Link>
         </div>
       </div>
