@@ -1,4 +1,4 @@
-import {
+/* import {
   Navigate,
   Route,
   BrowserRouter as Router,
@@ -12,18 +12,18 @@ import Error404 from '@/pages/page-error/Error404'
 import Register from '@/pages/register/register'
 import Auth from '@/pages/auth/auth'
 import Documentation from '@/pages/documentation/documentation'
-import Profile from '@/pages/profile/profile'
+import Profile from '@/pages/profile/profile' */ 
 import { useEffect } from 'react'
-import { ROUTES } from './routes'
+// import { ROUTES } from './routes' 
 import style from './styles/index.module.scss'
-import Game from './pages/game/game'
+// import Game from './pages/game/game'
 import { useAppDispatch } from './store'
 import { fetchUser } from './store/user/user.action'
 
 function App() {
-  const dispatch = useAppDispatch()
+   /* const dispatch = useAppDispatch()
   // TODO: приватные роуты будут готовы после того, как будет готова авторизация
-  /* useEffect(() => {
+ useEffect(() => {
      const fetchServerData = async () => {
       const url = `http://localhost:${__SERVER_PORT__}`
       const response = await fetch(url)
@@ -32,14 +32,15 @@ function App() {
     }
 
     fetchServerData()
-  }, []) */
+  }, []) 
   useEffect(() => {
     dispatch(fetchUser())
   }, [])
-
+*/
   return (
     <div className={style.app}>
-      <Router>
+      <h1>This is SSR</h1>
+      {/* <Router>
         <Header />
         <Routes>
           <Route path={ROUTES.MAIN} element={<Main />} />
@@ -49,13 +50,14 @@ function App() {
           <Route path={ROUTES.PROFILE} element={<Profile />} />
           <Route path={ROUTES.AUTH} element={<Auth />} />
           <Route path={ROUTES.REGISTER} element={<Register />} />
+          <Route path={ROUTES.DOCUMENTAION} element={<Documentation />} />
           <Route path={ROUTES.ERROR_404} element={<Error404 />} />
           <Route
             path="*"
             element={<Navigate to={ROUTES.ERROR_404} replace />}
           />
         </Routes>
-      </Router>
+      </Router> */}
     </div>
   )
 }

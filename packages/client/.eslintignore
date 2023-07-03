@@ -6,5 +6,7 @@ gen
 .eslintrc.js
 *.config.js
 *.config.ts
+*.baseconfig.ts
 /node_modules
 .vscode
+ssr.tsx

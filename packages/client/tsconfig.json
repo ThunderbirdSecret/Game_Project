@@ -29,14 +29,20 @@
       "@/hoc/*": ["hoc/*"],
       "@/hooks/*": ["hooks/*"],
       "@/canvas/*": ["canvas/*"],
-      "@/store/*": ["store/*"]
-    }
+      "@/store/*": ["store/*"],
+      "@/src/*": ["src/*"]
+    },
+    "types": ["vite-plugin-pwa/client"]
   },
   "include": [
-    ".eslintrc.js",
+    "**/*.tsx",
+    ".eslintrc.cjs",
     "./src/**/*",
     "typing/app.d.ts",
-    "typing/react.d.ts"
+    "typing/react.d.ts",
+    "index.js",
+    "*.config.ts",
+    "vite.base.config.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

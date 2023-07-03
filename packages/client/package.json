@@ -1,9 +1,11 @@
 {
   "name": "client",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "vite --host",
-    "build": "tsc && vite build",
+    "dev": "vite",
+    "build": "tsc && vite build --config vite.config.ts",
+    "build:ssr": "tsc && vite build --config ssr.config.ts",
     "preview": "vite preview",
     "lint": "eslint ./src/**/*{.ts,.tsx,.js,.jsx}",
     "style-lint": "stylelint **/*.scss --fix",
@@ -57,7 +59,8 @@
     "stylelint-prettier": "3.0.0",
     "ts-jest": "28.0.8",
     "typescript": "4.9.5",
-    "vite": "3.2.6"
+    "vite": "3.2.6",
+    "vite-plugin-pwa": "0.15.0"
   },
   "license": "MIT"
 }
