@@ -24,7 +24,7 @@ const options: Array<TOption> = [
   { title: 'date', value: 'dateOfLastGame' },
 ]
 
-function LeaderBord() {
+function LeaderBoard() {
   const [sortedBy, setSortedBy] = useState<TOptionValue>('points')
   const [page, setPage] = useState(0)
   const dispatch = useAppDispatch()
@@ -129,4 +129,4 @@ function LeaderBord() {
     </div>
   )
 }
-export default withAuth(LeaderBord)
+export default withAuth(LeaderBoard)

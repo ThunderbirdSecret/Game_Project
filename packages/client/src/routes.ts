@@ -11,7 +11,7 @@ export const enum ROUTES {
 }
 
 export function isRoute(path: string) {
-  const routes: string[] = [
+  const routesArray: string[] = [
     ROUTES.MAIN,
     ROUTES.GAME,
     ROUTES.FORUM,
@@ -22,5 +22,5 @@ export function isRoute(path: string) {
     ROUTES.ERROR_404,
     ROUTES.DOCUMENTAION,
   ]
-  return routes.includes(path)
+  return routesArray.includes(path)
 }

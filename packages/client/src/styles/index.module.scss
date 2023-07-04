@@ -18,15 +18,15 @@ html {
 body {
   margin: 0;
   overflow: hidden;
+
+  div[id='root'] {
+    @include mixins.wh100;
+  }
 }
 
 input {
   background-color: inherit;
   border: inherit;
-}
-
-main {
-  @include mixins.wh100;
 }
 
 .app {

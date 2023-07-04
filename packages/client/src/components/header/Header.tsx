@@ -11,7 +11,6 @@ import { useAuth } from '@/hooks/useAuth'
 import { useTheme } from '@/hooks/useTheme'
 import { items } from './header-items'
 // eslint-disable-next-line import/no-absolute-path
-import { ReactComponent as LogoutIcon } from '/public/logout-icon.svg'
 
 import style from './index.module.scss'
 import { ROUTES } from '../../routes'
@@ -116,7 +115,7 @@ export default function Header() {
             type="button"
             className={style.userLogoutBtn}
             onClick={onLogout}>
-            <LogoutIcon />
+            <img src="/logout-icon.svg" alt="logout icon" />
             <span>Logout</span>
           </Button>
         </div>
