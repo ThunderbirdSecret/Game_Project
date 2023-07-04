@@ -98,6 +98,7 @@ $image-radius: 200px;
 
 .buttonDoc {
   margin: 5rem 3rem 0 0;
+  background-color: var(--color-bg-transparent-btn);
 
   & &Body {
     @include button;
